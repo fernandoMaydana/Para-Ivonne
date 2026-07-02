@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para - Ivonne</title>
+    <!-- Hoja de Estilos de la App -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body class="theme-girasol">
+
+    <!-- Lluvia Orgánica de Pétalos -->
+    <div id="petals-container" class="petals-container"></div>
+
+    <!-- Botón Invisible / Flotante de Configuración (Se oculta por JS al conectar) -->
+    <button id="setup-trigger-btn" class="setup-trigger-btn">
+        ⚙️ Configurar Base de Datos
+    </button>
+
+    <!-- Contenedor de las Tarjetas de Presentación -->
+    <div class="cards-wrapper">
+
+        <!-- ================= FASE 1: EL MANIFIESTO (Solo Día 1) ================= -->
+        <div id="step-manifesto" class="glass-card step">
+            <h1>HOLA COMO VA</h1>
+            <p>¡Hola! Si estás leyendo esto, es porque termine de armar algo que espero que te guste mucho. <br>
+                <br>
+                Ya sabes como son mis horarios de sueño y como no quería que la distancia o las horas nos desconectaran,
+                me puse a inventar y creé este espacio que funciona las 24 horas del día.
+                <br>
+                <br>
+                ⚠️ REGLAS IMPORTANTES (Lee con atención):
+                <br>
+                <br>
+                ⏳ Esto cambia cada 24 horas: Lo que veas hoy, mañana ya no estará. Cada semana habrá una temática, esta
+                semana la temática son flores, cada día un mensaje diferente esperándote.
+                <br>
+                <br>
+                🎶 Dale play a la música: Abajo tendrás un reproductor con el soundtrack ideal para acompañar tu día.
+                <br>
+                <br>
+                🧠 No te vayas sin responder: Al final hay secciones interactivas. La pregunta del día es obligatoria,
+                ¡así que tu respuesta me llegará directo a mí! Y si tienes un día difícil, busca el botón de emergencia.
+            </p>
+            <div class="manifesto-quote" style="margin: 25px 0;">
+                "Este espacio es tuyo. Espero que te saque una sonrisa antes de que empieces con tu rutina."
+            </div>
+            <button id="btn-to-story" class="btn">
+                Siguiente
+            </button>
+        </div>
+
+        <!-- ================= FASE 2: BUENOS DÍAS ================= -->
+        <div id="step-story" class="glass-card step">
+            <div class="app-header-badge">
+                <span class="header-day-badge">Día <span class="day-number-label">1</span> • <span
+                        class="flower-name-placeholder">Girasol</span></span>
+            </div>
+            <h1 class="flower-name-placeholder">Flor</h1>
+
+            <!-- Animación de la Flor (SVG) -->
+            <div class="flower-bloom-container">
+                <svg class="flower-svg" viewBox="0 0 160 160">
+                    <!-- Tallo -->
+                    <path class="flower-stem" d="M80,150 Q75,100 80,50" fill="none" />
+                    <!-- Hojas -->
+                    <path class="flower-leaf flower-leaf-left" d="M80,110 Q50,95 80,80 Z" />
+                    <path class="flower-leaf flower-leaf-right" d="M80,95 Q110,80 80,65 Z" />
+                    <!-- Pétalos agrupados con rotación aislada -->
+                    <g class="flower-petals">
+                        <g transform="rotate(0 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(45 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(90 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(135 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(180 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(225 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(270 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                        <g transform="rotate(315 80 50)">
+                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
+                        </g>
+                    </g>
+                    <!-- Centro de la Flor -->
+                    <circle class="flower-center" cx="80" cy="50" r="14" />
+                </svg>
+            </div>
+
+            <!-- Saludo de Buenos Días -->
+            <div class="dashboard-card message-section" style="margin-top: 15px;">
+                <h3>☀️ El Buenos Días</h3>
+                <p id="buenos-dias-text" class="greeting-text">Cargando tu saludo diario...</p>
+            </div>
+
+            <button id="btn-to-poem" class="btn">
+                Siguiente ✍️
+            </button>
+        </div>
+
+        <!-- ================= FASE 3: POEMA / DOSIS DE INSPIRACIÓN ================= -->
+        <div id="step-poem" class="glass-card step">
+            <div class="app-header-badge">
+                <span class="header-day-badge">Día <span class="day-number-label">1</span> • <span
+                        class="flower-name-placeholder">Girasol</span></span>
+            </div>
+
+            <div class="dashboard-card inspiration-section">
+                <h3>✍ Dosis de Inspiración</h3>
+                <div id="poema-text" class="poem-card">
+                    Cargando tu dedicatoria...
+                </div>
+            </div>
+
+            <button id="btn-to-menu" class="btn">
+                Ir al Menú Principal 🏠
+            </button>
+        </div>
+
+        <!-- ================= FASE 4: MENÚ INTERACTIVO Y MÚSICA (ESTÁTICO) ================= -->
+        <div id="step-menu" class="glass-card step">
+            <div class="app-header-badge">
+                <span class="header-day-badge">Día <span class="day-number-label">1</span> • <span
+                        class="flower-name-placeholder">Girasol</span></span>
+            </div>
+
+            <h1>Menú del Día 💫</h1>
+            <p style="font-size: 0.95rem; margin-bottom: 20px;">Interactúa con el día de hoy y escucha su música:</p>
+
+            <!-- Botones de Interacciones -->
+            <div class="dashboard-card interactions-section">
+                <h3>⚡ Botones de Interacciones</h3>
+                <div class="interaction-buttons-grid">
+                    <button id="btn-pregunta" class="btn btn-interaction">
+                        ❓ Pregunta del día
+                    </button>
+                    <button id="btn-emergencia" class="btn btn-interaction btn-alert">
+                        🚨 Botón de emergencia
+                    </button>
+                    <button id="btn-dato-curioso" class="btn btn-interaction btn-info">
+                        💡 Dato curioso
+                    </button>
+                </div>
+            </div>
+
+            <!-- Música -->
+            <div class="dashboard-card music-section">
+                <h3>🎵 Música</h3>
+                <p class="music-subtitle">Relacionado a la temática de la semana: <strong>Flores - Latin Mafia</strong>
+                </p>
+                <div id="music-player-container">
+                    <!-- Iframe inyectado por JS -->
+                </div>
+            </div>
+
+            <!-- Botón para volver a leer el mensaje -->
+            <button id="btn-back-to-story" class="btn btn-secondary btn-small">
+                📖 Volver a leer mensaje y poema
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Barra de Selección de Días (Navegación de prueba) -->
+    <div id="days-selector" class="days-selector-bar">
+        <!-- Generado dinámicamente: 1 2 3 4 5 -->
+    </div>
+
+    <!-- Modal Universal (Pregunta, Emergencia, Dato Curioso y Configuración) -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <h2 id="modal-title">Título</h2>
+            <div id="modal-body">
+                Contenido del modal...
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica de la Aplicación -->
+    <script src="app.js"></script>
+</body>
+
+</html>

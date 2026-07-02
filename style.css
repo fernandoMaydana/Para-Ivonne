@@ -1,0 +1,762 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* --- Temas Dinámicos de Flores --- */
+
+/* Tema 1: Girasol (Energía, Luz) */
+.theme-girasol {
+    --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fde68a 100%);
+    --primary-color: #d97706;
+    --primary-hover: #b45309;
+    --accent-color: #f59e0b;
+    --text-color: #451a03;
+    --card-shadow: rgba(217, 119, 6, 0.12);
+    --petal-color: #fcd34d;
+    --flower-color-center: #78350f;
+    --flower-color-petals: #fbbf24;
+}
+
+/* Tema 2: Tulipán (Elegancia, Frescura) */
+.theme-tulipan {
+    --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 50%, #ffc9c9 100%);
+    --primary-color: #e11d48;
+    --primary-hover: #be123c;
+    --accent-color: #fb7185;
+    --text-color: #4c0519;
+    --card-shadow: rgba(225, 29, 72, 0.12);
+    --petal-color: #fecdd3;
+    --flower-color-center: #fda4af;
+    --flower-color-petals: #f43f5e;
+}
+
+/* Tema 3: Orquídea (Misterio, Profundidad) */
+.theme-orquidea {
+    --bg-gradient: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #e9d5ff 100%);
+    --primary-color: #7c3aed;
+    --primary-hover: #6d28d9;
+    --accent-color: #a78bfa;
+    --text-color: #2e1065;
+    --card-shadow: rgba(124, 58, 237, 0.12);
+    --petal-color: #e9d5ff;
+    --flower-color-center: #c084fc;
+    --flower-color-petals: #8b5cf6;
+}
+
+/* Tema 4: Rosa (Admiración, Intensidad) */
+.theme-rosa {
+    --bg-gradient: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fecdd3 100%);
+    --primary-color: #db2777;
+    --primary-hover: #be185d;
+    --accent-color: #f472b6;
+    --text-color: #500724;
+    --card-shadow: rgba(219, 39, 119, 0.12);
+    --petal-color: #fbcfe8;
+    --flower-color-center: #f472b6;
+    --flower-color-petals: #ec4899;
+}
+
+/* Tema 5: Petunia (Resiliencia, Victoria) */
+.theme-petunia {
+    --bg-gradient: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 50%, #f5d0fe 100%);
+    --primary-color: #c026d3;
+    --primary-hover: #a21caf;
+    --accent-color: #e879f9;
+    --text-color: #4a044e;
+    --card-shadow: rgba(192, 38, 211, 0.12);
+    --petal-color: #f5d0fe;
+    --flower-color-center: #e879f9;
+    --flower-color-petals: #d946ef;
+}
+
+/* --- Reset y Estilos Globales --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-color);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 40px 20px 80px 20px;
+    transition: background 0.8s ease, color 0.8s ease;
+}
+
+/* Fondo de Pétalos Flotantes */
+.petals-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    background-color: var(--petal-color);
+    border-radius: 150% 0 150% 150%;
+    opacity: 0.7;
+    filter: blur(0.5px);
+    transform-origin: center;
+    animation: floatPetal 15s linear infinite;
+    transition: background-color 0.8s ease;
+}
+
+@keyframes floatPetal {
+    0% {
+        transform: translate(0, -10%) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(120px, 110%) rotate(360deg) scale(1.1);
+        opacity: 0;
+    }
+}
+
+/* --- Tarjeta Glassmorphism Principal --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 16px 40px 0 var(--card-shadow), 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+    border-radius: 32px;
+    padding: 35px 30px;
+    width: 100%;
+    max-width: 550px;
+    z-index: 10;
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Cabecera del Día --- */
+.app-header-badge {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.header-day-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+h1, h2, h3, .poetic-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 2.1rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    transition: color 0.8s ease;
+}
+
+/* --- SVG Flor Animada --- */
+.flower-bloom-container {
+    width: 110px;
+    height: 110px;
+    margin: 10px auto 0 auto;
+    position: relative;
+}
+
+.flower-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.flower-stem {
+    stroke: #10b981;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawStem 2s ease forwards;
+}
+
+.flower-leaf {
+    fill: #059669;
+    transform: scale(0);
+    transform-origin: center;
+    animation: growLeaf 1s 1s ease forwards;
+}
+
+.flower-leaf-left {
+    transform-origin: 80px 110px;
+}
+
+.flower-leaf-right {
+    transform-origin: 80px 95px;
+}
+
+.flower-center {
+    fill: var(--flower-color-center);
+    transform: scale(0);
+    transform-origin: 80px 50px;
+    animation: growFlowerCenter 1.5s 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.flower-petal {
+    fill: var(--flower-color-petals);
+    transform: scale(0);
+    transform-origin: 80px 50px;
+    animation: growPetal 1.8s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes drawStem {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes growLeaf {
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes growFlowerCenter {
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes growPetal {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* --- Tarjetas del Dashboard (Secciones) --- */
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 22px;
+    padding: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+}
+
+.dashboard-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* --- Mensaje y Poema --- */
+.greeting-text {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    opacity: 0.9;
+}
+
+.poem-card {
+    background: rgba(255, 255, 255, 0.35);
+    border-left: 4px solid var(--primary-color);
+    padding: 18px 20px;
+    border-radius: 0 16px 16px 0;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+/* --- Manifiesto especial --- */
+.manifesto-section {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px dashed var(--primary-color);
+}
+
+.manifesto-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    border-left: 3px double var(--primary-color);
+    padding-left: 15px;
+}
+
+/* --- Botones de Interacciones (Grid) --- */
+.interaction-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 420px) {
+    .interaction-buttons-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    #btn-pregunta {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 500px) {
+    .interaction-buttons-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #btn-pregunta {
+        grid-column: span 1;
+    }
+}
+
+/* --- Botones Premium --- */
+.btn {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px var(--card-shadow);
+}
+
+.btn:active {
+    transform: translateY(0px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--primary-color);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 1);
+    color: var(--primary-hover);
+}
+
+/* Variación Alert (Emergencia) */
+.btn-alert {
+    background: #ef4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+    animation: pulseEmergency 2.5s infinite;
+}
+
+.btn-alert:hover {
+    background: #dc2626;
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.35);
+}
+
+@keyframes pulseEmergency {
+    0% {
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.45);
+    }
+    100% {
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+    }
+}
+
+/* Variación Info */
+.btn-info {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--text-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.btn-info:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Música Section --- */
+.music-subtitle {
+    font-size: 0.88rem;
+    opacity: 0.75;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.music-container {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    background: #000;
+    line-height: 0;
+    transition: all 0.3s ease;
+}
+
+.music-container iframe {
+    border: none;
+    width: 100%;
+    height: 80px;
+    transition: all 0.3s ease;
+}
+
+/* Modo YouTube (Más altura para ver el reproductor de video) */
+.music-container.youtube-mode iframe {
+    height: 240px;
+}
+
+/* Modo Audio Directo (Limpio para los controles del navegador) */
+.music-container.audio-mode {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* --- Modales --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 26px;
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+    position: relative;
+    animation: modalScaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-right: 30px;
+}
+
+/* --- Formulario de Pregunta --- */
+.textarea-premium {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--text-color);
+    resize: vertical;
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+}
+
+.textarea-premium:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 
+                0 0 0 5px var(--accent-color);
+}
+
+.form-feedback {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-top: 8px;
+    display: none;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-feedback.success {
+    display: flex;
+    color: #059669;
+}
+
+.form-feedback.error {
+    display: flex;
+    color: #dc2626;
+}
+
+/* --- Barra de Selección de Días (Navegación) --- */
+.days-selector-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 99px;
+    padding: 6px 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 50;
+}
+
+.day-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.day-badge:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.day-badge.active {
+    background: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 10px var(--card-shadow);
+}
+
+/* --- Panel de Configuración de Supabase --- */
+.setup-panel {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-premium {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+    margin-top: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.input-premium:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.setup-trigger-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 50;
+    color: var(--text-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.setup-trigger-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 25px 20px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .btn {
+        padding: 10px 16px;
+    }
+    .days-selector-bar {
+        bottom: 10px;
+        padding: 4px 8px;
+    }
+    .day-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+}
+
+/* --- Wrapper de Tarjetas --- */
+.cards-wrapper {
+    width: 100%;
+    max-width: 550px;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Flujo de Pasos (Tarjetas) --- */
+.glass-card.step {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Tarjeta Activa (Mantiene flujo normal) */
+.glass-card.step.active {
+    display: block;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Tarjeta Saliendo (Absoluta para superponerse) */
+.glass-card.step.exit {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    animation: cardExit 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cardExit {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-35px) scale(0.97);
+    }
+}
+
