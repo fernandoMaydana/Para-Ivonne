@@ -460,6 +460,11 @@ h1 {
     height: 240px;
 }
 
+/* Modo Spotify (Gran tarjeta de 352px con portada y controles completos) */
+.music-container.spotify-mode iframe {
+    height: 352px;
+}
+
 /* Modo Audio Directo (Limpio para los controles del navegador) */
 .music-container.audio-mode {
     background: transparent;
