@@ -70,7 +70,7 @@ const safeStorage = {
 
 // --- CONFIGURACIÓN DE CREDENCIALES (Supabase) ---
 // Escribe aquí tus datos directamente para conectar Supabase sin usar el botón:
-let SUPABASE_URL = "https://adkkahbqyglycbgntapw.supabase.co"; 
+let SUPABASE_URL = "https://adkkahbqyglycbgntapw.supabase.co";
 let SUPABASE_KEY = "sb_publishable_moB38BuMMlw7ZOTcg_Pr0g_t7nTXlnC";
 
 let supabaseClient = null;
@@ -93,7 +93,7 @@ function inicializarClavesSupabase() {
     if (!SUPABASE_URL || !SUPABASE_KEY) {
         const savedUrl = safeStorage.getItem('supabase_url');
         const savedKey = safeStorage.getItem('supabase_key');
-        
+
         if (savedUrl && savedKey) {
             SUPABASE_URL = savedUrl;
             SUPABASE_KEY = savedKey;
@@ -181,7 +181,7 @@ function configurarSelectorDias() {
     // Si es modo desarrollo, mostrar barra y renderizar botones
     selector.style.display = 'flex';
     selector.innerHTML = '';
-    
+
     for (let i = 1; i <= 5; i++) {
         const link = document.createElement('a');
         link.href = `?dia=${i}&dev=true`;
@@ -325,7 +325,7 @@ function renderizarReproductorMusica(url) {
     let isDirectAudio = false;
 
     // 1. Validar si es un archivo de audio directo (.mp3, .wav, etc.)
-    if (url.toLowerCase().endsWith('.mp3') || url.toLowerCase().includes('.mp3?') || 
+    if (url.toLowerCase().endsWith('.mp3') || url.toLowerCase().includes('.mp3?') ||
         url.toLowerCase().endsWith('.wav') || url.toLowerCase().includes('.wav?')) {
         isDirectAudio = true;
     }
@@ -333,13 +333,13 @@ function renderizarReproductorMusica(url) {
     else if (url.includes('spotify.com')) {
         const trackMatch = url.match(/spotify\.com\/track\/([a-zA-Z0-9]+)/);
         const playlistMatch = url.match(/spotify\.com\/playlist\/([a-zA-Z0-9]+)/);
-        
+
         if (trackMatch) {
             embedUrl = `https://open.spotify.com/embed/track/${trackMatch[1]}?utm_source=generator`;
         } else if (playlistMatch) {
             embedUrl = `https://open.spotify.com/embed/playlist/${playlistMatch[1]}?utm_source=generator`;
         }
-    } 
+    }
     // 3. Validar si es YouTube
     else if (url.includes('youtube.com') || url.includes('youtu.be')) {
         const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
@@ -380,7 +380,7 @@ function renderizarReproductorMusica(url) {
 // Configurar los botones de eventos
 function configurarEventos() {
     // --- NAVEGACIÓN DE FASES (Páginas con transiciones de tarjeta) ---
-    
+
     // 1. Manifiesto (Fase 1) -> Buenos Días (Fase 2)
     const btnToStory = document.getElementById('btn-to-story');
     if (btnToStory) {
@@ -445,7 +445,7 @@ function configurarEventos() {
                     const textarea = document.getElementById('modal-respuesta-input');
                     const feedback = document.getElementById('modal-form-feedback');
                     const btnEnviar = formPregunta.querySelector('button[type="submit"]');
-                    
+
                     const respuestaTexto = textarea.value.trim();
                     if (!respuestaTexto) return;
 
@@ -491,14 +491,14 @@ function configurarEventos() {
         btnEmergencia.addEventListener('click', () => {
             abrirModal('🚨 Botón de Emergencia', `
                 <div style="text-align: left; line-height: 1.6;">
-                    <p style="margin-bottom: 15px; font-size: 1.05rem;"><strong>¡Apapacho de Emergencia Activado!</strong> ❤️</p>
-                    <p style="margin-bottom: 12px;">Si las cosas van cuesta arriba hoy, o si te sientes aburrida, cansada o estresada, recuerda esto:</p>
+                    <p style="margin-bottom: 15px; font-size: 1.05rem;"><strong>¡Si estas aca es porque esta siendo un mal dia!</strong> ❤️</p>
+                    <p style="margin-bottom: 12px;">No pierdas la cabeza respira nada es personal sigue los pasos de abajo:</p>
                     <ul style="margin-left: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 8px;">
-                        <li>🌟 Eres una persona increíblemente fuerte, brillante y capaz.</li>
-                        <li>⛈️ Las tormentas siempre son temporales; después siempre sale el sol.</li>
-                        <li>💭 Tienes a alguien al otro lado enviándote la mejor energía y pensando en ti.</li>
+                        <li>🌟 Respira profundo y cuenta hasta 10.</li>
+                        <li>⛈️ El enojo es una emociocion y como todas las emociones es pasajera.</li>
+                        <li>💭 Te envio buenas vibras desde aca! </li>
                     </ul>
-                    <p>Tómate un respiro, bebe un sorbo de agua, sonríe y sigue adelante. ¡Tú puedes con todo! 💪✨</p>
+                    <p>Tómate un respiro, bebe un sorbo de agua, sonríe y consigue un chocolate para seguir con tu día. </p>
                 </div>
             `);
         });
@@ -534,7 +534,7 @@ function configurarEventos() {
         btnTriggerSetup.addEventListener('click', () => {
             const currentUrl = safeStorage.getItem('supabase_url') || '';
             const currentKey = safeStorage.getItem('supabase_key') || '';
-            
+
             abrirModal('Configuración de Supabase', `
                 <div class="setup-panel active">
                     <p style="font-size: 0.9rem; margin-bottom: 10px;">Pega aquí tus credenciales de Supabase para almacenar las respuestas reales:</p>
@@ -589,12 +589,12 @@ function guardarRespuestaLocal(dia, respuesta) {
 function cambiarPaso(pasoIdOcultar, pasoIdMostrar, callback) {
     const ocultar = document.getElementById(pasoIdOcultar);
     const mostrar = document.getElementById(pasoIdMostrar);
-    
+
     if (!ocultar || !mostrar) return;
 
     // Añadir clase de salida para reproducir la animación
     ocultar.classList.add('exit');
-    
+
     // Esperar a que termine la animación de salida (380ms en CSS)
     setTimeout(() => {
         ocultar.classList.remove('active', 'exit');
