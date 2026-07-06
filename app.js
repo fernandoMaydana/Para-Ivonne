@@ -138,7 +138,7 @@ function detectarDiaActual() {
         // En modo desarrollo, permitimos forzar el día por parámetro de URL (?dia=X)
         activeDay = diaParam;
     } else {
-        // En producción (para ella), se calcula según el día de la semana (Jueves a Domingo)
+        // En producción (para ella), se calcula según el día de la semana
         let dayOfWeek = new Date().getDay(); // 0 = Domingo, 1 = Lunes, 2 = Martes, etc.
         if (dayOfWeek === 4) {
             activeDay = 1; // Jueves = Día 1 (Girasol)
@@ -148,8 +148,10 @@ function detectarDiaActual() {
             activeDay = 3; // Sábado = Día 3 (Orquídea)
         } else if (dayOfWeek === 0) {
             activeDay = 4; // Domingo = Día 4 (Rosa)
+        } else if (dayOfWeek === 1) {
+            activeDay = 5; // Lunes = Día 5 (Petunia)
         } else {
-            activeDay = 1; // Lunes/Martes/Miércoles fallback al Día 1
+            activeDay = 1; // Martes/Miércoles fallback al Día 1
         }
     }
 
