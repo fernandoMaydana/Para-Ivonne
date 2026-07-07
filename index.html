@@ -159,13 +159,10 @@
                     </div>
 
                     <!-- Curiosidad del cuadro y Calificación de la obra -->
-                    <div class="art-bottom-grid" style="margin-top: 15px; border-top: 1px dashed rgba(200,169,110,0.15); padding-top: 12px; display: flex; flex-direction: column; gap: 12px; text-align: left;">
-                        <div class="art-curiosity-box" style="background: rgba(200, 169, 110, 0.04); border: 1px solid rgba(200,169,110,0.15); padding: 10px 12px; border-radius: 3px;">
-                            <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">💡 ¿Sabías que...?</p>
-                            <p id="art-curiosity-text" style="font-size: 0.78rem; line-height: 1.4; opacity: 0.85; font-style: italic; margin-bottom: 0;">
-                                Cargando curiosidad...
-                            </p>
-                        </div>
+                    <div class="art-bottom-grid" style="margin-top: 15px; border-top: 1px dashed rgba(200,169,110,0.15); padding-top: 12px; display: flex; flex-direction: column; gap: 12px; text-align: center;">
+                        <button id="btn-reveal-curiosity" class="btn btn-secondary btn-small" style="width: auto; margin: 0 auto; padding: 6px 16px; font-size: 0.78rem;">
+                            💡 Revelar Curiosidad del Cuadro
+                        </button>
                         
                         <div class="stars-rating-container" data-rating-type="art" style="text-align: center;">
                             <span class="rating-label" style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Calificación de Ivonne</span>
@@ -200,12 +197,14 @@
                 <div class="glass-card museum-slide-card" data-slide-index="4">
                     <h2 class="slide-card-title">🧠 Lienzo de Emociones</h2>
                     
-                    <!-- Explicación de la técnica del día -->
-                    <div id="emotion-technique-container" class="music-description-box" style="text-align: left; margin-bottom: 15px; border-left: 2px solid var(--primary-color); padding: 10px; border-radius: 0 4px 4px 0;">
-                        <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Técnica del Día:</p>
-                        <p id="emotion-technique-desc" style="font-size: 0.8rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;">
+                    <!-- Tarjeta Emergente de la Técnica del Día -->
+                    <div id="technique-popup-overlay" class="technique-popup-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(16, 13, 7, 0.98); z-index: 10; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center; border-radius: 4px; box-sizing: border-box;">
+                        <span style="font-size: 1.8rem; margin-bottom: 8px;">🎨</span>
+                        <h3 style="font-family: var(--font-title); font-size: 1.15rem; color: var(--primary-color); margin-top: 0; margin-bottom: 12px; letter-spacing: 0.5px;">Técnica del Día</h3>
+                        <p id="technique-popup-text" style="font-size: 0.85rem; line-height: 1.6; opacity: 0.9; font-style: italic; margin-bottom: 20px; font-family: var(--font-body);">
                             Cargando técnica de pintura...
                         </p>
+                        <button id="btn-close-technique" class="btn btn-secondary btn-small" style="width: auto; padding: 6px 20px;">Entendido 🏛️</button>
                     </div>
 
                     <!-- ESTADO 1: Formulario para pintar -->
@@ -241,6 +240,9 @@
                             <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Descripción de la Técnica:</p>
                             <p id="emotion-technique-result-desc" style="font-size: 0.8rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;"></p>
                         </div>
+                        <p style="font-size: 0.82rem; line-height: 1.5; color: var(--primary-color); font-weight: 500; font-style: italic; margin-top: 18px; text-align: center; border-top: 1px dashed rgba(200,169,110,0.25); padding-top: 12px; font-family: var(--font-title);">
+                            "Una obra de arte que inmortaliza tu sentir. La manifestación sublime de tu mundo interior plasmada en lienzo para la eternidad."
+                        </p>
                     </div>
                 </div>
             </div>
@@ -262,6 +264,14 @@
             <div id="modal-body">
                 Contenido del modal......
             </div>
+        </div>
+    </div>
+    
+    <!-- Lightbox de Pantalla Completa para ver las pinturas -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <span class="lightbox-close" id="lightbox-close-btn">&times;</span>
+        <div class="lightbox-frame">
+            <img id="lightbox-img" src="" alt="Obra de Arte ampliada">
         </div>
     </div>
 

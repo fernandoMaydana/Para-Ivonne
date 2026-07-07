@@ -310,6 +310,13 @@ function abrirSalaDia(diaIndex) {
     activeDay = diaIndex;
     aplicarTemaDia(diaIndex);
     
+    // Reiniciar popup de técnica artística
+    window.techniqueClosedThisSession = false;
+    const techniqueOverlay = document.getElementById('technique-popup-overlay');
+    if (techniqueOverlay) {
+        techniqueOverlay.style.display = 'none';
+    }
+    
     // Mostrar la sala de inmediato para máxima rapidez
     const receptionBtn = document.getElementById('reception-btn');
     if (receptionBtn) receptionBtn.style.display = 'block';
@@ -993,13 +1000,78 @@ function renderizarReproductorMusica(url) {
 
     if (isDirectAudio) {
         container.innerHTML = `
-            <div class="music-container audio-mode">
-                <audio controls style="width: 100%; outline: none; border-radius: 12px;">
-                    <source src="${url}" type="audio/mpeg">
-                    Tu navegador no soporta este reproductor de audio.
-                </audio>
+            <div class="music-container vintage-audio-player-wrapper">
+                <audio id="custom-audio-el" src="${url}" preload="metadata"></audio>
+                <div class="vintage-audio-player">
+                    <button id="custom-play-btn" class="play-btn-circle">▶</button>
+                    <div class="player-progress-area">
+                        <span class="time-label" id="audio-current-time">0:00</span>
+                        <div class="progress-bar-container" id="audio-progress-container">
+                            <div class="progress-bar-fill" id="audio-progress-fill"></div>
+                        </div>
+                        <span class="time-label" id="audio-total-time">0:00</span>
+                    </div>
+                </div>
             </div>
         `;
+
+        setTimeout(() => {
+            const audio = document.getElementById('custom-audio-el');
+            const playBtn = document.getElementById('custom-play-btn');
+            const progressContainer = document.getElementById('audio-progress-container');
+            const progressFill = document.getElementById('audio-progress-fill');
+            const currentTimeLabel = document.getElementById('audio-current-time');
+            const totalTimeLabel = document.getElementById('audio-total-time');
+
+            if (!audio || !playBtn || !progressContainer || !progressFill || !currentTimeLabel || !totalTimeLabel) return;
+
+            function format(secs) {
+                if (isNaN(secs) || secs === Infinity) return "0:00";
+                const m = Math.floor(secs / 60);
+                const s = Math.floor(secs % 60);
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
+            }
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '❚❚';
+                } else {
+                    audio.pause();
+                    playBtn.textContent = '▶';
+                }
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                const pct = (audio.currentTime / (audio.duration || 1)) * 100;
+                progressFill.style.width = pct + '%';
+                currentTimeLabel.textContent = format(audio.currentTime);
+                if (audio.duration) {
+                    totalTimeLabel.textContent = format(audio.duration);
+                }
+            });
+
+            audio.addEventListener('loadedmetadata', () => {
+                totalTimeLabel.textContent = format(audio.duration);
+            });
+
+            // También por si se carga antes del evento
+            if (audio.duration) {
+                totalTimeLabel.textContent = format(audio.duration);
+            }
+
+            progressContainer.addEventListener('click', (e) => {
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pos * (audio.duration || 0);
+            });
+
+            audio.addEventListener('ended', () => {
+                playBtn.textContent = '▶';
+                progressFill.style.width = '0%';
+                currentTimeLabel.textContent = '0:00';
+            });
+        }, 50);
     } else if (embedUrl) {
         container.innerHTML = `
             <div class="music-container ${isYoutube ? 'youtube-mode' : 'spotify-mode'}">
@@ -1021,7 +1093,7 @@ function renderizarReproductorMusica(url) {
 
 // Configurar los botones de eventos
 function configurarEventos() {
-    // --- -1. Lógica del Carrusel Deslizable ---
+    // --- -1. Lógica del Carrusel Deslizable y Popup de Técnica ---
     const slider = document.getElementById('museum-slider');
     const dots = document.querySelectorAll('.slider-dot');
     
@@ -1031,6 +1103,19 @@ function configurarEventos() {
             const width = slider.clientWidth || 1;
             const index = Math.round(scrollLeft / width);
             actualizarDots(index);
+
+            // Mostrar el popup de técnica si llega a la tarjeta 5 (index 4) y no ha pintado hoy
+            if (index === 4) {
+                const hasPainted = window.currentUserRatings && window.currentUserRatings.emotionImage;
+                if (!hasPainted && !window.techniqueClosedThisSession) {
+                    const techniqueOverlay = document.getElementById('technique-popup-overlay');
+                    const techniqueText = document.getElementById('technique-popup-text');
+                    if (techniqueOverlay && techniqueText) {
+                        techniqueText.textContent = currentData?.tecnica_pintura || 'Pintura al óleo abstracta con pinceladas cargadas.';
+                        techniqueOverlay.style.display = 'flex';
+                    }
+                }
+            }
         });
     }
 
@@ -1043,6 +1128,80 @@ function configurarEventos() {
                 }
             });
         });
+    }
+
+    // Botón para cerrar el popup de técnica
+    const btnCloseTech = document.getElementById('btn-close-technique');
+    if (btnCloseTech) {
+        btnCloseTech.addEventListener('click', () => {
+            const techniqueOverlay = document.getElementById('technique-popup-overlay');
+            if (techniqueOverlay) {
+                techniqueOverlay.style.display = 'none';
+                window.techniqueClosedThisSession = true;
+            }
+        });
+    }
+
+    // --- -2. Botón de Revelar Curiosidad (Modal) ---
+    const btnCuriosity = document.getElementById('btn-reveal-curiosity');
+    if (btnCuriosity) {
+        btnCuriosity.addEventListener('click', () => {
+            const curiosidad = currentData?.curiosidad_cuadro || 'Esta obra guarda un secreto especial que solo el curador conoce.';
+            abrirModal('💡 Curiosidad del Cuadro', `
+                <div style="font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; font-style: italic; text-align: center; color: #ede8dc; padding: 15px 10px;">
+                    "${curiosidad}"
+                </div>
+            `);
+        });
+    }
+
+    // --- -3. Lightbox Zoom a Pantalla Completa ---
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close-btn');
+
+    function openLightbox(src) {
+        if (!src || src.includes('rgba') || src.includes('blank') || src === window.location.href) return;
+        if (lightboxImg && lightboxOverlay) {
+            lightboxImg.src = src;
+            lightboxOverlay.style.display = 'flex';
+            setTimeout(() => {
+                lightboxOverlay.classList.add('active');
+            }, 10);
+        }
+    }
+
+    function closeLightbox() {
+        if (lightboxOverlay) {
+            lightboxOverlay.classList.remove('active');
+            setTimeout(() => {
+                lightboxOverlay.style.display = 'none';
+            }, 300);
+        }
+    }
+
+    if (lightboxOverlay) {
+        lightboxOverlay.addEventListener('click', closeLightbox);
+    }
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    // Vincular click en las tres pinturas del museo
+    const zoomArtImg = document.getElementById('art-canvas-img');
+    if (zoomArtImg) {
+        zoomArtImg.style.cursor = 'zoom-in';
+        zoomArtImg.addEventListener('click', () => openLightbox(zoomArtImg.src));
+    }
+    const coverImg = document.getElementById('music-cover-img');
+    if (coverImg) {
+        coverImg.style.cursor = 'zoom-in';
+        coverImg.addEventListener('click', () => openLightbox(coverImg.src));
+    }
+    const emotImg = document.getElementById('emotion-canvas-img');
+    if (emotImg) {
+        emotImg.style.cursor = 'zoom-in';
+        emotImg.addEventListener('click', () => openLightbox(emotImg.src));
     }
 
     // --- 0. Disparador Secreto para Modo Curador (5 clics en el título) ---
