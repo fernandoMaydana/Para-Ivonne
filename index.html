@@ -69,7 +69,8 @@
                     <span class="slider-dot active" data-slide="0" title="Taquilla"></span>
                     <span class="slider-dot" data-slide="1" title="Música"></span>
                     <span class="slider-dot" data-slide="2" title="Galería de Arte"></span>
-                    <span class="slider-dot" data-slide="3" title="Lienzo de Emociones"></span>
+                    <span class="slider-dot" data-slide="3" title="Obra Literaria"></span>
+                    <span class="slider-dot" data-slide="4" title="Lienzo de Emociones"></span>
                 </div>
             </div>
 
@@ -102,21 +103,41 @@
                 <div class="glass-card museum-slide-card" data-slide-index="1">
                     <h2 class="slide-card-title">🎵 Cuadro Musical</h2>
                     
-                    <div class="soundtrack-card" style="margin-bottom: 15px; box-shadow: none; border: none; background: transparent; padding: 0;">
+                    <!-- Carátula de la canción enmarcada -->
+                    <div class="music-frame-container" style="max-width: 240px; aspect-ratio: 1/1; margin: 0 auto 12px auto; display: flex; justify-content: center; align-items: center;">
+                        <div class="museum-frame" style="border-width: 8px; width: 100%; height: 100%;">
+                            <img id="music-cover-img" src="" alt="Carátula de la canción" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+
+                    <div class="soundtrack-card" style="margin-bottom: 12px; box-shadow: none; border: none; background: transparent; padding: 0;">
                         <div id="music-player-container">
                             <!-- Spotify embed o reproductor se inyecta aquí -->
                         </div>
                     </div>
                     
-                    <div class="music-description-box" style="text-align: left; background: rgba(255,255,255,0.02); border-left: 3px solid var(--primary-color); padding: 12px; border-radius: 0 8px 8px 0;">
-                        <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase;">Sobre esta melodía:</p>
-                        <p id="music-theme-desc" style="font-size: 0.85rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;">
+                    <div class="music-description-box" style="text-align: left; background: rgba(200,169,110,0.02); border-left: 3px solid var(--primary-color); padding: 12px; border-radius: 0 4px 4px 0; margin-bottom: 15px;">
+                        <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sobre esta melodía:</p>
+                        <p id="music-theme-desc" style="font-size: 0.82rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;">
                             Cargando descripción del tema...
                         </p>
                     </div>
+
+                    <!-- Calificación de la canción -->
+                    <div class="stars-rating-container" data-rating-type="song" style="margin-top: 15px; border-top: 1px dashed rgba(200,169,110,0.15); padding-top: 12px;">
+                        <span class="rating-label" style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Calificación de Ivonne</span>
+                        <div class="stars-row" id="song-stars" style="display: flex; justify-content: center; gap: 8px; font-size: 1.4rem;">
+                            <span class="star-item" data-value="1" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                            <span class="star-item" data-value="2" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                            <span class="star-item" data-value="3" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                            <span class="star-item" data-value="4" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                            <span class="star-item" data-value="5" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                        </div>
+                        <div class="rating-feedback" id="song-rating-feedback" style="font-size: 0.72rem; color: var(--primary-color); margin-top: 3px; font-style: italic; min-height: 14px;"></div>
+                    </div>
                 </div>
 
-                <!-- Tarjeta 3: Galería de Arte (Cuadro IA) -->
+                <!-- Tarjeta 3: Galería de Arte (Cuadro IA / Subido) -->
                 <div class="glass-card museum-slide-card" data-slide-index="2">
                     <h2 class="slide-card-title">🎨 Galería de Arte</h2>
                     <div class="museum-frame-container" style="margin-top: 0; margin-bottom: 12px;">
@@ -133,41 +154,92 @@
                         </div>
                     </div>
                     
-                    <div id="art-description-plate" class="museum-label-plate-info" style="text-align: left; font-size: 0.82rem; line-height: 1.4; opacity: 0.85; margin-bottom: 12px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px;">
+                    <div id="art-description-plate" class="museum-label-plate-info" style="text-align: left; font-size: 0.82rem; line-height: 1.4; opacity: 0.85; margin-bottom: 12px; border-top: 1px solid rgba(200,169,110,0.15); padding-top: 10px;">
                         <!-- Inyectado dinámicamente -->
                     </div>
-                    </div>
 
-                <!-- Tarjeta 4: Generador de Arte Interactivo (Lienzo de Emociones) -->
+                    <!-- Curiosidad del cuadro y Calificación de la obra -->
+                    <div class="art-bottom-grid" style="margin-top: 15px; border-top: 1px dashed rgba(200,169,110,0.15); padding-top: 12px; display: flex; flex-direction: column; gap: 12px; text-align: left;">
+                        <div class="art-curiosity-box" style="background: rgba(200, 169, 110, 0.04); border: 1px solid rgba(200,169,110,0.15); padding: 10px 12px; border-radius: 3px;">
+                            <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">💡 ¿Sabías que...?</p>
+                            <p id="art-curiosity-text" style="font-size: 0.78rem; line-height: 1.4; opacity: 0.85; font-style: italic; margin-bottom: 0;">
+                                Cargando curiosidad...
+                            </p>
+                        </div>
+                        
+                        <div class="stars-rating-container" data-rating-type="art" style="text-align: center;">
+                            <span class="rating-label" style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px;">Calificación de Ivonne</span>
+                            <div class="stars-row" id="art-stars" style="display: flex; justify-content: center; gap: 8px; font-size: 1.4rem;">
+                                <span class="star-item" data-value="1" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                                <span class="star-item" data-value="2" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                                <span class="star-item" data-value="3" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                                <span class="star-item" data-value="4" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                                <span class="star-item" data-value="5" style="cursor: pointer; color: rgba(200,169,110,0.2); transition: color 0.2s;">★</span>
+                            </div>
+                            <div class="rating-feedback" id="art-rating-feedback" style="font-size: 0.72rem; color: var(--primary-color); margin-top: 3px; font-style: italic; min-height: 14px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Obra Literaria (Frase/Poema) -->
                 <div class="glass-card museum-slide-card" data-slide-index="3">
+                    <h2 class="slide-card-title">📖 Obra Literaria</h2>
+                    <div class="literary-scroll-container" style="background: rgba(20, 15, 9, 0.4); border: 1px solid rgba(200,169,110,0.15); padding: 25px 20px; border-radius: 4px; position: relative; margin-bottom: 5px; box-shadow: inset 0 0 20px rgba(0,0,0,0.4);">
+                        <span class="literary-seal" style="display: block; font-size: 1.1rem; color: var(--primary-color); opacity: 0.5; margin-bottom: 12px; text-align: center;">◆</span>
+                        <p id="literary-poem" class="literary-poem" style="font-size: 1.05rem; line-height: 1.7; font-style: italic; opacity: 0.9; margin-bottom: 15px; font-family: var(--font-body); text-align: center; white-space: pre-line;">
+                            Cargando poema del día...
+                        </p>
+                        <div class="literary-divider" style="color: var(--primary-color); opacity: 0.3; font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 15px; text-align: center;">━━━ ❊ ━━━</div>
+                        <p id="literary-author" class="literary-author" style="font-size: 0.78rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--font-title); text-align: center;">
+                            Autor
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Generador de Arte Interactivo (Lienzo de Emociones) -->
+                <div class="glass-card museum-slide-card" data-slide-index="4">
                     <h2 class="slide-card-title">🧠 Lienzo de Emociones</h2>
                     
-                    <div class="interactive-generator-container" style="text-align: left;">
-                        <p id="emotion-generator-question" style="font-size: 0.95rem; font-weight: 700; color: var(--primary-color); margin-bottom: 10px; border-left: 3px solid var(--primary-color); padding-left: 8px;">
+                    <!-- Explicación de la técnica del día -->
+                    <div id="emotion-technique-container" class="music-description-box" style="text-align: left; margin-bottom: 15px; border-left: 2px solid var(--primary-color); padding: 10px; border-radius: 0 4px 4px 0;">
+                        <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Técnica del Día:</p>
+                        <p id="emotion-technique-desc" style="font-size: 0.8rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;">
+                            Cargando técnica de pintura...
+                        </p>
+                    </div>
+
+                    <!-- ESTADO 1: Formulario para pintar -->
+                    <div id="emotion-form-state" class="interactive-generator-container" style="text-align: left;">
+                        <p id="emotion-generator-question" style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color); margin-bottom: 10px;">
                             ¿Cómo te sientes hoy?
                         </p>
                         
-                        <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+                        <div style="display: flex; gap: 8px; margin-bottom: 10px;">
                             <input type="text" id="emotion-input-text" class="input-premium" placeholder="Escribe tu emoción o sentimiento..." style="flex: 1; padding: 10px 14px;">
-                            <button id="btn-paint-emotion" class="btn btn-secondary" style="width: auto; padding: 0 16px;">Pintar 🎨</button>
+                            <button id="btn-paint-emotion" class="btn btn-secondary" style="width: auto; padding: 0 16px; white-space: nowrap;">Pintar 🎨</button>
                         </div>
-                        
-                        <!-- Lienzo de Emoción Generado -->
-                        <div class="museum-frame-container" style="width: 230px; height: 230px; margin: 0 auto;">
+                    </div>
+
+                    <!-- ESTADO 2: Cargando/Pintando -->
+                    <div id="emotion-loading-state" class="art-loader" style="display: none; position: static; min-height: 150px; border-radius: 4px; background: rgba(22, 16, 10, 0.4); flex-direction: column; justify-content: center; align-items: center; gap: 10px; color: var(--primary-color);">
+                        <div class="art-loader-spinner"></div>
+                        <span style="font-size: 0.85rem;">Pintando tu sentir...</span>
+                    </div>
+
+                    <!-- ESTADO 3: Pintura terminada (Exposición permanente de Ivonne) -->
+                    <div id="emotion-result-state" style="display: none;">
+                        <div class="museum-frame-container" style="margin-top: 0; margin-bottom: 15px; max-width: 280px; aspect-ratio: 1/1; margin-left: auto; margin-right: auto;">
                             <div id="emotion-canvas-frame" class="museum-frame" style="width: 100%; height: 100%;">
-                                <div id="emotion-image-loader" class="art-loader" style="display: none;">
-                                    <div class="art-loader-spinner"></div>
-                                    <span>Pintando tu sentir...</span>
-                                </div>
-                                <div id="emotion-blank-canvas" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; font-size: 0.75rem; opacity: 0.5; text-align: center; padding: 20px;">
-                                    Lienzo en blanco.<br>Escribe tu emoción arriba y pinta.
-                                </div>
-                                <img id="emotion-canvas-img" src="" alt="Lienzo de Emoción" style="display: none; width: 100%; height: 100%; object-fit: cover;">
-                                <div class="frame-label" id="emotion-label-plate" style="display: none;">
+                                <img id="emotion-canvas-img" src="" alt="Obra de Ivonne" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div class="frame-label" id="emotion-label-plate">
                                     <span id="emotion-art-title">Tu Sentir</span>
-                                    <small>Pintado por la IA</small>
+                                    <small id="emotion-art-artist">Ivonne</small>
                                 </div>
                             </div>
+                        </div>
+                        <div class="music-description-box" style="text-align: left; border-left: 2px solid var(--primary-color); padding: 10px; margin-top: 10px; border-radius: 0 4px 4px 0;">
+                            <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Descripción de la Técnica:</p>
+                            <p id="emotion-technique-result-desc" style="font-size: 0.8rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;"></p>
                         </div>
                     </div>
                 </div>

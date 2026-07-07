@@ -732,6 +732,16 @@ h1 {
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* Solución de legibilidad para select y option en modo oscuro/vintage */
+select.input-premium {
+    background-color: #1c1712;
+    color: var(--text-color);
+}
+select.input-premium option {
+    background-color: #1c1712;
+    color: var(--text-color);
+}
+
 .setup-trigger-btn {
     position: fixed;
     top: 20px;
@@ -1591,4 +1601,42 @@ h1 {
     background: rgba(255, 255, 255, 0.02);
     padding: 12px 16px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Calificaciones por Estrellas (Rating) --- */
+.stars-row .star-item {
+    font-size: 1.6rem;
+    color: rgba(200, 169, 110, 0.18);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.15s ease;
+    display: inline-block;
+}
+.stars-row .star-item:hover,
+.stars-row .star-item.hover-active {
+    color: var(--primary-color) !important;
+    transform: scale(1.2);
+}
+.stars-row .star-item.selected {
+    color: var(--primary-color) !important;
+    text-shadow: 0 0 8px rgba(200, 169, 110, 0.4);
+}
+
+/* Estilo vintage del reproductor nativo */
+.audio-mode audio {
+    width: 100%;
+    outline: none;
+    filter: sepia(1) saturate(0.9) hue-rotate(15deg) invert(0.92);
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+.audio-mode audio:hover {
+    opacity: 1;
+}
+
+/* Elementos literarios */
+.literary-scroll-container {
+    transition: all 0.3s ease;
+}
+.literary-poem {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }

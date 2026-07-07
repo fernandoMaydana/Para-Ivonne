@@ -9,10 +9,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido el ingreso con estrés acumulado, Permitido comer chocolates virtuales',
         cancion_url: '',
         cancion_desc: 'Una melodía suave para iniciar la semana.',
+        cancion_caratula: '',
         titulo_cuadro: 'Lienzo en Blanco',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una representación artística de la tranquilidad y el reinicio.',
         prompt_ia: 'blueprint architectural plan of a classic museum building layout, grid lines, aesthetic clean blue color scheme, technical drawing style',
+        curiosidad_cuadro: 'El lienzo en blanco simboliza las infinitas posibilidades que trae el inicio de cada nueva semana.',
+        poema: 'El arte no es lo que ves, sino lo que haces sentir a otros.',
+        autor_poema: 'Edgar Degas',
+        tecnica_pintura: 'Esquema técnico y plano arquitectónico digital.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
@@ -25,10 +30,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido pensar en el trabajo, Permitido suspirar de alegría',
         cancion_url: '',
         cancion_desc: 'Tema musical del día.',
+        cancion_caratula: '',
         titulo_cuadro: 'Obra por Definir',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
         prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        curiosidad_cuadro: '¿Sabías que las pinturas en marcos de madera oscura realzan los contrastes de las tonalidades cálidas?',
+        poema: 'La belleza salvará al mundo si aprendemos a contemplarla en silencio.',
+        autor_poema: 'Fiódor Dostoyevski',
+        tecnica_pintura: 'Pintura al óleo clásica con texturas al temple.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
@@ -41,10 +51,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
         cancion_url: '',
         cancion_desc: 'Tema musical del día.',
+        cancion_caratula: '',
         titulo_cuadro: 'Obra por Definir',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
         prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        curiosidad_cuadro: 'Esta composición busca capturar las vibraciones poéticas de los pequeños momentos cotidianos.',
+        poema: 'Para viajar lejos, no hay mejor nave que un libro o una obra de arte.',
+        autor_poema: 'Emily Dickinson',
+        tecnica_pintura: 'Acuarela diluida con trazos suaves a lápiz.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
@@ -57,10 +72,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
         cancion_url: '',
         cancion_desc: 'Tema musical del día.',
+        cancion_caratula: '',
         titulo_cuadro: 'Obra por Definir',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
         prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        curiosidad_cuadro: 'Los tonos ocres y dorados evocan la calidez de las tardes de contemplación en la naturaleza.',
+        poema: 'El amor es una copa que debe sostenerse con ambas manos y beberse con los ojos cerrados.',
+        autor_poema: 'Kahlil Gibran',
+        tecnica_pintura: 'Espátula de acrílico pesado sobre lienzo texturizado.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
@@ -73,10 +93,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
         cancion_url: '',
         cancion_desc: 'Tema musical del día.',
+        cancion_caratula: '',
         titulo_cuadro: 'Obra por Definir',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
         prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        curiosidad_cuadro: 'Esta pieza resalta la importancia de la inocencia y el juego en los procesos creativos.',
+        poema: 'En el corazón de cada niño reside el verdadero artista que todos intentamos rescatar.',
+        autor_poema: 'Pablo Picasso',
+        tecnica_pintura: 'Estilo naíf con colores puros y trazos sencillos.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
@@ -89,10 +114,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
         cancion_url: '',
         cancion_desc: 'Tema musical del día.',
+        cancion_caratula: '',
         titulo_cuadro: 'Obra por Definir',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
         prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        curiosidad_cuadro: 'Las obras de arte pop capturan la ironía del consumismo y la belleza de los íconos de la cultura popular.',
+        poema: 'El arte pop es para todos; es el arte que celebra los objetos comunes y los eleva al altar de los museos.',
+        autor_poema: 'Andy Warhol',
+        tecnica_pintura: 'Serigrafía en colores complementarios de alto contraste.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
@@ -105,10 +135,15 @@ const FALLBACK_CONTENT = {
         reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
         cancion_url: '',
         cancion_desc: 'Tema musical del día.',
+        cancion_caratula: '',
         titulo_cuadro: 'Obra por Definir',
         artista_cuadro: 'Colección Ivonne',
         cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
         prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        curiosidad_cuadro: 'El descanso no es pereza; es el suelo fértil donde germinan las nuevas visiones de la mente.',
+        poema: 'Se necesita mucho tiempo para no hacer nada, y ese tiempo es el más valioso de todos.',
+        autor_poema: 'Oscar Wilde',
+        tecnica_pintura: 'Impresionismo tardío con pinceladas sueltas cargadas de luz.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     }
@@ -542,6 +577,13 @@ function deserializarDatosDia(dbData, diaId) {
     if (dbData.pregunta_trivia !== undefined && dbData.pregunta_trivia !== null) res.pregunta_trivia = dbData.pregunta_trivia;
     if (dbData.prompt_base_ia !== undefined && dbData.prompt_base_ia !== null) res.prompt_base_ia = dbData.prompt_base_ia;
 
+    // Nuevas Columnas v2 extendidas
+    if (dbData.cancion_caratula !== undefined && dbData.cancion_caratula !== null) res.cancion_caratula = dbData.cancion_caratula;
+    if (dbData.curiosidad_cuadro !== undefined && dbData.curiosidad_cuadro !== null) res.curiosidad_cuadro = dbData.curiosidad_cuadro;
+    if (dbData.poema !== undefined && dbData.poema !== null) res.poema = dbData.poema;
+    if (dbData.autor_poema !== undefined && dbData.autor_poema !== null) res.autor_poema = dbData.autor_poema;
+    if (dbData.tecnica_pintura !== undefined && dbData.tecnica_pintura !== null) res.tecnica_pintura = dbData.tecnica_pintura;
+
     return res;
 }
 
@@ -587,6 +629,56 @@ async function cargarContenidoDia() {
     }
 
     currentData = data;
+    
+    // Cargar respuestas/valoraciones anteriores de Ivonne (ratings y pinturas)
+    window.currentUserRatings = { song: 0, art: 0, emotionImage: '', emotionText: '' };
+    
+    // Fallback inicial a LocalStorage
+    try {
+        const lSong = safeStorage.getItem(`museum_day_${activeDay}_rating_song`);
+        if (lSong) window.currentUserRatings.song = parseInt(lSong);
+        const lArt = safeStorage.getItem(`museum_day_${activeDay}_rating_art`);
+        if (lArt) window.currentUserRatings.art = parseInt(lArt);
+        const lImg = safeStorage.getItem(`museum_day_${activeDay}_painted_image`);
+        if (lImg) window.currentUserRatings.emotionImage = lImg;
+        const lEmot = safeStorage.getItem(`museum_day_${activeDay}_painted_emotion`);
+        if (lEmot) window.currentUserRatings.emotionText = lEmot;
+    } catch(e) {}
+
+    if (supabaseClient) {
+        try {
+            const { data: dbResp, error: respError } = await supabaseClient
+                .from('respuestas_amiga')
+                .select('*')
+                .eq('dia_id', activeDay);
+                
+            if (!respError && dbResp) {
+                dbResp.forEach(row => {
+                    if (row.respuesta.startsWith('⭐ Calificación Canción:')) {
+                        const match = row.respuesta.match(/Calificación Canción: (\d+)\/5/);
+                        if (match) window.currentUserRatings.song = parseInt(match[1]);
+                    } else if (row.respuesta.startsWith('⭐ Calificación Obra:')) {
+                        const match = row.respuesta.match(/Calificación Obra: (\d+)\/5/);
+                        if (match) window.currentUserRatings.art = parseInt(match[1]);
+                    } else if (row.respuesta.startsWith('🎨 Generó Obra:')) {
+                        const parts = row.respuesta.split(' | URL: ');
+                        const emotionText = parts[0].replace('🎨 Generó Obra: ', '').trim();
+                        const imageUrl = parts[1] ? parts[1].trim() : '';
+                        if (imageUrl) {
+                            window.currentUserRatings.emotionImage = imageUrl;
+                            window.currentUserRatings.emotionText = emotionText;
+                            
+                            safeStorage.setItem(`museum_day_${activeDay}_painted_image`, imageUrl);
+                            safeStorage.setItem(`museum_day_${activeDay}_painted_emotion`, emotionText);
+                        }
+                    }
+                });
+            }
+        } catch(e) {
+            console.error("Fallo al obtener respuestas de Supabase:", e);
+        }
+    }
+
     actualizarVistaDOM(data);
 }
 
@@ -641,10 +733,15 @@ function actualizarVistaDOM(data) {
         }
     }
 
-    // 3. Inyectar reproductor de música y descripción del tema
+    // 3. Inyectar reproductor de música, carátula y descripción del tema
     renderizarReproductorMusica(data.cancion_url);
     const musicDesc = document.getElementById('music-theme-desc');
     if (musicDesc) musicDesc.textContent = data.cancion_desc || 'Sin descripción de tema para hoy.';
+    
+    const musicCover = document.getElementById('music-cover-img');
+    if (musicCover) {
+        musicCover.src = data.cancion_caratula || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=340';
+    }
 
     // 4. Inyectar y pintar obra de arte con la IA
     renderizarObraArte(data.prompt_ia, data.titulo_cuadro);
@@ -660,6 +757,22 @@ function actualizarVistaDOM(data) {
         `;
     }
 
+    // Curiosidad del cuadro
+    const artCuriosity = document.getElementById('art-curiosity-text');
+    if (artCuriosity) {
+        artCuriosity.textContent = data.curiosidad_cuadro || 'Esta obra guarda un secreto especial que solo el curador conoce.';
+    }
+
+    // 5. Obra Literaria
+    const literaryPoem = document.getElementById('literary-poem');
+    if (literaryPoem) {
+        literaryPoem.textContent = data.poema || 'El arte de vivir es saber contemplar las pequeñas pausas.';
+    }
+    const literaryAuthor = document.getElementById('literary-author');
+    if (literaryAuthor) {
+        literaryAuthor.textContent = data.autor_poema || 'Anónimo';
+    }
+
     // Resetear slider sensorial de la pintura
     const hueSlider = document.getElementById('art-hue-slider');
     const hueValLabel = document.getElementById('slider-hue-val');
@@ -668,30 +781,96 @@ function actualizarVistaDOM(data) {
     if (hueValLabel) hueValLabel.textContent = "0°";
     if (artImg) artImg.style.filter = "none";
 
-    // 5. Resetear y configurar el Generador de Emociones
+    // 6. Lienzo de Emociones y Generador IA
     const emotionQuestion = document.getElementById('emotion-generator-question');
     if (emotionQuestion) emotionQuestion.textContent = data.pregunta_trivia || '¿Cómo te sientes el día de hoy?';
     
+    const techniqueDesc = document.getElementById('emotion-technique-desc');
+    if (techniqueDesc) techniqueDesc.textContent = data.tecnica_pintura || 'Pintura al óleo abstracta con pinceladas cargadas.';
+    
+    const techniqueResultDesc = document.getElementById('emotion-technique-result-desc');
+    if (techniqueResultDesc) techniqueResultDesc.textContent = data.tecnica_pintura || 'Pintura al óleo abstracta con pinceladas cargadas.';
+
+    const formStateEl = document.getElementById('emotion-form-state');
+    const loadingStateEl = document.getElementById('emotion-loading-state');
+    const resultStateEl = document.getElementById('emotion-result-state');
+
+    const emotionImg = document.getElementById('emotion-canvas-img');
+    const emotionArtTitle = document.getElementById('emotion-art-title');
+    
     const emotionInput = document.getElementById('emotion-input-text');
     if (emotionInput) emotionInput.value = '';
-    
-    const emotionImg = document.getElementById('emotion-canvas-img');
-    const emotionLoader = document.getElementById('emotion-image-loader');
-    const emotionBlank = document.getElementById('emotion-blank-canvas');
-    const emotionPlate = document.getElementById('emotion-label-plate');
-    
-    if (emotionImg) {
-        emotionImg.style.display = 'none';
-        emotionImg.src = '';
+
+    // Lógica Persistente: Si ya generó pintura hoy, mostrarla de inmediato en el marco
+    if (window.currentUserRatings && window.currentUserRatings.emotionImage) {
+        if (emotionImg) emotionImg.src = window.currentUserRatings.emotionImage;
+        if (emotionArtTitle) emotionArtTitle.textContent = `Emoción: ${window.currentUserRatings.emotionText || 'Sentir del día'}`;
+        
+        if (formStateEl) formStateEl.style.display = 'none';
+        if (loadingStateEl) loadingStateEl.style.display = 'none';
+        if (resultStateEl) resultStateEl.style.display = 'block';
+    } else {
+        if (formStateEl) formStateEl.style.display = 'block';
+        if (loadingStateEl) loadingStateEl.style.display = 'none';
+        if (resultStateEl) resultStateEl.style.display = 'none';
     }
-    if (emotionLoader) emotionLoader.style.display = 'none';
-    if (emotionBlank) emotionBlank.style.display = 'flex';
-    if (emotionPlate) emotionPlate.style.display = 'none';
+
+    // Resetear calificaciones por estrellas en pantalla
+    renderizarEstrellas('song', window.currentUserRatings.song || 0);
+    renderizarEstrellas('art', window.currentUserRatings.art || 0);
+}
+
+// --- RENDERIZADO E INTERACTIVIDAD DE ESTRELLAS DE VALORACIÓN ---
+function renderizarEstrellas(tipo, valor) {
+    const selector = tipo === 'song' ? '#song-stars .star-item' : '#art-stars .star-item';
+    const feedbackSelector = tipo === 'song' ? 'song-rating-feedback' : 'art-rating-feedback';
+    const stars = document.querySelectorAll(selector);
+    const feedback = document.getElementById(feedbackSelector);
     
-    const btnPaint = document.getElementById('btn-paint-emotion');
-    if (btnPaint) {
-        btnPaint.disabled = false;
-        btnPaint.textContent = 'Pintar 🎨';
+    stars.forEach((star, idx) => {
+        if (idx < valor) {
+            star.classList.add('selected');
+        } else {
+            star.classList.remove('selected');
+        }
+    });
+
+    if (feedback) {
+        if (valor > 0) {
+            feedback.textContent = `¡Calificado con ${valor}/5 estrellas! ⭐`;
+        } else {
+            feedback.textContent = 'Sin calificar aún.';
+        }
+    }
+}
+
+async function registrarCalificacionAmiga(tipo, valor) {
+    const key = `museum_day_${activeDay}_rating_${tipo}`;
+    safeStorage.setItem(key, valor);
+    
+    if (tipo === 'song') {
+        window.currentUserRatings.song = valor;
+    } else {
+        window.currentUserRatings.art = valor;
+    }
+    
+    renderizarEstrellas(tipo, valor);
+    
+    const prefijo = tipo === 'song' ? 'melodía' : 'obra de arte';
+    const textRespuesta = `⭐ Calificación ${tipo === 'song' ? 'Canción' : 'Obra'}: ${valor}/5`;
+    
+    try {
+        if (supabaseClient) {
+            await supabaseClient
+                .from('respuestas_amiga')
+                .insert([{ dia_id: activeDay, respuesta: textRespuesta }]);
+        } else {
+            guardarRespuestaLocal(activeDay, textRespuesta);
+        }
+        console.log(`Calificación de ${prefijo} guardada con éxito: ${valor}/5`);
+    } catch(e) {
+        console.error("Error al registrar calificación:", e);
+        guardarRespuestaLocal(activeDay, textRespuesta);
     }
 }
 
@@ -880,7 +1059,7 @@ function configurarEventos() {
         });
     }
 
-    // --- 1. Generador de Arte Interactivo (Lienzo de Emociones) ---
+    // --- 1. Generador de Arte Interactivo (Lienzo de Emociones con Estados) ---
     const btnPaintEmotion = document.getElementById('btn-paint-emotion');
     if (btnPaintEmotion) {
         btnPaintEmotion.addEventListener('click', async () => {
@@ -891,21 +1070,18 @@ function configurarEventos() {
                 return;
             }
 
+            const formStateEl = document.getElementById('emotion-form-state');
+            const loadingStateEl = document.getElementById('emotion-loading-state');
+            const resultStateEl = document.getElementById('emotion-result-state');
+
             const imgEl = document.getElementById('emotion-canvas-img');
-            const loaderEl = document.getElementById('emotion-image-loader');
-            const blankEl = document.getElementById('emotion-blank-canvas');
-            const plateEl = document.getElementById('emotion-label-plate');
             const titleEl = document.getElementById('emotion-art-title');
 
-            if (!imgEl || !loaderEl || !blankEl || !plateEl || !titleEl) return;
+            if (!formStateEl || !loadingStateEl || !resultStateEl || !imgEl || !titleEl) return;
 
-            btnPaintEmotion.disabled = true;
-            btnPaintEmotion.textContent = 'Pintando...';
-            
-            blankEl.style.display = 'none';
-            imgEl.style.display = 'none';
-            plateEl.style.display = 'none';
-            loaderEl.style.display = 'flex';
+            // Ocultar formulario, mostrar cargador
+            formStateEl.style.display = 'none';
+            loadingStateEl.style.display = 'flex';
 
             // Construir prompt final
             let basePrompt = currentData?.prompt_base_ia || "an abstract oil painting representing: [EMOTION], museum masterpiece";
@@ -919,42 +1095,86 @@ function configurarEventos() {
             const encodedPrompt = encodeURIComponent(finalPrompt);
             const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?nologo=true&private=true&width=512&height=512`;
 
-            // Guardar respuesta en Supabase respuestas_amiga
-            const formattedRes = `🎨 Generó Obra: ${emotionText}`;
-            try {
-                if (supabaseClient) {
-                    await supabaseClient
-                        .from('respuestas_amiga')
-                        .insert([{ dia_id: activeDay, respuesta: formattedRes }]);
-                } else {
+            // Precargar imagen generada
+            const tempImg = new Image();
+            tempImg.onload = async () => {
+                // Guardar en variables globales
+                window.currentUserRatings.emotionImage = imageUrl;
+                window.currentUserRatings.emotionText = emotionText;
+
+                // Persistir localmente
+                safeStorage.setItem(`museum_day_${activeDay}_painted_image`, imageUrl);
+                safeStorage.setItem(`museum_day_${activeDay}_painted_emotion`, emotionText);
+
+                // Guardar en Supabase / local con formato que incluye el enlace
+                const formattedRes = `🎨 Generó Obra: ${emotionText} | URL: ${imageUrl}`;
+                try {
+                    if (supabaseClient) {
+                        await supabaseClient
+                            .from('respuestas_amiga')
+                            .insert([{ dia_id: activeDay, respuesta: formattedRes }]);
+                    } else {
+                        guardarRespuestaLocal(activeDay, formattedRes);
+                    }
+                } catch(e) {
+                    console.error("Error al registrar respuesta del generador:", e);
                     guardarRespuestaLocal(activeDay, formattedRes);
                 }
-            } catch(e) {
-                console.error("Error al registrar respuesta del generador:", e);
-                guardarRespuestaLocal(activeDay, formattedRes);
-            }
 
-            // Precargar imagen
-            const tempImg = new Image();
-            tempImg.onload = () => {
+                // Renderizar resultado final
                 imgEl.src = imageUrl;
-                loaderEl.style.display = 'none';
-                imgEl.style.display = 'block';
                 titleEl.textContent = `Emoción: ${emotionText}`;
-                plateEl.style.display = 'block';
-                btnPaintEmotion.disabled = false;
-                btnPaintEmotion.textContent = 'Pintar 🎨';
+
+                // Alternar estados
+                loadingStateEl.style.display = 'none';
+                resultStateEl.style.display = 'block';
             };
             tempImg.onerror = () => {
-                loaderEl.style.display = 'none';
-                blankEl.style.display = 'flex';
-                blankEl.textContent = "❌ Error al conectar con el servidor de arte. Reintenta.";
-                btnPaintEmotion.disabled = false;
-                btnPaintEmotion.textContent = 'Pintar 🎨';
+                loadingStateEl.style.display = 'none';
+                formStateEl.style.display = 'block';
+                alert("❌ Ocurrió un error al contactar al servidor de arte. Por favor, reintenta.");
             };
             tempImg.src = imageUrl;
         });
     }
+
+    // --- 1.1 Interactividad de Estrellas de Música ---
+    const songStars = document.querySelectorAll('#song-stars .star-item');
+    songStars.forEach(star => {
+        star.addEventListener('click', () => {
+            const val = parseInt(star.getAttribute('data-value'));
+            registrarCalificacionAmiga('song', val);
+        });
+        star.addEventListener('mouseover', () => {
+            const val = parseInt(star.getAttribute('data-value'));
+            songStars.forEach((s, idx) => {
+                if (idx < val) s.classList.add('hover-active');
+                else s.classList.remove('hover-active');
+            });
+        });
+        star.addEventListener('mouseout', () => {
+            songStars.forEach(s => s.classList.remove('hover-active'));
+        });
+    });
+
+    // --- 1.2 Interactividad de Estrellas de Arte ---
+    const artStars = document.querySelectorAll('#art-stars .star-item');
+    artStars.forEach(star => {
+        star.addEventListener('click', () => {
+            const val = parseInt(star.getAttribute('data-value'));
+            registrarCalificacionAmiga('art', val);
+        });
+        star.addEventListener('mouseover', () => {
+            const val = parseInt(star.getAttribute('data-value'));
+            artStars.forEach((s, idx) => {
+                if (idx < val) s.classList.add('hover-active');
+                else s.classList.remove('hover-active');
+            });
+        });
+        star.addEventListener('mouseout', () => {
+            artStars.forEach(s => s.classList.remove('hover-active'));
+        });
+    });
 
 
 
@@ -1148,7 +1368,14 @@ function abrirPanelControlCMS() {
             </button>
             <div id="cms-feedback" class="form-feedback" style="margin-bottom: 15px;"></div>
             
-            <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.15); margin: 20px 0;">
+            <hr style="border: 0; border-top: 1px dashed rgba(200, 169, 110, 0.15); margin: 20px 0;">
+            
+            <details id="cms-responses-details" style="margin-bottom: 15px; cursor: pointer;">
+                <summary style="font-size: 0.82rem; font-weight: 700; color: var(--primary-color);">📊 Respuestas y Valoraciones de Ivonne</summary>
+                <div id="cms-responses-container" style="margin-top: 10px; padding: 12px; background: rgba(20, 15, 9, 0.4); border: 1px solid rgba(200,169,110,0.15); border-radius: 4px; max-height: 35vh; overflow-y: auto;">
+                    Cargando respuestas... ⏳
+                </div>
+            </details>
             
             <details style="margin-bottom: 10px; cursor: pointer;">
                 <summary style="font-size: 0.82rem; font-weight: 700; color: var(--primary-color);">🔧 Credenciales de Supabase</summary>
@@ -1165,6 +1392,145 @@ function abrirPanelControlCMS() {
             </details>
         </div>
     `);
+
+    // Escuchar la apertura del reporte de Ivonne
+    const respDetails = document.getElementById('cms-responses-details');
+    if (respDetails) {
+        respDetails.addEventListener('toggle', (e) => {
+            if (respDetails.open) {
+                renderizarRespuestasAdmin();
+            }
+        });
+    }
+
+    async function renderizarRespuestasAdmin() {
+        const container = document.getElementById('cms-responses-container');
+        if (!container) return;
+
+        container.innerHTML = `<div style="text-align:center; padding:10px; font-size:0.8rem;">Cargando historial de respuestas... ⏳</div>`;
+
+        let responses = [];
+        if (supabaseClient) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('respuestas_amiga')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                if (!error && data) {
+                    responses = data;
+                }
+            } catch(e) {
+                console.error("Error al leer respuestas de Supabase:", e);
+            }
+        }
+
+        // Leer también locales por si hay
+        try {
+            const locales = JSON.parse(safeStorage.getItem('respuestas_amiga_local')) || [];
+            responses = responses.concat(locales);
+        } catch(e){}
+
+        if (responses.length === 0) {
+            container.innerHTML = `<div style="text-align:center; padding:15px; font-size:0.8rem; opacity:0.6;">Ivonne no ha interactuado ni calificado nada aún.</div>`;
+            return;
+        }
+
+        // Agrupar por día
+        const grouped = { 0:[], 1:[], 2:[], 3:[], 4:[], 5:[], 6:[] };
+        responses.forEach(resp => {
+            const d = parseInt(resp.dia_id);
+            if (!isNaN(d) && d >= 0 && d <= 6) {
+                grouped[d].push(resp);
+            }
+        });
+
+        const dayNames = {
+            0: "Lunes (Mantenimiento)",
+            1: "Martes (Gastronomía)",
+            2: "Miércoles (Escapismo)",
+            3: "Jueves (Cacao)",
+            4: "Viernes (Inocencia)",
+            5: "Sábado (Arte Pop)",
+            6: "Domingo (Descanso)"
+        };
+
+        let html = '<div style="display:flex; flex-direction:column; gap:12px; font-size:0.8rem; text-align:left;">';
+        
+        for (let i = 0; i <= 6; i++) {
+            const list = grouped[i];
+            
+            // Buscar última calificación de canción, obra y pintura en este día
+            let latestSong = null;
+            let latestArt = null;
+            let latestPaint = null;
+            let otherInteractions = [];
+
+            if (list) {
+                list.forEach(item => {
+                    const text = item.respuesta;
+                    if (text && typeof text === 'string') {
+                        if (text.startsWith('⭐ Calificación Canción:')) {
+                            if (!latestSong) latestSong = text.replace('⭐ Calificación Canción: ', '').trim();
+                        } else if (text.startsWith('⭐ Calificación Obra:')) {
+                            if (!latestArt) latestArt = text.replace('⭐ Calificación Obra: ', '').trim();
+                        } else if (text.startsWith('🎨 Generó Obra:')) {
+                            if (!latestPaint) {
+                                const parts = text.split(' | URL: ');
+                                const emotion = parts[0].replace('🎨 Generó Obra: ', '').trim();
+                                const url = parts[1] ? parts[1].trim() : '';
+                                latestPaint = { emotion, url };
+                            }
+                        } else {
+                            otherInteractions.push(item);
+                        }
+                    }
+                });
+            }
+
+            const hasActivity = latestSong || latestArt || latestPaint || otherInteractions.length > 0;
+
+            html += `
+                <div style="border-bottom: 1px dashed rgba(200, 169, 110, 0.15); padding-bottom: 10px;">
+                    <strong style="color: var(--primary-color); display:block; margin-bottom: 5px;">📅 ${dayNames[i]}</strong>
+            `;
+
+            if (!hasActivity) {
+                html += `<span style="opacity: 0.5; font-style: italic; padding-left: 8px;">Sin actividad registrada.</span>`;
+            } else {
+                html += `<div style="padding-left: 8px; display:flex; flex-direction:column; gap:4px;">`;
+                
+                if (latestSong) {
+                    html += `<div>🎵 <strong>Música:</strong> ${latestSong}</div>`;
+                }
+                if (latestArt) {
+                    html += `<div>🎨 <strong>Pintura Galería:</strong> ${latestArt}</div>`;
+                }
+                if (latestPaint) {
+                    html += `
+                        <div style="margin-top: 5px; display: flex; align-items: center; gap: 8px;">
+                            <div style="flex: 1;">🧠 <strong>Obra de Emoción:</strong> "${latestPaint.emotion}"</div>
+                            ${latestPaint.url ? `
+                                <img src="${latestPaint.url}" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid var(--primary-color); border-radius: 2px; cursor: pointer;" onclick="window.open('${latestPaint.url}', '_blank')" title="Ampliar pintura">
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                
+                if (otherInteractions.length > 0) {
+                    otherInteractions.forEach(oth => {
+                        html += `<div style="opacity: 0.85;">💬 ${oth.respuesta} <small style="opacity: 0.5;">(${new Date(oth.created_at || Date.now()).toLocaleDateString()})</small></div>`;
+                    });
+                }
+
+                html += `</div>`;
+            }
+
+            html += `</div>`;
+        }
+
+        html += '</div>';
+        container.innerHTML = html;
+    }
 
     async function cargarCamposEdicion(diaId) {
         const wrapper = document.getElementById('cms-fields-wrapper');
@@ -1204,7 +1570,7 @@ function abrirPanelControlCMS() {
                 <label style="font-size:0.75rem; font-weight:700;">Título de la Exposición:</label>
                 <input type="text" id="cms-exhibition-title" class="input-premium" style="margin-bottom:2px;" value="${data.exposicion || ''}" placeholder="Ej: El Arte del Buen Diente">
 
-                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🎟️ Tarjeta 1: Datos de Taquilla</h4>
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(200,169,110,0.15); padding-bottom: 4px;">🎟️ Tarjeta 1: Datos de Taquilla</h4>
                 
                 <label style="font-size:0.72rem; font-weight:700;">Curador:</label>
                 <input type="text" id="cms-curator" class="input-premium" style="margin-bottom:2px;" value="${data.curador || ''}">
@@ -1213,20 +1579,23 @@ function abrirPanelControlCMS() {
                 <input type="text" id="cms-time" class="input-premium" style="margin-bottom:2px;" value="${data.horario || ''}">
 
                 <label style="font-size:0.72rem; font-weight:700;">Ficha Técnica / Corta (Descripción):</label>
-                <textarea id="cms-ficha-corta" class="textarea-premium" style="min-height:60px; font-size:0.85rem; margin-bottom:2px;">${data.ficha_corta || ''}</textarea>
+                <textarea id="cms-ficha-corta" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;">${data.ficha_corta || ''}</textarea>
 
                 <label style="font-size:0.72rem; font-weight:700;">Reglas Humorísticas (Separadas por comas):</label>
                 <textarea id="cms-reglas-humor" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="Ej: Prohibido el estrés, Permitido comer chocolate">${data.reglas_humor || ''}</textarea>
 
-                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🎵 Tarjeta 2: Cuadro Musical</h4>
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(200,169,110,0.15); padding-bottom: 4px;">🎵 Tarjeta 2: Cuadro Musical</h4>
 
-                 <label style="font-size:0.75rem; font-weight:700;">Canción (Link Spotify / YouTube / URL de MP3 Subido):</label>
-                <input type="text" id="cms-cancion" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_url || ''}" placeholder="https://.../cancion.mp3 o link de Spotify/YT">
+                <label style="font-size:0.75rem; font-weight:700;">Canción (Link Spotify/YT o URL directa de MP3):</label>
+                <input type="text" id="cms-cancion" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_url || ''}" placeholder="https://.../cancion.mp3">
 
                 <label style="font-size:0.75rem; font-weight:700;">Descripción del Tema Musical:</label>
-                <textarea id="cms-cancion-desc" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="Explica de qué trata o la vibra de la canción...">${data.cancion_desc || ''}</textarea>
+                <textarea id="cms-cancion-desc" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;" placeholder="Explica de qué trata o la vibra de la canción...">${data.cancion_desc || ''}</textarea>
 
-                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🎨 Tarjeta 3: Galería de Arte</h4>
+                <label style="font-size:0.75rem; font-weight:700;">URL de la Carátula de la Canción (Imagen):</label>
+                <input type="text" id="cms-cancion-caratula" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_caratula || ''}" placeholder="https://.../imagen.png">
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(200,169,110,0.15); padding-bottom: 4px;">🎨 Tarjeta 3: Galería de Arte</h4>
 
                 <label style="font-size:0.75rem; font-weight:700;">Título del Cuadro:</label>
                 <input type="text" id="cms-art-title" class="input-premium" style="margin-bottom:2px;" value="${data.titulo_cuadro || ''}" placeholder="Ej: El Banquete Nocturno">
@@ -1235,14 +1604,32 @@ function abrirPanelControlCMS() {
                 <input type="text" id="cms-art-artist" class="input-premium" style="margin-bottom:2px;" value="${data.artista_cuadro || ''}" placeholder="Ej: Colección Ivonne">
 
                 <label style="font-size:0.75rem; font-weight:700;">Descripción / Concepto del Cuadro:</label>
-                <textarea id="cms-cuadro-desc" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="Descripción poética o crítica del cuadro...">${data.cuadro_desc || ''}</textarea>
+                <textarea id="cms-cuadro-desc" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;" placeholder="Descripción poética o crítica del cuadro...">${data.cuadro_desc || ''}</textarea>
 
-                <label style="font-size:0.75rem; font-weight:700;">Imagen de la Obra (Link Directo de Imagen Subida o Prompt de IA):</label>
-                <textarea id="cms-art-prompt" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="https://.../cuadro.png o descripción del prompt para IA en inglés...">${data.prompt_ia || ''}</textarea>
+                <label style="font-size:0.75rem; font-weight:700;">Imagen de la Obra (Link de Imagen o Prompt para IA):</label>
+                <textarea id="cms-art-prompt" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;" placeholder="https://.../cuadro.png o prompt en inglés">${data.prompt_ia || ''}</textarea>
 
-                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🧠 Tarjeta 4: Lienzo de Emociones</h4>
-                <label style="font-size:0.75rem; font-weight:700;">Prompt Base del Generador IA (Usa [EMOTION] donde deba ir la respuesta):</label>
-                <textarea id="cms-prompt-base-ia" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;">${data.prompt_base_ia || ''}</textarea>
+                <label style="font-size:0.75rem; font-weight:700;">Curiosidad o Trivia del Cuadro:</label>
+                <textarea id="cms-curiosidad-cuadro" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;" placeholder="¿Sabías que esta obra...?">${data.curiosidad_cuadro || ''}</textarea>
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(200,169,110,0.15); padding-bottom: 4px;">📖 Tarjeta 4: Obra Literaria (Poema)</h4>
+
+                <label style="font-size:0.75rem; font-weight:700;">Frase o Poema del Día:</label>
+                <textarea id="cms-poema" class="textarea-premium" style="min-height:55px; font-size:0.85rem; margin-bottom:2px;" placeholder="Escribe el poema o pensamiento...">${data.poema || ''}</textarea>
+
+                <label style="font-size:0.75rem; font-weight:700;">Autor de la Frase / Poema:</label>
+                <input type="text" id="cms-autor-poema" class="input-premium" style="margin-bottom:2px;" value="${data.autor_poema || ''}" placeholder="Ej: Pablo Neruda">
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(200,169,110,0.15); padding-bottom: 4px;">🧠 Tarjeta 5: Lienzo de Emociones</h4>
+
+                <label style="font-size:0.75rem; font-weight:700;">Explicación de la Técnica de Pintura:</label>
+                <textarea id="cms-tecnica-pintura" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;" placeholder="Ej: Acuarela vintage con suaves tonos pastel...">${data.tecnica_pintura || ''}</textarea>
+
+                <label style="font-size:0.75rem; font-weight:700;">Pregunta de Emoción:</label>
+                <input type="text" id="cms-trivia-question" class="input-premium" style="margin-bottom:2px;" value="${data.pregunta_trivia || '¿Cómo te sientes el día de hoy?'}" placeholder="¿Cómo te sientes el día de hoy?">
+
+                <label style="font-size:0.75rem; font-weight:700;">Prompt Base de Generador IA (Usa [EMOTION]):</label>
+                <textarea id="cms-prompt-base-ia" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;">${data.prompt_base_ia || ''}</textarea>
             </div>
         `;
     }
@@ -1269,12 +1656,18 @@ function abrirPanelControlCMS() {
 
         const cancion = document.getElementById('cms-cancion').value.trim();
         const cancionDesc = document.getElementById('cms-cancion-desc').value.trim();
+        const cancionCaratula = document.getElementById('cms-cancion-caratula').value.trim();
 
         const artTitle = document.getElementById('cms-art-title').value.trim();
         const artArtist = document.getElementById('cms-art-artist').value.trim();
         const cuadroDesc = document.getElementById('cms-cuadro-desc').value.trim();
         const artPrompt = document.getElementById('cms-art-prompt').value.trim();
+        const curiosidadCuadro = document.getElementById('cms-curiosidad-cuadro').value.trim();
 
+        const poema = document.getElementById('cms-poema').value.trim();
+        const autorPoema = document.getElementById('cms-autor-poema').value.trim();
+
+        const tecnicaPintura = document.getElementById('cms-tecnica-pintura').value.trim();
         const triviaQuestion = document.getElementById('cms-trivia-question').value.trim();
         const promptBaseIa = document.getElementById('cms-prompt-base-ia').value.trim();
 
@@ -1299,10 +1692,15 @@ function abrirPanelControlCMS() {
             reglas_humor: reglasHumor,
             cancion_url: cancion,
             cancion_desc: cancionDesc,
+            cancion_caratula: cancionCaratula,
             titulo_cuadro: artTitle,
             artista_cuadro: artArtist,
             cuadro_desc: cuadroDesc,
             prompt_ia: artPrompt,
+            curiosidad_cuadro: curiosidadCuadro,
+            poema: poema,
+            autor_poema: autorPoema,
+            tecnica_pintura: tecnicaPintura,
             pregunta_trivia: triviaQuestion,
             prompt_base_ia: promptBaseIa
         };
@@ -1326,10 +1724,15 @@ function abrirPanelControlCMS() {
                             reglas_humor: reglasHumor,
                             cancion_url: cancion,
                             cancion_desc: cancionDesc,
+                            cancion_caratula: cancionCaratula,
                             titulo_cuadro: artTitle,
                             artista_cuadro: artArtist,
                             cuadro_desc: cuadroDesc,
                             prompt_ia: artPrompt,
+                            curiosidad_cuadro: curiosidadCuadro,
+                            poema: poema,
+                            autor_poema: autorPoema,
+                            tecnica_pintura: tecnicaPintura,
                             pregunta_trivia: triviaQuestion,
                             prompt_base_ia: promptBaseIa
                         }
