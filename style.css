@@ -1,82 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-/* --- Temas Dinámicos de Salas de Museo --- */
+/* --- Temas Dinámicos de Salas de Museo (Paleta Vintage / Clásico) --- */
+
+/* Variables Globales Vintage */
+:root {
+    --font-title: 'Playfair Display', Georgia, serif;
+    --font-body: 'Lora', 'Times New Roman', serif;
+    --ornament-color: rgba(200, 169, 110, 0.4);
+    --card-bg-vintage: rgba(28, 22, 15, 0.88);
+    --card-border-vintage: rgba(200, 169, 110, 0.25);
+    --cream-text: #EDE8DC;
+}
 
 /* Martes - Tema 1: Galería Gastronómica (Comida) */
 .theme-comida {
-    --bg-gradient: radial-gradient(circle at center, #261618 0%, #0d0607 100%);
-    --primary-color: #dfb76c; /* Dorado elegante */
-    --primary-hover: #cfa358;
-    --accent-color: #b83a4b; /* Vino/Burdeos */
-    --text-color: #f3ede2;
-    --card-shadow: rgba(223, 183, 108, 0.1);
-    --petal-color: rgba(223, 183, 108, 0.15); /* Polvo de oro */
+    --bg-gradient: radial-gradient(ellipse at top, #1C1009 0%, #100D07 60%, #080503 100%);
+    --primary-color: #C8A96E; /* Oro envejecido */
+    --primary-hover: #B8966A;
+    --accent-color: #8B3A3A; /* Burdeos cuero */
+    --text-color: #EDE8DC;   /* Crema cálida */
+    --card-shadow: rgba(200, 169, 110, 0.12);
+    --petal-color: rgba(200, 169, 110, 0.12);
 }
 
 /* Miércoles - Tema 2: Pabellón del Escapismo (Viajes) */
 .theme-viaje {
-    --bg-gradient: radial-gradient(circle at center, #111d2b 0%, #060b12 100%);
-    --primary-color: #d2b48c; /* Dorado arena */
-    --primary-hover: #c4a47a;
-    --accent-color: #558261; /* Verde viajes */
-    --text-color: #f2ebe1;
-    --card-shadow: rgba(210, 180, 140, 0.12);
-    --petal-color: rgba(210, 180, 140, 0.15);
+    --bg-gradient: radial-gradient(ellipse at top, #0E1518 0%, #080D10 60%, #040608 100%);
+    --primary-color: #B8A98C; /* Dorado arena desgastado */
+    --primary-hover: #A8987C;
+    --accent-color: #3D5C45; /* Verde musgo antiguo */
+    --text-color: #E8E2D8;
+    --card-shadow: rgba(184, 169, 140, 0.12);
+    --petal-color: rgba(184, 169, 140, 0.12);
 }
 
 /* Jueves - Tema 3: Salón del Cacao (Chocolate) */
 .theme-chocolate {
-    --bg-gradient: radial-gradient(circle at center, #261408 0%, #0f0703 100%);
-    --primary-color: #ff9f1c; /* Naranja/Ámbar neón */
-    --primary-hover: #e08a10;
-    --accent-color: #e26d5c;
-    --text-color: #fff8f2;
-    --card-shadow: rgba(255, 159, 28, 0.18);
-    --petal-color: rgba(255, 159, 28, 0.12);
+    --bg-gradient: radial-gradient(ellipse at top, #180D05 0%, #100803 60%, #080401 100%);
+    --primary-color: #D4894A; /* Ámbar antiguo */
+    --primary-hover: #C07A40;
+    --accent-color: #8B4513; /* Marrón sillín */
+    --text-color: #F5EFE6;
+    --card-shadow: rgba(212, 137, 74, 0.15);
+    --petal-color: rgba(212, 137, 74, 0.12);
 }
 
 /* Viernes - Tema 4: Sala de la Inocencia (Niños) */
 .theme-inocencia {
-    --bg-gradient: radial-gradient(circle at center, #1f2023 0%, #0e0f10 100%);
-    --primary-color: #cbd5e1; /* Plata */
-    --primary-hover: #94a3b8;
-    --accent-color: #64748b;
-    --text-color: #f8fafc;
-    --card-shadow: rgba(203, 213, 225, 0.08);
-    --petal-color: rgba(203, 213, 225, 0.1);
+    --bg-gradient: radial-gradient(ellipse at top, #141214 0%, #0C0A0C 60%, #060506 100%);
+    --primary-color: #C4B8A4; /* Marfil envejecido */
+    --primary-hover: #B4A890;
+    --accent-color: #7A6B5A; /* Sepia tenue */
+    --text-color: #EAE5DC;
+    --card-shadow: rgba(196, 184, 164, 0.1);
+    --petal-color: rgba(196, 184, 164, 0.1);
 }
 
 /* Sábado - Tema 5: Patio de Arte Pop (Gatos) */
 .theme-pop {
-    --bg-gradient: radial-gradient(circle at center, #2e1127 0%, #12040f 100%);
-    --primary-color: #ff007f; /* Fucsia pop */
-    --primary-hover: #db006d;
-    --accent-color: #00f0ff; /* Cian pop */
-    --text-color: #fff5fa;
-    --card-shadow: rgba(255, 0, 127, 0.18);
-    --petal-color: rgba(255, 0, 127, 0.15);
+    --bg-gradient: radial-gradient(ellipse at top, #160A14 0%, #0E060C 60%, #080408 100%);
+    --primary-color: #B87A9E; /* Rosa empolvado antiguo */
+    --primary-hover: #A86A8E;
+    --accent-color: #4A6B7A; /* Azul pizarra */
+    --text-color: #EDE5E8;
+    --card-shadow: rgba(184, 122, 158, 0.15);
+    --petal-color: rgba(184, 122, 158, 0.12);
 }
 
 /* Domingo - Tema 6: Sala de Descanso Extendido (Siesta) */
 .theme-descanso {
-    --bg-gradient: radial-gradient(circle at center, #2e2013 0%, #140e08 100%);
-    --primary-color: #ffb703; /* Amarillo atardecer */
-    --primary-hover: #fb8500;
-    --accent-color: #fb7185;
-    --text-color: #fffaee;
-    --card-shadow: rgba(255, 183, 3, 0.12);
-    --petal-color: rgba(255, 183, 3, 0.15);
+    --bg-gradient: radial-gradient(ellipse at top, #1C1508 0%, #120E05 60%, #090704 100%);
+    --primary-color: #C8A84B; /* Ámbar / Miel oscura */
+    --primary-hover: #B8983B;
+    --accent-color: #8B6B3A; /* Cobre antiguo */
+    --text-color: #F0E8D8;
+    --card-shadow: rgba(200, 168, 75, 0.12);
+    --petal-color: rgba(200, 168, 75, 0.12);
 }
 
 /* Lunes - Tema 0: Cerrado por Mantenimiento */
 .theme-cerrado {
-    --bg-gradient: radial-gradient(circle at center, #091a2e 0%, #030a12 100%);
-    --primary-color: #00b4d8; /* Azul plano */
-    --primary-hover: #0096c7;
-    --accent-color: #90e0ef;
-    --text-color: #eaf5ff;
-    --card-shadow: rgba(0, 180, 216, 0.15);
-    --petal-color: rgba(0, 180, 216, 0.12);
+    --bg-gradient: radial-gradient(ellipse at top, #0A1018 0%, #060A10 60%, #030508 100%);
+    --primary-color: #7A9CB8; /* Azul tinta antigua */
+    --primary-hover: #6A8CA8;
+    --accent-color: #4A6B8A;
+    --text-color: #E0E8EE;
+    --card-shadow: rgba(122, 156, 184, 0.12);
+    --petal-color: rgba(122, 156, 184, 0.1);
 }
 
 /* --- Reset y Estilos Globales --- */
@@ -87,7 +97,7 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--text-color);
     background: var(--bg-gradient);
     min-height: 100vh;
@@ -140,15 +150,15 @@ body {
     }
 }
 
-/* --- Tarjeta Glassmorphism Principal --- */
+/* --- Tarjeta Principal Estilo Catálogo Museo --- */
 .glass-card {
-    background: rgba(18, 18, 23, 0.68);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.7), 
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
-    border-radius: 32px;
+    background: rgba(20, 15, 9, 0.90);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(200, 169, 110, 0.18);
+    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.8), 
+                inset 0 1px 0 0 rgba(200, 169, 110, 0.06);
+    border-radius: 8px;
     padding: 35px 30px;
     width: 100%;
     max-width: 550px;
@@ -168,23 +178,24 @@ body {
 
 .header-day-badge {
     display: inline-block;
-    padding: 6px 14px;
-    border-radius: 99px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.85rem;
-    font-weight: 800;
+    padding: 5px 18px;
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    font-family: var(--font-title);
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-style: italic;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: var(--primary-color);
     margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1, h2, h3, .poetic-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-family: var(--font-title);
+    font-weight: 700;
+    letter-spacing: 0.2px;
     line-height: 1.25;
 }
 
@@ -210,13 +221,13 @@ h1 {
 .museum-frame {
     width: 100%;
     height: 100%;
-    background: #0f0f12;
-    border: 14px solid #1a1a1f; /* Marco formal de madera negra */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 
-                inset 0 0 15px rgba(0, 0, 0, 0.95),
-                0 0 0 1px rgba(255, 255, 255, 0.05);
+    background: #0c0a07;
+    border: 14px solid #2a1f12;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+                inset 0 0 20px rgba(0, 0, 0, 0.98),
+                0 0 0 1px rgba(200, 169, 110, 0.08);
     position: relative;
-    border-radius: 4px;
+    border-radius: 3px;
     cursor: pointer;
     overflow: hidden;
     display: flex;
@@ -401,41 +412,44 @@ h1 {
     }
 }
 
-/* --- Botones Premium --- */
+/* --- Botones Estilo Sello / Placa Clásica --- */
 .btn {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
-    font-size: 0.92rem;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 14px;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 11px 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
     cursor: pointer;
     background: var(--primary-color);
-    color: #ffffff;
-    box-shadow: 0 4px 12px var(--card-shadow);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #12100A;
+    box-shadow: 0 3px 10px var(--card-shadow), inset 0 1px 0 rgba(255,255,255,0.12);
+    transition: all 0.25s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
     text-decoration: none;
     width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
 .btn:hover {
     background: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px var(--card-shadow);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--card-shadow);
 }
 
 .btn:active {
     transform: translateY(0px);
+    box-shadow: 0 2px 6px var(--card-shadow);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.85);
+    background: transparent;
     color: var(--primary-color);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--primary-color);
 }
 
 .btn-secondary:hover {
@@ -545,11 +559,12 @@ h1 {
 }
 
 .modal-content {
-    background: rgba(22, 22, 28, 0.95);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
-    border-radius: 26px;
+    background: rgba(20, 14, 9, 0.97);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 169, 110, 0.2);
+    border-top: 2px solid var(--primary-color);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
     width: 100%;
     max-width: 480px;
     padding: 30px;
@@ -700,13 +715,13 @@ h1 {
 .input-premium {
     width: 100%;
     padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
+    border: 1px solid rgba(200, 169, 110, 0.2);
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text-color);
     margin-bottom: 12px;
     margin-top: 4px;
-    font-family: inherit;
+    font-family: var(--font-body);
     font-size: 0.9rem;
     transition: all 0.3s ease;
 }
@@ -1198,42 +1213,52 @@ h1 {
 
 .ticket-brand-badge {
     display: inline-block;
-    padding: 4px 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 99px;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    padding: 4px 14px;
+    background: transparent;
+    border: 1px solid rgba(200, 169, 110, 0.3);
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 4px;
     color: var(--primary-color);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    opacity: 0.8;
 }
 
 .ticket-brand-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-family: var(--font-title);
+    font-size: 2.4rem;
     font-weight: 900;
+    font-style: italic;
     color: var(--primary-color);
+    letter-spacing: -0.5px;
 }
 
 .ticket-brand-subtitle {
-    font-size: 0.8rem;
-    opacity: 0.6;
-    letter-spacing: 3px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    opacity: 0.5;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 .ticket-manifesto-intro {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    line-height: 1.65;
     opacity: 0.85;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: center;
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+    font-style: italic;
+    border-top: 1px solid rgba(200,169,110,0.12);
+    border-bottom: 1px solid rgba(200,169,110,0.12);
+    padding: 14px 0;
 }
 
 /* Grilla de los cupones del boleto (Un día por fila) */
@@ -1249,18 +1274,18 @@ h1 {
     max-width: 580px; /* Boleto un poco más grande de ancho */
 }
 
-/* Tarjeta de Día del Boleto */
+/* Tarjeta de Día del Boleto — Estilo Cupón / Pase de Museo */
 .ticket-day-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px dashed rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    padding: 18px 24px; /* Más padding para hacerlo más grande */
+    background: rgba(200, 169, 110, 0.03);
+    border: 1px dashed rgba(200, 169, 110, 0.2);
+    border-radius: 4px;
+    padding: 16px 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease;
     overflow: hidden;
 }
 
@@ -1405,36 +1430,49 @@ h1 {
     display: none;
 }
 
-/* Tarjeta individual del Carrusel */
+/* Tarjeta individual del Carrusel — Ficha de Catálogo de Museo */
 .museum-slide-card {
     flex: 0 0 100%;
     scroll-snap-align: center;
     box-sizing: border-box;
     max-height: 75vh;
     overflow-y: auto;
-    padding: 25px 22px;
+    padding: 28px 24px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(18, 18, 23, 0.4) !important;
-    border-radius: 24px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(200, 169, 110, 0.2);
+    border-top: 3px solid var(--primary-color);
+    background: rgba(22, 16, 10, 0.92) !important;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(200,169,110,0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 /* Título de cada tarjeta de carrusel */
 .slide-card-title {
-    font-size: 1.25rem;
-    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-style: italic;
     color: var(--primary-color);
     margin-top: 5px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    margin-bottom: 6px;
     letter-spacing: 0.5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 8px;
     text-align: center;
+}
+
+/* Ornamento separador debajo de cada título de sala */
+.slide-card-title::after {
+    content: '━━━◆━━━';
+    display: block;
+    color: var(--primary-color);
+    opacity: 0.4;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-style: normal;
 }
 
 /* Puntos Indicadores del Slider (Dots) */
@@ -1448,18 +1486,21 @@ h1 {
 }
 
 .slider-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
+    width: 6px;
+    height: 6px;
+    border-radius: 0;
+    background: rgba(200, 169, 110, 0.2);
+    border: 1px solid rgba(200, 169, 110, 0.3);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease;
+    transform: rotate(45deg);
 }
 
 .slider-dot.active {
     background: var(--primary-color);
-    box-shadow: 0 0 8px var(--primary-color);
-    transform: scale(1.35);
+    border-color: var(--primary-color);
+    transform: rotate(45deg) scale(1.4);
+    box-shadow: 0 0 6px var(--primary-color);
 }
 
 
