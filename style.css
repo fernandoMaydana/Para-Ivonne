@@ -1611,10 +1611,13 @@ select.input-premium option {
     transition: color 0.2s ease, transform 0.15s ease;
     display: inline-block;
 }
-.stars-row .star-item:hover,
-.stars-row .star-item.hover-active {
+.stars-row:not(.rated) .star-item:hover,
+.stars-row:not(.rated) .star-item.hover-active {
     color: var(--primary-color) !important;
     transform: scale(1.2);
+}
+.stars-row.rated .star-item {
+    cursor: default;
 }
 .stars-row .star-item.selected {
     color: var(--primary-color) !important;

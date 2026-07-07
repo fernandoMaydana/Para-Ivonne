@@ -853,6 +853,15 @@ function renderizarEstrellas(tipo, valor) {
         }
     });
 
+    const parentRow = document.getElementById(tipo === 'song' ? 'song-stars' : 'art-stars');
+    if (parentRow) {
+        if (valor > 0) {
+            parentRow.classList.add('rated');
+        } else {
+            parentRow.classList.remove('rated');
+        }
+    }
+
     if (feedback) {
         if (valor > 0) {
             feedback.textContent = `¡Calificado con ${valor}/5 estrellas! ⭐`;
@@ -864,6 +873,15 @@ function renderizarEstrellas(tipo, valor) {
 
 async function registrarCalificacionAmiga(tipo, valor) {
     const key = `museum_day_${activeDay}_rating_${tipo}`;
+    
+    // Validar si ya calificó anteriormente
+    const yaCalifico = (tipo === 'song' && window.currentUserRatings.song > 0) ||
+                        (tipo === 'art' && window.currentUserRatings.art > 0);
+    if (yaCalifico) {
+        alert("Ya has calificado esta obra anteriormente. ¡Tu valoración inicial ya está registrada en el catálogo!");
+        return;
+    }
+    
     safeStorage.setItem(key, valor);
     
     if (tipo === 'song') {
@@ -879,9 +897,10 @@ async function registrarCalificacionAmiga(tipo, valor) {
     
     try {
         if (supabaseClient) {
-            await supabaseClient
+            const { error } = await supabaseClient
                 .from('respuestas_amiga')
                 .insert([{ dia_id: activeDay, respuesta: textRespuesta }]);
+            if (error) throw error;
         } else {
             guardarRespuestaLocal(activeDay, textRespuesta);
         }
@@ -1280,9 +1299,10 @@ function configurarEventos() {
                 const formattedRes = `🎨 Generó Obra: ${emotionText} | URL: ${imageUrl}`;
                 try {
                     if (supabaseClient) {
-                        await supabaseClient
+                        const { error } = await supabaseClient
                             .from('respuestas_amiga')
                             .insert([{ dia_id: activeDay, respuesta: formattedRes }]);
+                        if (error) throw error;
                     } else {
                         guardarRespuestaLocal(activeDay, formattedRes);
                     }
@@ -1639,14 +1659,20 @@ function abrirPanelControlCMS() {
                 list.forEach(item => {
                     const text = item.respuesta;
                     if (text && typeof text === 'string') {
-                        if (text.startsWith('⭐ Calificación Canción:')) {
-                            if (!latestSong) latestSong = text.replace('⭐ Calificación Canción: ', '').trim();
-                        } else if (text.startsWith('⭐ Calificación Obra:')) {
-                            if (!latestArt) latestArt = text.replace('⭐ Calificación Obra: ', '').trim();
-                        } else if (text.startsWith('🎨 Generó Obra:')) {
+                        if (text.includes('Calificación Canción') || text.includes('Canción:')) {
+                            if (!latestSong) {
+                                const valMatch = text.match(/(\d+\/5)/);
+                                latestSong = valMatch ? valMatch[1] : text;
+                            }
+                        } else if (text.includes('Calificación Obra') || text.includes('Obra:')) {
+                            if (!latestArt) {
+                                const valMatch = text.match(/(\d+\/5)/);
+                                latestArt = valMatch ? valMatch[1] : text;
+                            }
+                        } else if (text.includes('Generó Obra:') || text.includes('🎨')) {
                             if (!latestPaint) {
                                 const parts = text.split(' | URL: ');
-                                const emotion = parts[0].replace('🎨 Generó Obra: ', '').trim();
+                                const emotion = parts[0].replace('🎨 Generó Obra: ', '').replace('Generó Obra: ', '').trim();
                                 const url = parts[1] ? parts[1].trim() : '';
                                 latestPaint = { emotion, url };
                             }
@@ -1670,15 +1696,15 @@ function abrirPanelControlCMS() {
                 html += `<div style="padding-left: 8px; display:flex; flex-direction:column; gap:4px;">`;
                 
                 if (latestSong) {
-                    html += `<div>🎵 <strong>Música:</strong> ${latestSong}</div>`;
+                    html += `<div>🎵 <strong>Calificación de la Música:</strong> ${latestSong}</div>`;
                 }
                 if (latestArt) {
-                    html += `<div>🎨 <strong>Pintura Galería:</strong> ${latestArt}</div>`;
+                    html += `<div>🎨 <strong>Calificación del Cuadro de Galería:</strong> ${latestArt}</div>`;
                 }
                 if (latestPaint) {
                     html += `
                         <div style="margin-top: 5px; display: flex; align-items: center; gap: 8px;">
-                            <div style="flex: 1;">🧠 <strong>Obra de Emoción:</strong> "${latestPaint.emotion}"</div>
+                            <div style="flex: 1;">🧠 <strong>Pintura de Emoción:</strong> "${latestPaint.emotion}"</div>
                             ${latestPaint.url ? `
                                 <img src="${latestPaint.url}" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid var(--primary-color); border-radius: 2px; cursor: pointer;" onclick="window.open('${latestPaint.url}', '_blank')" title="Ampliar pintura">
                             ` : ''}
