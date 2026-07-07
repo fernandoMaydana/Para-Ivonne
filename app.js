@@ -1,44 +1,116 @@
-// --- CONTENIDO DE RESPALDO LOCAL (Por si falla Supabase o no está configurado) ---
+// --- CONTENIDO DE RESPALDO LOCAL (Vacío y Neutro por Defecto) ---
 const FALLBACK_CONTENT = {
+    0: {
+        nombre_sala: 'Estudio del Curador',
+        exposicion: 'Sala en Mantenimiento 🛠️',
+        curador: 'Curador',
+        horario: 'Lunes Cerrado',
+        ficha_corta: 'La sala de mantenimiento está cerrada hoy.',
+        reglas_humor: 'Prohibido el ingreso con estrés acumulado, Permitido comer chocolates virtuales',
+        cancion_url: '',
+        cancion_desc: 'Una melodía suave para iniciar la semana.',
+        titulo_cuadro: 'Lienzo en Blanco',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una representación artística de la tranquilidad y el reinicio.',
+        prompt_ia: 'blueprint architectural plan of a classic museum building layout, grid lines, aesthetic clean blue color scheme, technical drawing style',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
+    },
     1: {
-        nombre_flor: 'Girasol',
-        buenos_dias: '¡Buenos días, estrella! Hoy empezamos una semana mágica. Que este primer día esté lleno de luz, buena vibra y mucha energía para comerte el mundo. Eres increíble.',
-        poema: 'Girasol que buscas la luz del día, enséñanos a mirar siempre hacia adelante, a encontrar el calor en cada esquina y a florecer sin importar la tormenta.',
-        dato_curioso: 'Los girasoles jóvenes realizan un fenómeno llamado heliotropismo: siguen el movimiento del sol de este a oeste durante el día, y por la noche vuelven a mirar al este esperando el amanecer.',
-        pregunta_dia: '¿Qué es lo primero que te hizo sonreír hoy o qué te da esa chispa de energía por las mañanas?',
-        cancion_url: 'https://open.spotify.com/track/4a7N68qY0HjL1j5W7vC1tW' // Latin Mafia - Flores (Real Verificado)
+        nombre_sala: 'Sala 1',
+        exposicion: 'Exposición por Definir',
+        curador: 'Curador',
+        horario: 'Por definir',
+        ficha_corta: 'Ficha técnica de la sala. Escribe una descripción aquí.',
+        reglas_humor: 'Prohibido pensar en el trabajo, Permitido suspirar de alegría',
+        cancion_url: '',
+        cancion_desc: 'Tema musical del día.',
+        titulo_cuadro: 'Obra por Definir',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
+        prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
     2: {
-        nombre_flor: 'Tulipán',
-        buenos_dias: '¡Hola de nuevo! Segundo día y la rutina empieza a tomar fuerza. Recuerda que no necesitas hacerlo todo perfecto, solo dar lo mejor de ti paso a paso. ¡Tú puedes!',
-        poema: 'Tulipanes que despiertan con la brisa fresca, elegantes y sencillos, nos recuerdan que la belleza no grita, se siente en silencio y crece a su propio ritmo.',
-        dato_curioso: 'En el siglo XVII en los Países Bajos, los tulipanes eran tan valiosos que sus bulbos se vendían por más que el precio de una casa promedio, un fenómeno conocido como la "Tulipomanía".',
-        pregunta_dia: 'Si pudieras teletransportarte ahora mismo a cualquier lugar del mundo para tomar un café/té, ¿dónde sería?',
-        cancion_url: 'https://open.spotify.com/track/6Qc8s9k83zV2u2nZ9O4x4U' // Latin Mafia - Julieta (Real Verificado)
+        nombre_sala: 'Sala 2',
+        exposicion: 'Exposición por Definir',
+        curador: 'Curador',
+        horario: 'Por definir',
+        ficha_corta: 'Ficha técnica de la sala. Escribe una descripción aquí.',
+        reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
+        cancion_url: '',
+        cancion_desc: 'Tema musical del día.',
+        titulo_cuadro: 'Obra por Definir',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
+        prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
     3: {
-        nombre_flor: 'Orquídea',
-        buenos_dias: '¡Mitad de semana! Ya recorrimos la mitad del camino. Tómate un momento para respirar profundo, admirar lo lejos que has llegado y disfrutar del misterio de este día.',
-        poema: 'Orquídea misteriosa de pétalos infinitos, guardas secretos de tierras lejanas, nos enseñas que la paciencia esculpe las formas más extraordinarias del alma.',
-        dato_curioso: 'Las orquídeas tienen una de las familias de plantas más grandes del planeta, con más de 25,000 especies documentadas, y sus semillas son tan diminutas que no tienen endospermo, necesitando hongos específicos para germinar.',
-        pregunta_dia: '¿Cuál es un misterio o un dato curioso que te encante y que casi nadie sepa?',
-        cancion_url: 'https://open.spotify.com/track/4j61qQ60rR1EaV6L7y5O8S' // Latin Mafia - Sal Rosa (Real Verificado)
+        nombre_sala: 'Sala 3',
+        exposicion: 'Exposición por Definir',
+        curador: 'Curador',
+        horario: 'Por definir',
+        ficha_corta: 'Ficha técnica de la sala. Escribe una descripción aquí.',
+        reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
+        cancion_url: '',
+        cancion_desc: 'Tema musical del día.',
+        titulo_cuadro: 'Obra por Definir',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
+        prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
     4: {
-        nombre_flor: 'Rosa',
-        buenos_dias: '¡Casi viernes! Hoy toca un poquito de romance y apapacho para el alma. Espero que sientas todo el cariño y la admiración que hay detrás de este espacio. Eres luz.',
-        poema: 'Rosa silvestre que perfumas el viento, con espinas que cuizan tu delicado andar, eres el recordatorio eterno de que amar y ser amado es el mayor arte.',
-        dato_curioso: 'Las rosas son una de las flores más antiguas del mundo. Se han encontrado fósiles de rosas que datan de hace más de 35 millones de años, y su fragancia es ampliamente usada para reducir el estrés.',
-        pregunta_dia: 'Si tuvieras que describir tu día perfecto con tres palabras, ¿cuáles elegirías?',
-        cancion_url: 'https://open.spotify.com/track/4P4Lg7Ld5lQ47oW7X5lT0m' // Latin Mafia - Mala Buena Suerte (Real Verificado)
+        nombre_sala: 'Sala 4',
+        exposicion: 'Exposición por Definir',
+        curador: 'Curador',
+        horario: 'Por definir',
+        ficha_corta: 'Ficha técnica de la sala. Escribe una descripción aquí.',
+        reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
+        cancion_url: '',
+        cancion_desc: 'Tema musical del día.',
+        titulo_cuadro: 'Obra por Definir',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
+        prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     },
     5: {
-        nombre_flor: 'Petunia',
-        buenos_dias: '¡Llegó el viernes! Cerramos la semana con broche de oro. Has demostrado resiliencia y fuerza todos estos días. Hoy toca celebrar cada pequeña victoria y descansar.',
-        poema: 'Petunia valiente que decoras los balcones, resistes el calor y sonríes ante la tarde, eres el reflejo de la victoria dulce tras el esfuerzo constante.',
-        dato_curioso: 'Las petunias pertenecen a la familia de las solanáceas, lo que significa que están cercanamente emparentadas con los tomates, las patatas y las berenjenas, a pesar de su aspecto tan floral y delicado.',
-        pregunta_dia: '¿Qué plan o pequeña recompensa tienes pensado darte este fin de semana para celebrar tu esfuerzo?',
-        cancion_url: 'https://open.spotify.com/track/3T6oYm0O2lO056m15822z6' // Latin Mafia & Humbe - Patadas de Ahogado (Real Verificado)
+        nombre_sala: 'Sala 5',
+        exposicion: 'Exposición por Definir',
+        curador: 'Curador',
+        horario: 'Por definir',
+        ficha_corta: 'Ficha técnica de la sala. Escribe una descripción aquí.',
+        reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
+        cancion_url: '',
+        cancion_desc: 'Tema musical del día.',
+        titulo_cuadro: 'Obra por Definir',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
+        prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
+    },
+    6: {
+        nombre_sala: 'Sala 6',
+        exposicion: 'Exposición por Definir',
+        curador: 'Curador',
+        horario: 'Por definir',
+        ficha_corta: 'Ficha técnica de la sala. Escribe una descripción aquí.',
+        reglas_humor: 'Prohibido el aburrimiento, Obligatorio sonreír',
+        cancion_url: '',
+        cancion_desc: 'Tema musical del día.',
+        titulo_cuadro: 'Obra por Definir',
+        artista_cuadro: 'Colección Ivonne',
+        cuadro_desc: 'Una hermosa obra para contemplar en silencio.',
+        prompt_ia: 'a blank golden picture frame on a dark museum wall, oil painting',
+        pregunta_trivia: '¿Cómo te sientes el día de hoy?',
+        prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
     }
 };
 
@@ -77,15 +149,223 @@ let supabaseClient = null;
 let activeDay = 1;
 let currentData = null;
 
+let ADMIN_PASSWORD = "museo";
+let isAdmin = sessionStorage.getItem('is_museum_admin') === 'true';
+
+function solicitarPasswordAdmin() {
+    if (isAdmin) {
+        alert("Ya estás en Modo Curador/Admin 🏛️");
+        return;
+    }
+
+    const pass = prompt("Por favor, ingresa la clave de Curador para acceder:");
+    if (pass === ADMIN_PASSWORD) {
+        isAdmin = true;
+        sessionStorage.setItem('is_museum_admin', 'true');
+        alert("¡Acceso concedido! Modo Curador activado. 🏛️");
+        
+        // Activar visibilidad del CMS
+        const btnCMS = document.getElementById('setup-trigger-btn');
+        if (btnCMS) btnCMS.style.display = 'block';
+        
+        // Renderizar el boleto nuevamente para reflejar el estado desbloqueado
+        renderizarBoleto();
+    } else if (pass !== null) {
+        alert("❌ Contraseña incorrecta.");
+    }
+}
+
+function actualizarDots(idx) {
+    const dots = document.querySelectorAll('.slider-dot');
+    dots.forEach((dot, i) => {
+        if (i === idx) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// --- NUEVAS FUNCIONES AUXILIARES: BOLETO Y MODALES ---
+
+function obtenerDiaDeHoyIndex() {
+    let dayOfWeek = new Date().getDay(); // 0 = Domingo, 1 = Lunes, 2 = Martes, ...
+    if (dayOfWeek === 1) return 0; // Lunes
+    if (dayOfWeek === 2) return 1; // Martes
+    if (dayOfWeek === 3) return 2; // Miércoles
+    if (dayOfWeek === 4) return 3; // Jueves
+    if (dayOfWeek === 5) return 4; // Viernes
+    if (dayOfWeek === 6) return 5; // Sábado
+    if (dayOfWeek === 0) return 6; // Domingo
+    return 0;
+}
+
+function renderizarBoleto() {
+    const grid = document.getElementById('ticket-days-grid');
+    if (!grid) return;
+
+    grid.innerHTML = '';
+    const dayNames = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+    const todayIndex = obtenerDiaDeHoyIndex();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const isDev = urlParams.get('dev') === 'true';
+
+    for (let i = 0; i <= 6; i++) {
+        const card = document.createElement('div');
+        card.className = 'ticket-day-card';
+        
+        let statusText = '';
+        let isLocked = i > todayIndex && !isDev && !isAdmin;
+        let isToday = i === todayIndex;
+        let isVisited = i < todayIndex || isDev || isAdmin;
+
+        // Comprobar si ya fue perforado hoy en local storage
+        const yaPerforado = safeStorage.getItem(`ticket_punched_day_${i}`) === 'true';
+
+        if (isLocked) {
+            card.classList.add('locked');
+            statusText = '🔒 Cerrado';
+        } else if (isToday) {
+            card.classList.add('today');
+            statusText = yaPerforado ? '✓ Perforado' : '🎟️ Marcar';
+            if (yaPerforado) {
+                card.classList.add('visited');
+            }
+        } else {
+            card.classList.add('visited');
+            statusText = '✓ Ver';
+        }
+
+        card.innerHTML = `
+            <div class="ticket-day-info">
+                <div class="ticket-day-num">SALA 0${i === 0 ? 'M' : i}</div>
+                <div class="ticket-day-name">${dayNames[i]}</div>
+            </div>
+            <div class="ticket-day-status">
+                <span>${statusText}</span>
+                <div class="ticket-punch-hole"></div>
+            </div>
+        `;
+
+        if (!isLocked) {
+            card.addEventListener('click', () => {
+                // Si es hoy y no está perforado, hacer animación de perforado
+                if (isToday && !yaPerforado) {
+                    safeStorage.setItem(`ticket_punched_day_${i}`, 'true');
+                    card.classList.add('visited');
+                    const statusSpan = card.querySelector('.ticket-day-status span');
+                    if (statusSpan) statusSpan.textContent = '✓ Perforado';
+                    
+                    // Pequeño retardo para simular la perforación
+                    setTimeout(() => {
+                        abrirSalaDia(i);
+                    }, 450);
+                } else {
+                    abrirSalaDia(i);
+                }
+            });
+        }
+
+        grid.appendChild(card);
+    }
+}
+
+function abrirSalaDia(diaIndex) {
+    activeDay = diaIndex;
+    aplicarTemaDia(diaIndex);
+    
+    // Mostrar la sala de inmediato para máxima rapidez
+    const receptionBtn = document.getElementById('reception-btn');
+    if (receptionBtn) receptionBtn.style.display = 'block';
+    
+    // Resetear el scroll del carrusel al primer elemento
+    const slider = document.getElementById('museum-slider');
+    if (slider) {
+        slider.scrollLeft = 0;
+    }
+    actualizarDots(0);
+    
+    cambiarPaso('step-ticket', 'step-story', () => {
+        reiniciarAnimacionFlor();
+    });
+
+    // Cargar contenido de Supabase/local en segundo plano
+    cargarContenidoDia();
+}
+
+function aplicarTemaDia(diaId) {
+    document.body.className = '';
+    let themeClass = 'cerrado';
+    if (diaId === 1) themeClass = 'comida';
+    else if (diaId === 2) themeClass = 'viaje';
+    else if (diaId === 3) themeClass = 'chocolate';
+    else if (diaId === 4) themeClass = 'inocencia';
+    else if (diaId === 5) themeClass = 'pop';
+    else if (diaId === 6) themeClass = 'descanso';
+    
+    document.body.classList.add(`theme-${themeClass}`);
+
+    // Actualizar indicador del día / sala
+    document.querySelectorAll('.day-number-label').forEach(el => {
+        el.textContent = diaId === 0 ? "M" : diaId;
+    });
+}
+
+
+
 // --- INICIALIZACIÓN ---
 document.addEventListener('DOMContentLoaded', () => {
     inicializarClavesSupabase();
     detectarDiaActual();
     configurarSelectorDias();
     crearPetalosLluvia();
-    cargarContenidoDia();
+    
+    // Cargar contenido inicial y luego enrutar
+    cargarContenidoDia().then(() => {
+        enrutarPasoInicial();
+    });
+
     configurarEventos();
+
+    // Ocultar o mostrar el botón del CMS según isAdmin al cargar
+    const btnCMS = document.getElementById('setup-trigger-btn');
+    if (btnCMS) {
+        btnCMS.style.display = isAdmin ? 'block' : 'none';
+    }
+
+    // Comprobar si viene el parámetro ?admin=true o ?dev=true en la URL para abrir el prompt de clave
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === 'true' && !isAdmin) {
+        setTimeout(solicitarPasswordAdmin, 500);
+    }
 });
+
+// Enrutar al paso correspondiente según la URL inicial
+function enrutarPasoInicial() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const startsInRoom = urlParams.has('dia'); // Si tiene ?dia=X, abre directo la sala en modo dev
+    const receptionBtn = document.getElementById('reception-btn');
+
+    document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+
+    if (startsInRoom) {
+        document.getElementById('step-story').classList.add('active');
+        if (receptionBtn) receptionBtn.style.display = 'block';
+        
+        // Resetear scroll del carrusel al cargar directo en sala
+        const slider = document.getElementById('museum-slider');
+        if (slider) {
+            slider.scrollLeft = 0;
+        }
+        actualizarDots(0);
+        reiniciarAnimacionFlor();
+    } else {
+        document.getElementById('step-ticket').classList.add('active');
+        if (receptionBtn) receptionBtn.style.display = 'none';
+        renderizarBoleto();
+    }
+}
 
 // Cargar URL y API Key de LocalStorage o variables
 function inicializarClavesSupabase() {
@@ -114,9 +394,6 @@ function inicializarClavesSupabase() {
                 // Inicializar cliente de Supabase
                 supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
                 console.log("Supabase inicializado correctamente.");
-                // Ocultar botón si conectó bien
-                const btn = document.getElementById('setup-trigger-btn');
-                if (btn) btn.style.display = 'none';
             } else {
                 console.error("El script de Supabase no cargó correctamente (verifica tu conexión a internet).");
             }
@@ -134,37 +411,30 @@ function detectarDiaActual() {
     const isDev = urlParams.get('dev') === 'true';
     const diaParam = parseInt(urlParams.get('dia'));
 
-    if (isDev && diaParam >= 1 && diaParam <= 5) {
-        // En modo desarrollo, permitimos forzar el día por parámetro de URL (?dia=X)
+    if (isDev && !isNaN(diaParam) && diaParam >= 0 && diaParam <= 6) {
+        // En modo desarrollo, permitimos forzar el día por parámetro de URL (?dia=0 a 6)
         activeDay = diaParam;
     } else {
-        // En producción (para ella), se calcula según el día de la semana
+        // En producción (para ella), se calcula según el día de la semana (Martes a Domingo + Lunes Cerrado)
         let dayOfWeek = new Date().getDay(); // 0 = Domingo, 1 = Lunes, 2 = Martes, etc.
-        if (dayOfWeek === 4) {
-            activeDay = 1; // Jueves = Día 1 (Girasol)
+        if (dayOfWeek === 1) {
+            activeDay = 0; // Lunes = Cerrado (Mantenimiento)
+        } else if (dayOfWeek === 2) {
+            activeDay = 1; // Martes = Día 1 (Galería Gastronómica)
+        } else if (dayOfWeek === 3) {
+            activeDay = 2; // Miércoles = Día 2 (Pabellón del Escapismo)
+        } else if (dayOfWeek === 4) {
+            activeDay = 3; // Jueves = Día 3 (Salón del Cacao)
         } else if (dayOfWeek === 5) {
-            activeDay = 2; // Viernes = Día 2 (Tulipán)
+            activeDay = 4; // Viernes = Día 4 (Sala de la Inocencia)
         } else if (dayOfWeek === 6) {
-            activeDay = 3; // Sábado = Día 3 (Orquídea)
+            activeDay = 5; // Sábado = Día 5 (Patio de Arte Pop)
         } else if (dayOfWeek === 0) {
-            activeDay = 4; // Domingo = Día 4 (Rosa)
-        } else if (dayOfWeek === 1) {
-            activeDay = 5; // Lunes = Día 5 (Petunia)
-        } else {
-            activeDay = 1; // Martes/Miércoles fallback al Día 1
+            activeDay = 6; // Domingo = Día 6 (Sala de Descanso Extendido)
         }
     }
 
-    // Aplicar clase del tema en el body
-    document.body.className = '';
-    const florNombre = FALLBACK_CONTENT[activeDay].nombre_flor.toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Quitar acentos
-    document.body.classList.add(`theme-${florNombre}`);
-
-    // Actualizar indicador del día
-    document.querySelectorAll('.day-number-label').forEach(el => {
-        el.textContent = activeDay;
-    });
+    aplicarTemaDia(activeDay);
 }
 
 // Configurar enlaces de la barra inferior (Solo visible en modo dev)
@@ -184,10 +454,12 @@ function configurarSelectorDias() {
     selector.style.display = 'flex';
     selector.innerHTML = '';
 
-    for (let i = 1; i <= 5; i++) {
+    const dayLabels = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+
+    for (let i = 0; i <= 6; i++) {
         const link = document.createElement('a');
         link.href = `?dia=${i}&dev=true`;
-        link.textContent = i;
+        link.textContent = dayLabels[i];
         link.className = 'day-badge';
         if (i === activeDay) {
             link.classList.add('active');
@@ -245,20 +517,60 @@ function spawnPetal(container) {
 }
 
 // Cargar los datos desde Supabase con fallback local
+// Helper para deserializar las columnas combinadas de la BD
+function deserializarDatosDia(dbData, diaId) {
+    let res = Object.assign({}, FALLBACK_CONTENT[diaId]);
+
+    if (!dbData) return res;
+
+    // Esquema Nuevo semana_museo_v2
+    if (dbData.nombre_sala !== undefined && dbData.nombre_sala !== null) res.nombre_sala = dbData.nombre_sala;
+    if (dbData.exposicion !== undefined && dbData.exposicion !== null) res.exposicion = dbData.exposicion;
+    if (dbData.curador !== undefined && dbData.curador !== null) res.curador = dbData.curador;
+    if (dbData.horario !== undefined && dbData.horario !== null) res.horario = dbData.horario;
+    if (dbData.ficha_corta !== undefined && dbData.ficha_corta !== null) res.ficha_corta = dbData.ficha_corta;
+    if (dbData.reglas_humor !== undefined && dbData.reglas_humor !== null) res.reglas_humor = dbData.reglas_humor;
+    
+    if (dbData.cancion_url !== undefined && dbData.cancion_url !== null) res.cancion_url = dbData.cancion_url;
+    if (dbData.cancion_desc !== undefined && dbData.cancion_desc !== null) res.cancion_desc = dbData.cancion_desc;
+    
+    if (dbData.titulo_cuadro !== undefined && dbData.titulo_cuadro !== null) res.titulo_cuadro = dbData.titulo_cuadro;
+    if (dbData.artista_cuadro !== undefined && dbData.artista_cuadro !== null) res.artista_cuadro = dbData.artista_cuadro;
+    if (dbData.cuadro_desc !== undefined && dbData.cuadro_desc !== null) res.cuadro_desc = dbData.cuadro_desc;
+    if (dbData.prompt_ia !== undefined && dbData.prompt_ia !== null) res.prompt_ia = dbData.prompt_ia;
+    
+    if (dbData.pregunta_trivia !== undefined && dbData.pregunta_trivia !== null) res.pregunta_trivia = dbData.pregunta_trivia;
+    if (dbData.prompt_base_ia !== undefined && dbData.prompt_base_ia !== null) res.prompt_base_ia = dbData.prompt_base_ia;
+
+    return res;
+}
+
+// Cargar los datos desde Supabase con fallback local
 async function cargarContenidoDia() {
     let data = null;
 
-    // 1. Intentar obtener datos de Supabase si está inicializado
-    if (supabaseClient) {
+    // 1. Intentar cargar desde el LocalStorage (los overrides del CMS)
+    const localOverride = safeStorage.getItem("museum_day_" + activeDay + "_override");
+    if (localOverride) {
+        try {
+            data = Object.assign({}, FALLBACK_CONTENT[activeDay], JSON.parse(localOverride));
+            console.log(`Datos del Día ${activeDay} cargados desde el Override Local (CMS).`);
+        } catch (e) {
+            console.error("Error al parsear el override local:", e);
+        }
+    }
+
+    // 2. Intentar obtener datos de Supabase si está inicializado y no hay override local
+    if (!data && supabaseClient) {
         try {
             const { data: dbData, error } = await supabaseClient
-                .from('semana_flores')
+                .from('semana_museo_v2')
                 .select('*')
                 .eq('id', activeDay)
                 .single();
 
             if (!error && dbData) {
-                data = dbData;
+                data = deserializarDatosDia(dbData, activeDay);
                 console.log(`Datos del Día ${activeDay} cargados desde Supabase.`);
             } else {
                 console.warn("Error en consulta a Supabase, cargando datos locales:", error);
@@ -268,7 +580,7 @@ async function cargarContenidoDia() {
         }
     }
 
-    // 2. Si falló o no hay Supabase, usar el fallback
+    // 3. Si falló o no hay Supabase/override, usar el fallback por defecto
     if (!data) {
         data = FALLBACK_CONTENT[activeDay];
         console.log(`Datos del Día ${activeDay} cargados desde el Respaldo Local (JS).`);
@@ -277,50 +589,199 @@ async function cargarContenidoDia() {
     currentData = data;
     actualizarVistaDOM(data);
 }
+
 function actualizarVistaDOM(data) {
-    // 1. Nombres y flores en las cabeceras
-    document.querySelectorAll('.flower-name-placeholder').forEach(el => {
-        el.textContent = data.nombre_flor;
+    // 1. Nombres de salas y exposiciones en las cabeceras
+    document.querySelectorAll('.room-name-placeholder').forEach(el => {
+        el.textContent = data.nombre_sala;
+    });
+    document.querySelectorAll('.exhibition-title-placeholder').forEach(el => {
+        el.textContent = data.exposicion;
     });
 
-    // 2. Buenos días
-    const buenosDiasEl = document.getElementById('buenos-dias-text');
-    if (buenosDiasEl) buenosDiasEl.textContent = data.buenos_dias;
+    // 2. Ticket de Entrada Retro
+    const ticketDesc = document.getElementById('ticket-description');
+    if (ticketDesc) ticketDesc.textContent = data.ficha_corta;
+    const ticketCurator = document.getElementById('ticket-curator');
+    if (ticketCurator) ticketCurator.textContent = data.curador;
+    const ticketTime = document.getElementById('ticket-time');
+    if (ticketTime) ticketTime.textContent = data.horario;
+    const ticketNum = document.getElementById('ticket-number');
+    if (ticketNum) ticketNum.textContent = `#000${activeDay === 0 ? 'M' : activeDay}`;
 
-    // 3. Poema / Inspiración
-    const poemaEl = document.getElementById('poema-text');
-    if (poemaEl) poemaEl.textContent = data.poema;
-
-    // 4. Inyectar reproductor de música de Latin Mafia
-    renderizarReproductorMusica(data.cancion_url);
-
-    // 5. Enrutar según la fase inicial de carga
-    document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const isDev = urlParams.get('dev') === 'true';
-    const diaVisto = safeStorage.getItem("dia_" + activeDay + "_visto");
-
-    if (diaVisto === "true" && !isDev) {
-        // Si ya lo vio hoy y NO es modo dev, directo al menú estático
-        document.getElementById('step-menu').classList.add('active');
-    } else {
-        // Primera vez que entra hoy (o modo dev)
-        if (activeDay === 1) {
-            // El Día 1 inicia con el Manifiesto (Fase 1)
-            document.getElementById('step-manifesto').classList.add('active');
-        } else {
-            // Los demás días inician directo en el Buenos Días (Fase 2)
-            document.getElementById('step-story').classList.add('active');
-            reiniciarAnimacionFlor();
+    // 3. Termómetros de Humor
+    const tLabel1 = document.getElementById('term-label-1');
+    // Reglas humorísticas dinámicas de Taquilla
+    const rulesContainer = document.getElementById('ticket-rules-container');
+    if (rulesContainer) {
+        rulesContainer.innerHTML = '';
+        if (data.reglas_humor && typeof data.reglas_humor === 'string') {
+            const rules = data.reglas_humor.split(',');
+            rules.forEach(rule => {
+                const trimmedRule = rule.trim();
+                if (!trimmedRule) return;
+                
+                const item = document.createElement('div');
+                item.className = 'prohibition-item';
+                item.style.fontSize = '0.82rem';
+                item.style.marginBottom = '6px';
+                item.style.display = 'flex';
+                item.style.alignItems = 'center';
+                item.style.gap = '8px';
+                
+                let emoji = '🚫';
+                const lowerRule = trimmedRule.toLowerCase();
+                if (lowerRule.includes('permitido') || lowerRule.includes('obligatorio') || lowerRule.includes('comer') || lowerRule.includes('sonreir') || lowerRule.includes('suspirar')) {
+                    emoji = lowerRule.includes('chocolate') ? '🍫' : '✨';
+                }
+                
+                item.innerHTML = `<span>${emoji}</span> <span style="opacity: 0.9; font-weight: 500;">${trimmedRule}</span>`;
+                rulesContainer.appendChild(item);
+            });
         }
     }
+
+    // 3. Inyectar reproductor de música y descripción del tema
+    renderizarReproductorMusica(data.cancion_url);
+    const musicDesc = document.getElementById('music-theme-desc');
+    if (musicDesc) musicDesc.textContent = data.cancion_desc || 'Sin descripción de tema para hoy.';
+
+    // 4. Inyectar y pintar obra de arte con la IA
+    renderizarObraArte(data.prompt_ia, data.titulo_cuadro);
+    configurarEfecto3D();
+    
+    // Cartela clásica de la obra de arte
+    const artPlateInfo = document.getElementById('art-description-plate');
+    if (artPlateInfo) {
+        artPlateInfo.innerHTML = `
+            <div class="label-plate-title">${data.titulo_cuadro || 'Obra sin título'}</div>
+            <div class="label-plate-meta">${data.artista_cuadro || 'Colección Ivonne'} • 2026</div>
+            <div class="label-plate-desc">"${data.cuadro_desc || 'Una hermosa obra para contemplar en silencio.'}"</div>
+        `;
+    }
+
+    // Resetear slider sensorial de la pintura
+    const hueSlider = document.getElementById('art-hue-slider');
+    const hueValLabel = document.getElementById('slider-hue-val');
+    const artImg = document.getElementById('art-canvas-img');
+    if (hueSlider) hueSlider.value = 0;
+    if (hueValLabel) hueValLabel.textContent = "0°";
+    if (artImg) artImg.style.filter = "none";
+
+    // 5. Resetear y configurar el Generador de Emociones
+    const emotionQuestion = document.getElementById('emotion-generator-question');
+    if (emotionQuestion) emotionQuestion.textContent = data.pregunta_trivia || '¿Cómo te sientes el día de hoy?';
+    
+    const emotionInput = document.getElementById('emotion-input-text');
+    if (emotionInput) emotionInput.value = '';
+    
+    const emotionImg = document.getElementById('emotion-canvas-img');
+    const emotionLoader = document.getElementById('emotion-image-loader');
+    const emotionBlank = document.getElementById('emotion-blank-canvas');
+    const emotionPlate = document.getElementById('emotion-label-plate');
+    
+    if (emotionImg) {
+        emotionImg.style.display = 'none';
+        emotionImg.src = '';
+    }
+    if (emotionLoader) emotionLoader.style.display = 'none';
+    if (emotionBlank) emotionBlank.style.display = 'flex';
+    if (emotionPlate) emotionPlate.style.display = 'none';
+    
+    const btnPaint = document.getElementById('btn-paint-emotion');
+    if (btnPaint) {
+        btnPaint.disabled = false;
+        btnPaint.textContent = 'Pintar 🎨';
+    }
+}
+
+// --- RENDERIZADO DE ARTE IA ---
+function renderizarObraArte(imagenUrlOrPrompt, titulo) {
+    const imgEl = document.getElementById('art-canvas-img');
+    const loaderEl = document.getElementById('art-image-loader');
+    const titleEl = document.getElementById('art-title');
+
+    if (!imgEl || !loaderEl || !titleEl) return;
+
+    titleEl.textContent = titulo || "Obra de Arte";
+    imgEl.style.display = 'none';
+    loaderEl.style.display = 'flex';
+
+    let imageUrl = "";
+
+    // Verificar si es un enlace directo
+    const esUrlDirecta = imagenUrlOrPrompt && typeof imagenUrlOrPrompt === 'string' && (
+        imagenUrlOrPrompt.startsWith('http://') || 
+        imagenUrlOrPrompt.startsWith('https://') || 
+        imagenUrlOrPrompt.startsWith('/') || 
+        imagenUrlOrPrompt.startsWith('./')
+    );
+
+    if (esUrlDirecta) {
+        imageUrl = imagenUrlOrPrompt.trim();
+    } else {
+        // Generar URL de Pollinations.ai codificando el prompt
+        const safePrompt = (imagenUrlOrPrompt && typeof imagenUrlOrPrompt === 'string') ? imagenUrlOrPrompt : 'museum artwork, oil painting, abstract';
+        const encodedPrompt = encodeURIComponent(safePrompt);
+        imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?nologo=true&private=true&width=512&height=512`;
+    }
+
+    // Precargar la imagen
+    const tempImg = new Image();
+    tempImg.onload = () => {
+        imgEl.src = imageUrl;
+        loaderEl.style.display = 'none';
+        imgEl.style.display = 'block';
+    };
+    tempImg.onerror = () => {
+        // Fallback elegante a una imagen artística si la URL falla
+        imgEl.src = 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=512';
+        loaderEl.style.display = 'none';
+        imgEl.style.display = 'block';
+    };
+    tempImg.src = imageUrl;
+}
+
+// Inclinación 3D en el cuadro (Holograma interactivo)
+function configurarEfecto3D() {
+    return; // Deshabilitado para mantener el cuadro formal y estático
+    const frame = document.getElementById('art-canvas-frame');
+    if (!frame) return;
+
+    frame.addEventListener('mousemove', (e) => {
+        const rect = frame.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((centerY - y) / centerY) * 15;
+        const rotateY = ((x - centerX) / centerX) * 15;
+
+        frame.style.setProperty('--rx', `${rotateX}deg`);
+        frame.style.setProperty('--ry', `${rotateY}deg`);
+    });
+
+    frame.addEventListener('mouseleave', () => {
+        frame.style.setProperty('--rx', '0deg');
+        frame.style.setProperty('--ry', '0deg');
+    });
 }
 
 // Convertir links de Spotify/YouTube/Direct-Audio a reproductor ideal
 function renderizarReproductorMusica(url) {
     const container = document.getElementById('music-player-container');
     if (!container) return;
+
+    if (!url || typeof url !== 'string') {
+        container.innerHTML = `
+            <div style="font-size:0.85rem; opacity:0.6; text-align:center; padding:15px; border:1px dashed rgba(255,255,255,0.05); border-radius:12px;">
+                🎵 Sin melodía cargada para hoy.
+            </div>
+        `;
+        return;
+    }
 
     let embedUrl = "";
     let isYoutube = false;
@@ -381,144 +842,123 @@ function renderizarReproductorMusica(url) {
 
 // Configurar los botones de eventos
 function configurarEventos() {
-    // --- NAVEGACIÓN DE FASES (Páginas con transiciones de tarjeta) ---
+    // --- -1. Lógica del Carrusel Deslizable ---
+    const slider = document.getElementById('museum-slider');
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    if (slider) {
+        slider.addEventListener('scroll', () => {
+            const scrollLeft = slider.scrollLeft;
+            const width = slider.clientWidth || 1;
+            const index = Math.round(scrollLeft / width);
+            actualizarDots(index);
+        });
+    }
 
-    // 1. Manifiesto (Fase 1) -> Buenos Días (Fase 2)
-    const btnToStory = document.getElementById('btn-to-story');
-    if (btnToStory) {
-        btnToStory.addEventListener('click', () => {
-            cambiarPaso('step-manifesto', 'step-story', () => {
-                reiniciarAnimacionFlor();
+    if (dots) {
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                if (slider) {
+                    slider.scrollLeft = idx * slider.clientWidth;
+                    actualizarDots(idx);
+                }
             });
         });
     }
 
-    // 2. Buenos Días (Fase 2) -> Poema (Fase 3)
-    const btnToPoem = document.getElementById('btn-to-poem');
-    if (btnToPoem) {
-        btnToPoem.addEventListener('click', () => {
-            cambiarPaso('step-story', 'step-poem');
-        });
-    }
-
-    // 3. Poema (Fase 3) -> Menú principal (Fase 4) e indicar que el día ya fue visto
-    const btnToMenu = document.getElementById('btn-to-menu');
-    if (btnToMenu) {
-        btnToMenu.addEventListener('click', () => {
-            cambiarPaso('step-poem', 'step-menu', () => {
-                // Guardar en el navegador que el día de hoy ya fue visto
-                safeStorage.setItem("dia_" + activeDay + "_visto", "true");
-            });
-        });
-    }
-
-    // 4. Volver a leer (Fase 4 -> Fase 2)
-    const btnBackToStory = document.getElementById('btn-back-to-story');
-    if (btnBackToStory) {
-        btnBackToStory.addEventListener('click', () => {
-            cambiarPaso('step-menu', 'step-story', () => {
-                reiniciarAnimacionFlor();
-            });
-        });
-    }
-
-    // --- BOTONES DE INTERACCIONES ---
-
-    // 1. Botón de Pregunta del Día (Abre modal con formulario)
-    const btnPregunta = document.getElementById('btn-pregunta');
-    if (btnPregunta) {
-        btnPregunta.addEventListener('click', () => {
-            abrirModal('❓ Pregunta del Día', `
-                <p style="font-weight: 700; margin-bottom: 15px; line-height:1.5;">${currentData.pregunta_dia}</p>
-                <form id="modal-question-form">
-                    <textarea id="modal-respuesta-input" class="textarea-premium" placeholder="Escribe aquí tu respuesta bonita..." required></textarea>
-                    <button type="submit" class="btn">
-                        Enviar Respuesta
-                    </button>
-                    <div id="modal-form-feedback" class="form-feedback"></div>
-                </form>
-            `);
-
-            // Capturar envío de formulario dentro del modal
-            const formPregunta = document.getElementById('modal-question-form');
-            if (formPregunta) {
-                formPregunta.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const textarea = document.getElementById('modal-respuesta-input');
-                    const feedback = document.getElementById('modal-form-feedback');
-                    const btnEnviar = formPregunta.querySelector('button[type="submit"]');
-
-                    const respuestaTexto = textarea.value.trim();
-                    if (!respuestaTexto) return;
-
-                    textarea.disabled = true;
-                    btnEnviar.disabled = true;
-                    btnEnviar.textContent = "Enviando...";
-
-                    try {
-                        if (supabaseClient) {
-                            const { error } = await supabaseClient
-                                .from('respuestas_amiga')
-                                .insert([
-                                    { dia_id: activeDay, respuesta: respuestaTexto }
-                                ]);
-
-                            if (error) throw error;
-                        } else {
-                            guardarRespuestaLocal(activeDay, respuestaTexto);
-                            console.log("Guardado local realizado con éxito.");
-                        }
-
-                        feedback.className = 'form-feedback success';
-                        feedback.innerHTML = '✨ ¡Tu respuesta ha sido guardada en Supabase! ✨';
-                        textarea.value = '';
-                        // Cerrar modal automáticamente tras 2 segundos
-                        setTimeout(cerrarModal, 2000);
-                    } catch (error) {
-                        console.error("Error al guardar la respuesta:", error);
-                        feedback.className = 'form-feedback error';
-                        feedback.innerHTML = '❌ Error al enviar. Revisa la consola o llaves de Supabase.';
-                        textarea.disabled = false;
-                        btnEnviar.disabled = false;
-                        btnEnviar.textContent = "Enviar Respuesta";
-                    }
-                });
+    // --- 0. Disparador Secreto para Modo Curador (5 clics en el título) ---
+    let clickCount = 0;
+    const title = document.querySelector('.ticket-brand-title');
+    if (title) {
+        title.style.cursor = 'pointer'; // Dar retroalimentación visual al curador
+        title.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount >= 5) {
+                clickCount = 0;
+                solicitarPasswordAdmin();
             }
         });
     }
 
-    // 2. Botón de Emergencia (Abre modal de apapacho)
-    const btnEmergencia = document.getElementById('btn-emergencia');
-    if (btnEmergencia) {
-        btnEmergencia.addEventListener('click', () => {
-            abrirModal('🚨 Botón de Emergencia', `
-                <div style="text-align: left; line-height: 1.6;">
-                    <p style="margin-bottom: 15px; font-size: 1.05rem;"><strong>¡Si estas aca es porque esta siendo un mal dia!</strong> ❤️</p>
-                    <p style="margin-bottom: 12px;">No pierdas la cabeza respira nada es personal sigue los pasos de abajo:</p>
-                    <ul style="margin-left: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 8px;">
-                        <li>🌟 Respira profundo y cuenta hasta 10.</li>
-                        <li>⛈️ El enojo es una emociocion y como todas las emociones es pasajera.</li>
-                        <li>💭 Te envio buenas vibras desde aca! </li>
-                    </ul>
-                    <p>Tómate un respiro, bebe un sorbo de agua, sonríe y consigue un chocolate para seguir con tu día. </p>
-                </div>
-            `);
+    // --- 1. Generador de Arte Interactivo (Lienzo de Emociones) ---
+    const btnPaintEmotion = document.getElementById('btn-paint-emotion');
+    if (btnPaintEmotion) {
+        btnPaintEmotion.addEventListener('click', async () => {
+            const inputEl = document.getElementById('emotion-input-text');
+            const emotionText = (inputEl ? inputEl.value : '').trim();
+            if (!emotionText) {
+                alert("Por favor, escribe cómo te sientes antes de pintar.");
+                return;
+            }
+
+            const imgEl = document.getElementById('emotion-canvas-img');
+            const loaderEl = document.getElementById('emotion-image-loader');
+            const blankEl = document.getElementById('emotion-blank-canvas');
+            const plateEl = document.getElementById('emotion-label-plate');
+            const titleEl = document.getElementById('emotion-art-title');
+
+            if (!imgEl || !loaderEl || !blankEl || !plateEl || !titleEl) return;
+
+            btnPaintEmotion.disabled = true;
+            btnPaintEmotion.textContent = 'Pintando...';
+            
+            blankEl.style.display = 'none';
+            imgEl.style.display = 'none';
+            plateEl.style.display = 'none';
+            loaderEl.style.display = 'flex';
+
+            // Construir prompt final
+            let basePrompt = currentData?.prompt_base_ia || "an abstract oil painting representing: [EMOTION], museum masterpiece";
+            let finalPrompt;
+            if (basePrompt.includes('[EMOTION]')) {
+                finalPrompt = basePrompt.replace('[EMOTION]', emotionText);
+            } else {
+                finalPrompt = `${basePrompt}, representing: ${emotionText}`;
+            }
+
+            const encodedPrompt = encodeURIComponent(finalPrompt);
+            const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?nologo=true&private=true&width=512&height=512`;
+
+            // Guardar respuesta en Supabase respuestas_amiga
+            const formattedRes = `🎨 Generó Obra: ${emotionText}`;
+            try {
+                if (supabaseClient) {
+                    await supabaseClient
+                        .from('respuestas_amiga')
+                        .insert([{ dia_id: activeDay, respuesta: formattedRes }]);
+                } else {
+                    guardarRespuestaLocal(activeDay, formattedRes);
+                }
+            } catch(e) {
+                console.error("Error al registrar respuesta del generador:", e);
+                guardarRespuestaLocal(activeDay, formattedRes);
+            }
+
+            // Precargar imagen
+            const tempImg = new Image();
+            tempImg.onload = () => {
+                imgEl.src = imageUrl;
+                loaderEl.style.display = 'none';
+                imgEl.style.display = 'block';
+                titleEl.textContent = `Emoción: ${emotionText}`;
+                plateEl.style.display = 'block';
+                btnPaintEmotion.disabled = false;
+                btnPaintEmotion.textContent = 'Pintar 🎨';
+            };
+            tempImg.onerror = () => {
+                loaderEl.style.display = 'none';
+                blankEl.style.display = 'flex';
+                blankEl.textContent = "❌ Error al conectar con el servidor de arte. Reintenta.";
+                btnPaintEmotion.disabled = false;
+                btnPaintEmotion.textContent = 'Pintar 🎨';
+            };
+            tempImg.src = imageUrl;
         });
     }
 
-    // 3. Botón de Dato Curioso (Abre modal de dato curioso)
-    const btnDatoCurioso = document.getElementById('btn-dato-curioso');
-    if (btnDatoCurioso) {
-        btnDatoCurioso.addEventListener('click', () => {
-            abrirModal(`💡 Dato Curioso: ${currentData.nombre_flor}`, `
-                <p style="font-size: 1.05rem; line-height: 1.6; text-align: left;">
-                    ${currentData.dato_curioso}
-                </p>
-            `);
-        });
-    }
 
-    // Cerrar modal
+
+    // --- Modales Genéricos ---
     const modalClose = document.getElementById('modal-close');
     if (modalClose) {
         modalClose.addEventListener('click', cerrarModal);
@@ -530,49 +970,418 @@ function configurarEventos() {
         });
     }
 
-    // --- PANEL DE CONFIGURACIÓN MANUAL ---
+    // --- PANEL DE CONTROL Y CMS FLOATING BUTTON ---
     const btnTriggerSetup = document.getElementById('setup-trigger-btn');
     if (btnTriggerSetup) {
-        btnTriggerSetup.addEventListener('click', () => {
-            const currentUrl = safeStorage.getItem('supabase_url') || '';
-            const currentKey = safeStorage.getItem('supabase_key') || '';
+        btnTriggerSetup.addEventListener('click', abrirPanelControlCMS);
+    }
 
-            abrirModal('Configuración de Supabase', `
-                <div class="setup-panel active">
-                    <p style="font-size: 0.9rem; margin-bottom: 10px;">Pega aquí tus credenciales de Supabase para almacenar las respuestas reales:</p>
-                    <label style="font-size:0.8rem; font-weight:700;">Project URL:</label>
-                    <input type="text" id="setup-url" class="input-premium" value="${currentUrl}" placeholder="https://xxxx.supabase.co">
-                    
-                    <label style="font-size:0.8rem; font-weight:700;">Anon / Public Key:</label>
-                    <input type="password" id="setup-key" class="input-premium" value="${currentKey}" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
-                    
-                    <button id="btn-save-setup" class="btn btn-small" style="margin-top: 10px;">Guardar y Conectar</button>
-                    <button id="btn-clear-setup" class="btn btn-secondary btn-small" style="margin-top: 5px;">Limpiar credenciales</button>
-                </div>
-            `);
+    // --- MAPA/GUÍA DEL MUSEO FLOATING BUTTON ---
+    const btnTriggerMap = document.getElementById('museum-map-btn');
+    if (btnTriggerMap) {
+        btnTriggerMap.addEventListener('click', abrirGuiaSalas);
+    }
 
-            // Evento guardar credenciales
-            document.getElementById('btn-save-setup').addEventListener('click', () => {
-                const urlInput = document.getElementById('setup-url').value.trim();
-                const keyInput = document.getElementById('setup-key').value.trim();
-
-                if (urlInput && keyInput) {
-                    safeStorage.setItem('supabase_url', urlInput);
-                    safeStorage.setItem('supabase_key', keyInput);
-                    cerrarModal();
-                    window.location.reload();
-                }
-            });
-
-            // Evento limpiar credenciales
-            document.getElementById('btn-clear-setup').addEventListener('click', () => {
-                safeStorage.removeItem('supabase_url');
-                safeStorage.removeItem('supabase_key');
-                cerrarModal();
-                window.location.reload();
+    // Configurar botón flotante de Recepción (Regresar al Boleto)
+    const btnReception = document.getElementById('reception-btn');
+    if (btnReception) {
+        btnReception.addEventListener('click', () => {
+            cambiarPaso('step-story', 'step-ticket', () => {
+                btnReception.style.display = 'none';
+                renderizarBoleto();
             });
         });
     }
+
+    // --- Slider Sensorial ---
+    const hueSlider = document.getElementById('art-hue-slider');
+    const hueValLabel = document.getElementById('slider-hue-val');
+    const artImg = document.getElementById('art-canvas-img');
+    if (hueSlider && hueValLabel && artImg) {
+        hueSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            hueValLabel.textContent = `${val}°`;
+            artImg.style.filter = `hue-rotate(${val}deg) brightness(1.05) contrast(1.05)`;
+        });
+    }
+}
+
+// --- NAVEGACIÓN ENTRE PAVELLONES DE LA SALA ---
+function switchMuseumTab(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelectorAll('.museum-tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+
+    const activeBtn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    const activeContent = document.getElementById(`tab-content-${tabName}`);
+    if (activeContent) {
+        activeContent.classList.add('active');
+    }
+}
+
+// --- GUÍA DE SALAS (MAPA DEL MUSEO) ---
+function abrirGuiaSalas() {
+    const dayNames = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+    
+    const container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.gap = '8px';
+    container.style.maxHeight = '55vh';
+    container.style.overflowY = 'auto';
+    container.style.paddingRight = '5px';
+    
+    for (let i = 0; i <= 6; i++) {
+        let name = FALLBACK_CONTENT[i].nombre_sala;
+        let expo = FALLBACK_CONTENT[i].exposicion;
+        
+        const local = safeStorage.getItem("museum_day_" + i + "_override");
+        if (local) {
+            try {
+                const parsed = JSON.parse(local);
+                name = parsed.nombre_sala || name;
+                expo = parsed.exposicion || expo;
+            } catch(e){}
+        }
+        
+        const isActive = (i === activeDay);
+        
+        const item = document.createElement('div');
+        item.className = `museum-map-item ${isActive ? 'active' : ''}`;
+        item.style.display = 'flex';
+        item.style.justifyContent = 'space-between';
+        item.style.alignItems = 'center';
+        item.style.padding = '12px';
+        item.style.borderRadius = '12px';
+        item.style.background = isActive ? 'rgba(223, 183, 108, 0.08)' : 'rgba(255,255,255,0.03)';
+        item.style.border = `1px solid ${isActive ? 'var(--primary-color)' : 'rgba(255,255,255,0.06)'}`;
+        item.style.cursor = 'pointer';
+        item.style.transition = 'all 0.2s ease';
+        
+        item.innerHTML = `
+            <div style="text-align: left;">
+                <strong style="color: ${isActive ? 'var(--primary-color)' : 'var(--text-color)'}; font-size: 0.92rem;">
+                    ${dayNames[i]} • ${name}
+                </strong>
+                <div style="font-size: 0.78rem; opacity: 0.7; margin-top: 2px;">
+                    ${expo}
+                </div>
+            </div>
+            <div style="font-size: 1.1rem;">
+                ${isActive ? '📍' : '🚶\u200d♂️'}
+            </div>
+        `;
+        
+        item.addEventListener('mouseenter', () => {
+            if (!isActive) item.style.background = 'rgba(255,255,255,0.06)';
+        });
+        item.addEventListener('mouseleave', () => {
+            if (!isActive) item.style.background = 'rgba(255,255,255,0.03)';
+        });
+        
+        item.addEventListener('click', () => {
+            activeDay = i;
+            const urlParams = new URLSearchParams(window.location.search);
+            const isDev = urlParams.get('dev') === 'true';
+            if (isDev) {
+                window.history.pushState({}, '', `?dia=${i}&dev=true`);
+                configurarSelectorDias();
+            }
+            
+            cerrarModal();
+            cargarContenidoDia();
+            detectarDiaActual();
+        });
+        
+        container.appendChild(item);
+    }
+    
+    abrirModal('🗺️ Guía de Salas del Museo', '');
+    const modalBody = document.getElementById('modal-body');
+    if (modalBody) {
+        modalBody.innerHTML = '<p style="font-size: 0.85rem; margin-bottom: 15px; text-align: left; opacity: 0.8;">Selecciona a qué sala deseas dirigirte en tu recorrido nocturno:</p>';
+        modalBody.appendChild(container);
+    }
+}
+
+// --- CMS ADMINISTRADOR: PANEL DE CONTROL Y CONFIGURACIÓN ---
+function abrirPanelControlCMS() {
+    const currentUrl = safeStorage.getItem('supabase_url') || '';
+    const currentKey = safeStorage.getItem('supabase_key') || '';
+    
+    const dayOptions = [
+        { val: 0, text: "Lunes (Mantenimiento / Cerrado)" },
+        { val: 1, text: "Martes (Galería Gastronómica)" },
+        { val: 2, text: "Miércoles (Pabellón del Escapismo)" },
+        { val: 3, text: "Jueves (Salón del Cacao)" },
+        { val: 4, text: "Viernes (Sala de la Inocencia)" },
+        { val: 5, text: "Sábado (Patio de Arte Pop)" },
+        { val: 6, text: "Domingo (Sala de Descanso Extendido)" }
+    ];
+    
+    const optionsHtml = dayOptions.map(opt => 
+        `<option value="${opt.val}" ${opt.val === activeDay ? 'selected' : ''}>${opt.text}</option>`
+    ).join('');
+
+    abrirModal('⚙️ Panel de Control & CMS', `
+        <div class="cms-editor-container" style="max-height: 65vh; overflow-y: auto; padding-right: 5px; text-align: left;">
+            <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--text-color); opacity: 0.8;">
+                Modifica el contenido de las salas. Los cambios se guardarán localmente e intentarán sincronizarse en Supabase.
+            </p>
+            
+            <label style="font-size: 0.8rem; font-weight: 700;">Seleccionar Sala a Editar:</label>
+            <select id="cms-select-day" class="input-premium" style="width:100%; padding: 8px; margin-bottom: 15px; border-radius: 8px;">
+                ${optionsHtml}
+            </select>
+            
+            <div id="cms-fields-wrapper">
+                <!-- Los campos se cargan dinámicamente -->
+            </div>
+            
+            <button id="btn-save-cms" class="btn" style="width: 100%; margin-top: 15px; margin-bottom: 20px;">
+                Guardar Cambios 💾
+            </button>
+            <div id="cms-feedback" class="form-feedback" style="margin-bottom: 15px;"></div>
+            
+            <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.15); margin: 20px 0;">
+            
+            <details style="margin-bottom: 10px; cursor: pointer;">
+                <summary style="font-size: 0.82rem; font-weight: 700; color: var(--primary-color);">🔧 Credenciales de Supabase</summary>
+                <div class="setup-panel active" style="margin-top: 10px; padding: 10px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                    <label style="font-size:0.75rem; font-weight:700;">Project URL:</label>
+                    <input type="text" id="setup-url" class="input-premium" style="padding: 6px; font-size:0.8rem; margin-bottom: 8px;" value="${currentUrl}" placeholder="https://xxxx.supabase.co">
+                    
+                    <label style="font-size:0.75rem; font-weight:700;">Anon / Public Key:</label>
+                    <input type="password" id="setup-key" class="input-premium" style="padding: 6px; font-size:0.8rem; margin-bottom: 8px;" value="${currentKey}" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+                    
+                    <button id="btn-save-setup" class="btn btn-secondary btn-small" style="padding: 5px 10px; font-size: 0.75rem; margin-top: 5px; width:auto; display:inline-block;">Conectar y Guardar</button>
+                    <button id="btn-clear-setup" class="btn btn-secondary btn-small" style="padding: 5px 10px; font-size: 0.75rem; margin-top: 5px; color:#ef4444; width:auto; display:inline-block;">Limpiar Todo</button>
+                </div>
+            </details>
+        </div>
+    `);
+
+    async function cargarCamposEdicion(diaId) {
+        const wrapper = document.getElementById('cms-fields-wrapper');
+        if (!wrapper) return;
+        
+        wrapper.innerHTML = `<div style="text-align:center; padding:20px; font-size:0.9rem;">Cargando datos... ⏳</div>`;
+        
+        let data = null;
+        
+        const local = safeStorage.getItem("museum_day_" + diaId + "_override");
+        if (local) {
+            try { data = Object.assign({}, FALLBACK_CONTENT[diaId], JSON.parse(local)); } catch(e){}
+        }
+        
+        if (!data && supabaseClient) {
+            try {
+                const { data: dbData, error } = await supabaseClient
+                    .from('semana_museo_v2')
+                    .select('*')
+                    .eq('id', diaId)
+                    .single();
+                if (!error && dbData) {
+                    data = deserializarDatosDia(dbData, diaId);
+                }
+            } catch (e) {}
+        }
+        
+        if (!data) {
+            data = FALLBACK_CONTENT[diaId];
+        }
+
+        wrapper.innerHTML = `
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                <label style="font-size:0.75rem; font-weight:700; margin-top:5px;">Nombre de la Sala / Temática:</label>
+                <input type="text" id="cms-room-name" class="input-premium" style="margin-bottom:2px;" value="${data.nombre_sala || ''}" placeholder="Ej: Galería Gastronómica">
+                
+                <label style="font-size:0.75rem; font-weight:700;">Título de la Exposición:</label>
+                <input type="text" id="cms-exhibition-title" class="input-premium" style="margin-bottom:2px;" value="${data.exposicion || ''}" placeholder="Ej: El Arte del Buen Diente">
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🎟️ Tarjeta 1: Datos de Taquilla</h4>
+                
+                <label style="font-size:0.72rem; font-weight:700;">Curador:</label>
+                <input type="text" id="cms-curator" class="input-premium" style="margin-bottom:2px;" value="${data.curador || ''}">
+
+                <label style="font-size:0.72rem; font-weight:700;">Horario:</label>
+                <input type="text" id="cms-time" class="input-premium" style="margin-bottom:2px;" value="${data.horario || ''}">
+
+                <label style="font-size:0.72rem; font-weight:700;">Ficha Técnica / Corta (Descripción):</label>
+                <textarea id="cms-ficha-corta" class="textarea-premium" style="min-height:60px; font-size:0.85rem; margin-bottom:2px;">${data.ficha_corta || ''}</textarea>
+
+                <label style="font-size:0.72rem; font-weight:700;">Reglas Humorísticas (Separadas por comas):</label>
+                <textarea id="cms-reglas-humor" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="Ej: Prohibido el estrés, Permitido comer chocolate">${data.reglas_humor || ''}</textarea>
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🎵 Tarjeta 2: Cuadro Musical</h4>
+
+                 <label style="font-size:0.75rem; font-weight:700;">Canción (Link Spotify / YouTube / URL de MP3 Subido):</label>
+                <input type="text" id="cms-cancion" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_url || ''}" placeholder="https://.../cancion.mp3 o link de Spotify/YT">
+
+                <label style="font-size:0.75rem; font-weight:700;">Descripción del Tema Musical:</label>
+                <textarea id="cms-cancion-desc" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="Explica de qué trata o la vibra de la canción...">${data.cancion_desc || ''}</textarea>
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🎨 Tarjeta 3: Galería de Arte</h4>
+
+                <label style="font-size:0.75rem; font-weight:700;">Título del Cuadro:</label>
+                <input type="text" id="cms-art-title" class="input-premium" style="margin-bottom:2px;" value="${data.titulo_cuadro || ''}" placeholder="Ej: El Banquete Nocturno">
+
+                <label style="font-size:0.75rem; font-weight:700;">Artista / Autor del Cuadro:</label>
+                <input type="text" id="cms-art-artist" class="input-premium" style="margin-bottom:2px;" value="${data.artista_cuadro || ''}" placeholder="Ej: Colección Ivonne">
+
+                <label style="font-size:0.75rem; font-weight:700;">Descripción / Concepto del Cuadro:</label>
+                <textarea id="cms-cuadro-desc" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="Descripción poética o crítica del cuadro...">${data.cuadro_desc || ''}</textarea>
+
+                <label style="font-size:0.75rem; font-weight:700;">Imagen de la Obra (Link Directo de Imagen Subida o Prompt de IA):</label>
+                <textarea id="cms-art-prompt" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;" placeholder="https://.../cuadro.png o descripción del prompt para IA en inglés...">${data.prompt_ia || ''}</textarea>
+
+                <h4 style="margin: 10px 0 2px; font-size: 0.8rem; color: var(--primary-color); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px;">🧠 Tarjeta 4: Lienzo de Emociones</h4>
+                <label style="font-size:0.75rem; font-weight:700;">Prompt Base del Generador IA (Usa [EMOTION] donde deba ir la respuesta):</label>
+                <textarea id="cms-prompt-base-ia" class="textarea-premium" style="min-height:50px; font-size:0.85rem; margin-bottom:2px;">${data.prompt_base_ia || ''}</textarea>
+            </div>
+        `;
+    }
+
+    const selectDia = document.getElementById('cms-select-day');
+    cargarCamposEdicion(parseInt(selectDia.value));
+
+    selectDia.addEventListener('change', (e) => {
+        cargarCamposEdicion(parseInt(e.target.value));
+    });
+
+    document.getElementById('btn-save-cms').addEventListener('click', async () => {
+        const feedback = document.getElementById('cms-feedback');
+        const btnSave = document.getElementById('btn-save-cms');
+        const diaId = parseInt(selectDia.value);
+
+        const roomName = document.getElementById('cms-room-name').value.trim();
+        const exhibitionTitle = document.getElementById('cms-exhibition-title').value.trim();
+        
+        const curator = document.getElementById('cms-curator').value.trim();
+        const time = document.getElementById('cms-time').value.trim();
+        const fichaCorta = document.getElementById('cms-ficha-corta').value.trim();
+        const reglasHumor = document.getElementById('cms-reglas-humor').value.trim();
+
+        const cancion = document.getElementById('cms-cancion').value.trim();
+        const cancionDesc = document.getElementById('cms-cancion-desc').value.trim();
+
+        const artTitle = document.getElementById('cms-art-title').value.trim();
+        const artArtist = document.getElementById('cms-art-artist').value.trim();
+        const cuadroDesc = document.getElementById('cms-cuadro-desc').value.trim();
+        const artPrompt = document.getElementById('cms-art-prompt').value.trim();
+
+        const triviaQuestion = document.getElementById('cms-trivia-question').value.trim();
+        const promptBaseIa = document.getElementById('cms-prompt-base-ia').value.trim();
+
+        if (!roomName || !exhibitionTitle || !artTitle || !artPrompt || !fichaCorta) {
+            feedback.className = 'form-feedback error';
+            feedback.style.display = 'block';
+            feedback.textContent = '❌ Rellena los campos obligatorios (Sala, Exposición, Título de Cuadro, Prompt e Info de Taquilla).';
+            return;
+        }
+
+        btnSave.disabled = true;
+        btnSave.textContent = "Guardando...";
+        feedback.style.display = 'none';
+
+        // Estructura completa plana para LocalStorage
+        const customData = {
+            nombre_sala: roomName,
+            exposicion: exhibitionTitle,
+            curador: curator,
+            horario: time,
+            ficha_corta: fichaCorta,
+            reglas_humor: reglasHumor,
+            cancion_url: cancion,
+            cancion_desc: cancionDesc,
+            titulo_cuadro: artTitle,
+            artista_cuadro: artArtist,
+            cuadro_desc: cuadroDesc,
+            prompt_ia: artPrompt,
+            pregunta_trivia: triviaQuestion,
+            prompt_base_ia: promptBaseIa
+        };
+
+        safeStorage.setItem("museum_day_" + diaId + "_override", JSON.stringify(customData));
+
+        let savedCloud = false;
+
+        if (supabaseClient) {
+            try {
+                const { error } = await supabaseClient
+                    .from('semana_museo_v2')
+                    .upsert([
+                        {
+                            id: diaId,
+                            nombre_sala: roomName,
+                            exposicion: exhibitionTitle,
+                            curador: curator,
+                            horario: time,
+                            ficha_corta: fichaCorta,
+                            reglas_humor: reglasHumor,
+                            cancion_url: cancion,
+                            cancion_desc: cancionDesc,
+                            titulo_cuadro: artTitle,
+                            artista_cuadro: artArtist,
+                            cuadro_desc: cuadroDesc,
+                            prompt_ia: artPrompt,
+                            pregunta_trivia: triviaQuestion,
+                            prompt_base_ia: promptBaseIa
+                        }
+                    ]);
+
+                if (error) throw error;
+                savedCloud = true;
+            } catch (err) {
+                console.error("Error al sincronizar con la nube:", err);
+            }
+        }
+
+        feedback.className = 'form-feedback success';
+        feedback.style.display = 'block';
+        if (savedCloud) {
+            feedback.innerHTML = '✨ ¡Guardado con éxito en Supabase y localmente! ✨';
+        } else {
+            feedback.innerHTML = '💾 ¡Guardado localmente! (Sin conexión a la base de datos)';
+        }
+
+        setTimeout(() => {
+            btnSave.disabled = false;
+            btnSave.textContent = "Guardar Cambios 💾";
+            cerrarModal();
+            if (diaId === activeDay) {
+                cargarContenidoDia();
+                detectarDiaActual();
+            }
+        }, 1500);
+    });
+
+    document.getElementById('btn-save-setup').addEventListener('click', () => {
+        const urlInput = document.getElementById('setup-url').value.trim();
+        const keyInput = document.getElementById('setup-key').value.trim();
+
+        if (urlInput && keyInput) {
+            safeStorage.setItem('supabase_url', urlInput);
+            safeStorage.setItem('supabase_key', keyInput);
+            cerrarModal();
+            window.location.reload();
+        }
+    });
+
+    document.getElementById('btn-clear-setup').addEventListener('click', () => {
+        safeStorage.removeItem('supabase_url');
+        safeStorage.removeItem('supabase_key');
+        for (let i = 0; i <= 6; i++) {
+            safeStorage.removeItem("museum_day_" + i + "_override");
+        }
+        cerrarModal();
+        window.location.reload();
+    });
 }
 
 // Simular base de datos local
@@ -605,36 +1414,26 @@ function cambiarPaso(pasoIdOcultar, pasoIdMostrar, callback) {
     }, 380);
 }
 
-// Reiniciar los tiempos del SVG para que se note la animación cuando entra la pantalla
+// Reiniciar la animación del cuadro de galería al entrar en la vista
 function reiniciarAnimacionFlor() {
-    const stem = document.querySelector('.flower-stem');
-    const center = document.querySelector('.flower-center');
-    const petals = document.querySelectorAll('.flower-petal');
-    const leaves = document.querySelectorAll('.flower-leaf');
-
-    if (stem) {
-        stem.style.animation = 'none';
-        stem.offsetHeight; // Forzar reflow
-        stem.style.animation = 'drawStem 2.2s ease forwards';
+    const frame = document.getElementById('art-canvas-frame');
+    if (frame) {
+        frame.style.opacity = '0';
+        frame.style.setProperty('--rx', '15deg');
+        frame.style.setProperty('--ry', '0deg');
+        frame.style.setProperty('--s', '0.92');
+        frame.offsetHeight; // Forzar reflow
+        
+        frame.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        frame.style.opacity = '1';
+        frame.style.setProperty('--rx', '0deg');
+        frame.style.setProperty('--ry', '0deg');
+        frame.style.setProperty('--s', '1');
+        
+        setTimeout(() => {
+            frame.style.transition = 'transform 0.1s ease, box-shadow 0.3s ease';
+        }, 800);
     }
-
-    if (center) {
-        center.style.animation = 'none';
-        center.offsetHeight;
-        center.style.animation = 'growFlowerCenter 1.5s 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
-    }
-
-    leaves.forEach(leaf => {
-        leaf.style.animation = 'none';
-        leaf.offsetHeight;
-        leaf.style.animation = 'growLeaf 1s 1s ease forwards';
-    });
-
-    petals.forEach(petal => {
-        petal.style.animation = 'none';
-        petal.offsetHeight;
-        petal.style.animation = 'growPetal 1.8s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
-    });
 }
 
 // Modales genéricos
@@ -652,5 +1451,10 @@ function abrirModal(titulo, htmlContenido) {
 
 function cerrarModal() {
     const overlay = document.getElementById('modal-overlay');
-    if (overlay) overlay.classList.remove('active');
+    if (overlay) {
+        overlay.classList.remove('active');
+        const modalBody = document.getElementById('modal-body');
+        if (modalBody) modalBody.innerHTML = '';
+        overlay.removeAttribute('data-active-act');
+    }
 }

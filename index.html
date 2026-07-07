@@ -5,176 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para - Ivonne</title>
+    <!-- Favicon de la página -->
+    <link rel="icon" type="image/x-icon" href="Ivonne.ico">
     <!-- Hoja de Estilos de la App -->
     <link rel="stylesheet" href="style.css">
     <!-- Supabase JS Client Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
-<body class="theme-girasol">
+<body class="theme-comida">
 
     <!-- Lluvia Orgánica de Pétalos -->
     <div id="petals-container" class="petals-container"></div>
 
-    <!-- Botón Invisible / Flotante de Configuración (Se oculta por JS al conectar) -->
+    <!-- Botón Flotante del Panel de Control (CMS / Configuración) -->
     <button id="setup-trigger-btn" class="setup-trigger-btn">
-        ⚙️ Configurar Base de Datos peeeee
+        ⚙️ Panel de Control / CMS
+    </button>
+    <!-- Botón Flotante para regresar al Boleto (Recepción) -->
+    <button id="reception-btn" class="setup-trigger-btn" style="left: 20px; right: auto; display: none;">
+        🎟️ Recepción / Boleto
     </button>
 
     <!-- Contenedor de las Tarjetas de Presentación -->
     <div class="cards-wrapper">
 
-        <!-- ================= FASE 1: EL MANIFIESTO (Solo Día 1) ================= -->
-        <div id="step-manifesto" class="glass-card step">
-            <h1>HOLA COMO VA</h1>
-            <p>¡Hola! Si estás leyendo esto, es porque termine de armar algo que espero que te guste mucho. <br>
-                <br>
-                Ya sabes como son mis horarios de sueño y como no quería que pienses que te deje de lado o te ignore por
-                no escribirte,
-                me puse a inventar y creé este espacio que funciona las 24 horas del día.
-                <br>
-                <br>
-                ⚠️ REGLAS IMPORTANTES (Lee con atención):
-                <br>
-                <br>
-                ⏳ Esto cambia cada 24 horas: Lo que veas hoy, mañana ya no estará. Cada semana habrá una temática, esta
-                semana la temática son flores, cada día un mensaje diferente esperándote.
-                <br>
-                <br>
-                🎶 Dale play a la música: Abajo tendrás un reproductor con el soundtrack ideal para acompañar tu día.
-                <br>
-                <br>
-                🧠 No te vayas sin responder: Al final hay secciones interactivas. La pregunta del día es obligatoria,
-                ¡así que tu respuesta me llegará directo a mí! Y si tienes un día difícil, busca el botón de emergencia.
+        <!-- ================= FASE 1: EL BOLETO DE ENTRADA ================= -->
+        <div id="step-ticket" class="glass-card step active">
+            <div class="ticket-header-brand">
+                <span class="ticket-brand-badge">LA LARGA NOCHE DE MUSEOS</span>
+                <h1 class="ticket-brand-title">Colección Ivonne</h1>
+                <p class="ticket-brand-subtitle">Pase Semanal de Visitante</p>
+            </div>
+            
+            <p class="ticket-manifesto-intro">
+                ¡Te doy la bienvenida! Este es un espacio diseñado especialmente para ti, abierto las 24 horas. 
+                Cada día de la semana corresponde a una sala temática basada en tus gustos. 
+                <br><br>
+                <strong>Perfora tu boleto</strong> en el día disponible de hoy para ingresar a la exposición.
             </p>
-            <div class="manifesto-quote" style="margin: 25px 0;">
-                "Este espacio es tuyo. Espero que te saque una sonrisa antes de que empieces con tu rutina."
+
+            <div class="ticket-days-grid" id="ticket-days-grid">
+                <!-- Generado dinámicamente por app.js -->
             </div>
-            <button id="btn-to-story" class="btn">
-                Siguiente
-            </button>
+            
+            <div class="ticket-footer-note">
+                Curador: Fernando • Abierto las 24h 🏛️
+            </div>
         </div>
 
-        <!-- ================= FASE 2: BUENOS DÍAS ================= -->
-        <div id="step-story" class="glass-card step">
-            <div class="app-header-badge">
-                <span class="header-day-badge">Día <span class="day-number-label">1</span> • <span
-                        class="flower-name-placeholder">Girasol</span></span>
-            </div>
-            <h1 class="flower-name-placeholder">Flor</h1>
-
-            <!-- Animación de la Flor (SVG) -->
-            <div class="flower-bloom-container">
-                <svg class="flower-svg" viewBox="0 0 160 160">
-                    <!-- Tallo -->
-                    <path class="flower-stem" d="M80,150 Q75,100 80,50" fill="none" />
-                    <!-- Hojas -->
-                    <path class="flower-leaf flower-leaf-left" d="M80,110 Q50,95 80,80 Z" />
-                    <path class="flower-leaf flower-leaf-right" d="M80,95 Q110,80 80,65 Z" />
-                    <!-- Pétalos agrupados con rotación aislada -->
-                    <g class="flower-petals">
-                        <g transform="rotate(0 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(45 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(90 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(135 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(180 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(225 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(270 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                        <g transform="rotate(315 80 50)">
-                            <ellipse class="flower-petal" cx="80" cy="22" rx="12" ry="22" />
-                        </g>
-                    </g>
-                    <!-- Centro de la Flor -->
-                    <circle class="flower-center" cx="80" cy="50" r="14" />
-                </svg>
-            </div>
-
-            <!-- Saludo de Buenos Días -->
-            <div class="dashboard-card message-section" style="margin-top: 15px;">
-                <h3>☀️ Buenos Días</h3>
-                <p id="buenos-dias-text" class="greeting-text">Cargando tu saludo diario...</p>
-            </div>
-
-            <button id="btn-to-poem" class="btn">
-                Siguiente ✍️
-            </button>
-        </div>
-
-        <!-- ================= FASE 3: POEMA / DOSIS DE INSPIRACIÓN ================= -->
-        <div id="step-poem" class="glass-card step">
-            <div class="app-header-badge">
-                <span class="header-day-badge">Día <span class="day-number-label">1</span> • <span
-                        class="flower-name-placeholder">Girasol</span></span>
-            </div>
-
-            <div class="dashboard-card inspiration-section">
-                <h3>✍ Frase del día de mi pa ti</h3>
-                <div id="poema-text" class="poem-card">
-                    Cargando tu dedicatoria...
+        <!-- ================= FASE 2: SALA DE EXHIBICIÓN (SLIDER HORIZONTAL DE TARJETAS) ================= -->
+        <div id="step-story" class="step" style="width: 100%; max-width: 600px; flex-direction: column; align-items: center;">
+            <div class="glass-card" style="width: 100%; padding: 20px 22px; text-align: center; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; position: relative;">
+                <div class="app-header-badge" style="width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;">
+                    <span class="header-day-badge" style="margin-bottom: 0;">Sala <span class="day-number-label">1</span> • <span class="room-name-placeholder">Cargando...</span></span>
+                </div>
+                
+                <h1 class="exhibition-title-placeholder" style="font-size: 1.55rem; margin-top: 12px; margin-bottom: 5px;">Exposición</h1>
+                <p class="exhibition-subtitle-caption" style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px; font-style: italic;">Desliza lateralmente para recorrer las salas ↔️</p>
+                
+                <!-- Puntos Indicadores del Slider (Dots) -->
+                <div class="slider-dots-container" id="slider-dots-nav">
+                    <span class="slider-dot active" data-slide="0" title="Taquilla"></span>
+                    <span class="slider-dot" data-slide="1" title="Música"></span>
+                    <span class="slider-dot" data-slide="2" title="Galería de Arte"></span>
+                    <span class="slider-dot" data-slide="3" title="Lienzo de Emociones"></span>
                 </div>
             </div>
 
-            <button id="btn-to-menu" class="btn">
-                Ir al Menú Principal 🏠
-            </button>
-        </div>
+            <!-- Contenedor Deslizable Horizontal -->
+            <div class="museum-slider-container" id="museum-slider">
+                <!-- Tarjeta 1: Taquilla (Ficha Técnica y Reglas) -->
+                <div class="glass-card museum-slide-card" data-slide-index="0">
+                    <h2 class="slide-card-title">🎟️ Taquilla</h2>
+                    <div class="museum-ticket">
+                        <div class="ticket-header">
+                            <span>MUSEUM TICKET</span>
+                            <span id="ticket-number">#0001</span>
+                        </div>
+                        <div class="ticket-body">
+                            <p id="ticket-description" style="font-style: italic; opacity: 0.85; font-size: 0.88rem; margin-bottom: 12px; line-height: 1.5;">Cargando ficha técnica...</p>
+                            <div class="ticket-meta-grid">
+                                <div style="text-align: left;"><strong>CURADOR:</strong> <span id="ticket-curator">Fernando</span></div>
+                                <div style="text-align: left;"><strong>HORARIO:</strong> <span id="ticket-time">Madrugada</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carteles de Prohibición / Reglas de la Casa dinámicas -->
+                    <div id="ticket-rules-container" class="prohibitions-container" style="margin-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 12px; text-align: left;">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
 
-        <!-- ================= FASE 4: MENÚ INTERACTIVO Y MÚSICA (ESTÁTICO) ================= -->
-        <div id="step-menu" class="glass-card step">
-            <div class="app-header-badge">
-                <span class="header-day-badge">Día <span class="day-number-label">1</span> • <span
-                        class="flower-name-placeholder">Girasol</span></span>
-            </div>
+                <!-- Tarjeta 2: Música (Cuadro Musical) -->
+                <div class="glass-card museum-slide-card" data-slide-index="1">
+                    <h2 class="slide-card-title">🎵 Cuadro Musical</h2>
+                    
+                    <div class="soundtrack-card" style="margin-bottom: 15px; box-shadow: none; border: none; background: transparent; padding: 0;">
+                        <div id="music-player-container">
+                            <!-- Spotify embed o reproductor se inyecta aquí -->
+                        </div>
+                    </div>
+                    
+                    <div class="music-description-box" style="text-align: left; background: rgba(255,255,255,0.02); border-left: 3px solid var(--primary-color); padding: 12px; border-radius: 0 8px 8px 0;">
+                        <p style="font-size: 0.72rem; font-weight: 700; color: var(--primary-color); margin-bottom: 4px; text-transform: uppercase;">Sobre esta melodía:</p>
+                        <p id="music-theme-desc" style="font-size: 0.85rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;">
+                            Cargando descripción del tema...
+                        </p>
+                    </div>
+                </div>
 
-            <h1>Menú del Día 💫</h1>
-            <p style="font-size: 0.95rem; margin-bottom: 20px;">Interactúa con el día de hoy y escucha la música:</p>
+                <!-- Tarjeta 3: Galería de Arte (Cuadro IA) -->
+                <div class="glass-card museum-slide-card" data-slide-index="2">
+                    <h2 class="slide-card-title">🎨 Galería de Arte</h2>
+                    <div class="museum-frame-container" style="margin-top: 0; margin-bottom: 12px;">
+                        <div id="art-canvas-frame" class="museum-frame">
+                            <div id="art-image-loader" class="art-loader">
+                                <div class="art-loader-spinner"></div>
+                                <span>Pintando obra de arte...<br><small id="art-prompt-loading" style="font-size: 0.65rem; opacity: 0.7;">Nano Banana 2 Engine</small></span>
+                            </div>
+                            <img id="art-canvas-img" src="" alt="Obra de arte" style="display: none;">
+                            <div class="frame-label" id="art-label-plate">
+                                <span id="art-title">Obra de Arte</span>
+                                <small id="art-artist">Colección Ivonne</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="art-description-plate" class="museum-label-plate-info" style="text-align: left; font-size: 0.82rem; line-height: 1.4; opacity: 0.85; margin-bottom: 12px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px;">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                    </div>
 
-            <!-- Botones de Interacciones -->
-            <div class="dashboard-card interactions-section">
-                <h3> Botones de Interacciones</h3>
-                <div class="interaction-buttons-grid">
-                    <button id="btn-pregunta" class="btn btn-interaction">
-                        ❓ Pregunta del día
-                    </button>
-                    <button id="btn-emergencia" class="btn btn-interaction btn-alert">
-                        🚨 Botón de emergencia
-                    </button>
-                    <button id="btn-dato-curioso" class="btn btn-interaction btn-info">
-                        💡 Dato curioso
-                    </button>
+                <!-- Tarjeta 4: Generador de Arte Interactivo (Lienzo de Emociones) -->
+                <div class="glass-card museum-slide-card" data-slide-index="3">
+                    <h2 class="slide-card-title">🧠 Lienzo de Emociones</h2>
+                    
+                    <div class="interactive-generator-container" style="text-align: left;">
+                        <p id="emotion-generator-question" style="font-size: 0.95rem; font-weight: 700; color: var(--primary-color); margin-bottom: 10px; border-left: 3px solid var(--primary-color); padding-left: 8px;">
+                            ¿Cómo te sientes hoy?
+                        </p>
+                        
+                        <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+                            <input type="text" id="emotion-input-text" class="input-premium" placeholder="Escribe tu emoción o sentimiento..." style="flex: 1; padding: 10px 14px;">
+                            <button id="btn-paint-emotion" class="btn btn-secondary" style="width: auto; padding: 0 16px;">Pintar 🎨</button>
+                        </div>
+                        
+                        <!-- Lienzo de Emoción Generado -->
+                        <div class="museum-frame-container" style="width: 230px; height: 230px; margin: 0 auto;">
+                            <div id="emotion-canvas-frame" class="museum-frame" style="width: 100%; height: 100%;">
+                                <div id="emotion-image-loader" class="art-loader" style="display: none;">
+                                    <div class="art-loader-spinner"></div>
+                                    <span>Pintando tu sentir...</span>
+                                </div>
+                                <div id="emotion-blank-canvas" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; font-size: 0.75rem; opacity: 0.5; text-align: center; padding: 20px;">
+                                    Lienzo en blanco.<br>Escribe tu emoción arriba y pinta.
+                                </div>
+                                <img id="emotion-canvas-img" src="" alt="Lienzo de Emoción" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                                <div class="frame-label" id="emotion-label-plate" style="display: none;">
+                                    <span id="emotion-art-title">Tu Sentir</span>
+                                    <small>Pintado por la IA</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Música -->
-            <div class="dashboard-card music-section">
-                <h3>🎵 Música</h3>
-                <p class="music-subtitle"> <strong>Un beso tuyo - Santiago Insane</strong>
-                </p>
-                <div id="music-player-container">
-                    <!-- Iframe inyectado por JS -->
-                </div>
-            </div>
-
-            <!-- Botón para volver a leer el mensaje -->
-            <button id="btn-back-to-story" class="btn btn-secondary btn-small">
-                📖 Volver a leer mensaje y poemas
-            </button>
         </div>
-
     </div>
 
     <!-- Barra de Selección de Días (Navegación de prueba) -->
@@ -182,13 +180,15 @@
         <!-- Generado dinámicamente: 1 2 3 4 5 -->
     </div>
 
+
+
     <!-- Modal Universal (Pregunta, Emergencia, Dato Curioso y Configuración) -->
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal-content">
             <button id="modal-close" class="modal-close">&times;</button>
             <h2 id="modal-title">Título</h2>
             <div id="modal-body">
-                Contenido del modal...
+                Contenido del modal......
             </div>
         </div>
     </div>
