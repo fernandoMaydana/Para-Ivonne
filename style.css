@@ -1445,8 +1445,8 @@ select.input-premium option {
     flex: 0 0 100%;
     scroll-snap-align: center;
     box-sizing: border-box;
-    max-height: 75vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
     padding: 28px 24px;
     text-align: center;
     border: 1px solid rgba(200, 169, 110, 0.2);

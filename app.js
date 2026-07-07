@@ -822,7 +822,7 @@ function actualizarVistaDOM(data) {
     // Lógica Persistente: Si ya generó pintura hoy, mostrarla de inmediato en el marco
     if (window.currentUserRatings && window.currentUserRatings.emotionImage) {
         if (emotionImg) emotionImg.src = window.currentUserRatings.emotionImage;
-        if (emotionArtTitle) emotionArtTitle.textContent = `Emoción: ${window.currentUserRatings.emotionText || 'Sentir del día'}`;
+        if (emotionArtTitle) emotionArtTitle.textContent = window.currentUserRatings.emotionText || 'Sentir del día';
         
         if (formStateEl) formStateEl.style.display = 'none';
         if (loadingStateEl) loadingStateEl.style.display = 'none';
@@ -1293,7 +1293,7 @@ function configurarEventos() {
 
                 // Renderizar resultado final
                 imgEl.src = imageUrl;
-                titleEl.textContent = `Emoción: ${emotionText}`;
+                titleEl.textContent = emotionText;
 
                 // Alternar estados
                 loadingStateEl.style.display = 'none';
