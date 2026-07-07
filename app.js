@@ -590,6 +590,8 @@ function deserializarDatosDia(dbData, diaId) {
     if (dbData.poema !== undefined && dbData.poema !== null) res.poema = dbData.poema;
     if (dbData.autor_poema !== undefined && dbData.autor_poema !== null) res.autor_poema = dbData.autor_poema;
     if (dbData.tecnica_pintura !== undefined && dbData.tecnica_pintura !== null) res.tecnica_pintura = dbData.tecnica_pintura;
+    if (dbData.cancion_titulo !== undefined && dbData.cancion_titulo !== null) res.cancion_titulo = dbData.cancion_titulo;
+    if (dbData.cancion_autor !== undefined && dbData.cancion_autor !== null) res.cancion_autor = dbData.cancion_autor;
 
     return res;
 }
@@ -740,7 +742,7 @@ function actualizarVistaDOM(data) {
         }
     }
 
-    // 3. Inyectar reproductor de música, carátula y descripción del tema
+    // 3. Inyectar reproductor de música, carátula, título, autor y descripción del tema
     renderizarReproductorMusica(data.cancion_url);
     const musicDesc = document.getElementById('music-theme-desc');
     if (musicDesc) musicDesc.textContent = data.cancion_desc || 'Sin descripción de tema para hoy.';
@@ -748,6 +750,15 @@ function actualizarVistaDOM(data) {
     const musicCover = document.getElementById('music-cover-img');
     if (musicCover) {
         musicCover.src = data.cancion_caratula || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=340';
+    }
+
+    const musicTitle = document.getElementById('music-title');
+    if (musicTitle) {
+        musicTitle.textContent = data.cancion_titulo || 'Melodía';
+    }
+    const musicAuthor = document.getElementById('music-author');
+    if (musicAuthor) {
+        musicAuthor.textContent = data.cancion_autor || 'Colección Ivonne';
     }
 
     // 4. Inyectar y pintar obra de arte con la IA
@@ -1748,6 +1759,12 @@ function abrirPanelControlCMS() {
                 <label style="font-size:0.75rem; font-weight:700;">Canción (Link Spotify/YT o URL directa de MP3):</label>
                 <input type="text" id="cms-cancion" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_url || ''}" placeholder="https://.../cancion.mp3">
 
+                <label style="font-size:0.75rem; font-weight:700;">Título de la Canción:</label>
+                <input type="text" id="cms-cancion-titulo" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_titulo || ''}" placeholder="Ej: La Noche Estrellada">
+
+                <label style="font-size:0.75rem; font-weight:700;">Artista / Autor de la Canción:</label>
+                <input type="text" id="cms-cancion-autor" class="input-premium" style="margin-bottom:2px;" value="${data.cancion_autor || ''}" placeholder="Ej: Vincent de las Melodías">
+
                 <label style="font-size:0.75rem; font-weight:700;">Descripción del Tema Musical:</label>
                 <textarea id="cms-cancion-desc" class="textarea-premium" style="min-height:45px; font-size:0.85rem; margin-bottom:2px;" placeholder="Explica de qué trata o la vibra de la canción...">${data.cancion_desc || ''}</textarea>
 
@@ -1814,6 +1831,8 @@ function abrirPanelControlCMS() {
         const reglasHumor = document.getElementById('cms-reglas-humor').value.trim();
 
         const cancion = document.getElementById('cms-cancion').value.trim();
+        const cancionTitulo = document.getElementById('cms-cancion-titulo').value.trim();
+        const cancionAutor = document.getElementById('cms-cancion-autor').value.trim();
         const cancionDesc = document.getElementById('cms-cancion-desc').value.trim();
         const cancionCaratula = document.getElementById('cms-cancion-caratula').value.trim();
 
@@ -1850,6 +1869,8 @@ function abrirPanelControlCMS() {
             ficha_corta: fichaCorta,
             reglas_humor: reglasHumor,
             cancion_url: cancion,
+            cancion_titulo: cancionTitulo,
+            cancion_autor: cancionAutor,
             cancion_desc: cancionDesc,
             cancion_caratula: cancionCaratula,
             titulo_cuadro: artTitle,
@@ -1882,6 +1903,8 @@ function abrirPanelControlCMS() {
                             ficha_corta: fichaCorta,
                             reglas_humor: reglasHumor,
                             cancion_url: cancion,
+                            cancion_titulo: cancionTitulo,
+                            cancion_autor: cancionAutor,
                             cancion_desc: cancionDesc,
                             cancion_caratula: cancionCaratula,
                             titulo_cuadro: artTitle,
