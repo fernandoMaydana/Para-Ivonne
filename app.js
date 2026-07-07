@@ -657,7 +657,7 @@ async function cargarContenidoDia() {
     if (supabaseClient) {
         try {
             const { data: dbResp, error: respError } = await supabaseClient
-                .from('respuestas_amiga')
+                .from('respuestas_amiga_museo')
                 .select('*')
                 .eq('dia_id', activeDay);
                 
@@ -898,7 +898,7 @@ async function registrarCalificacionAmiga(tipo, valor) {
     try {
         if (supabaseClient) {
             const { error } = await supabaseClient
-                .from('respuestas_amiga')
+                .from('respuestas_amiga_museo')
                 .insert([{ dia_id: activeDay, respuesta: textRespuesta }]);
             if (error) throw error;
         } else {
@@ -1300,7 +1300,7 @@ function configurarEventos() {
                 try {
                     if (supabaseClient) {
                         const { error } = await supabaseClient
-                            .from('respuestas_amiga')
+                            .from('respuestas_amiga_museo')
                             .insert([{ dia_id: activeDay, respuesta: formattedRes }]);
                         if (error) throw error;
                     } else {
@@ -1603,7 +1603,7 @@ function abrirPanelControlCMS() {
         if (supabaseClient) {
             try {
                 const { data, error } = await supabaseClient
-                    .from('respuestas_amiga')
+                    .from('respuestas_amiga_museo')
                     .select('*')
                     .order('created_at', { ascending: false });
                 if (error) {
