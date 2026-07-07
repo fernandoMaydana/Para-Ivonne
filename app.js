@@ -1606,6 +1606,9 @@ function abrirPanelControlCMS() {
                     .from('respuestas_amiga')
                     .select('*')
                     .order('created_at', { ascending: false });
+                if (error) {
+                    console.error("Error al consultar respuestas de Supabase:", error);
+                }
                 if (!error && data) {
                     responses = data;
                 }
@@ -1614,11 +1617,23 @@ function abrirPanelControlCMS() {
             }
         }
 
-        // Leer también locales por si hay
+        // Leer también locales
         try {
             const locales = JSON.parse(safeStorage.getItem('respuestas_amiga_local')) || [];
             responses = responses.concat(locales);
         } catch(e){}
+
+        // De-duplicar por contenido de respuesta y día
+        const unique = [];
+        const seen = new Set();
+        responses.forEach(item => {
+            const key = `${item.dia_id}_${item.respuesta}`;
+            if (!seen.has(key)) {
+                seen.add(key);
+                unique.push(item);
+            }
+        });
+        responses = unique;
 
         if (responses.length === 0) {
             container.innerHTML = `<div style="text-align:center; padding:15px; font-size:0.8rem; opacity:0.6;">Ivonne no ha interactuado ni calificado nada aún.</div>`;
