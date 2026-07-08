@@ -1674,12 +1674,12 @@ function abrirPanelControlCMS() {
                 list.forEach(item => {
                     const text = item.respuesta;
                     if (text && typeof text === 'string') {
-                        if (text.includes('Calificación Canción') || text.includes('Canción:')) {
+                        if (text.includes('Calificación Canción')) {
                             if (!latestSong) {
                                 const valMatch = text.match(/(\d+\/5)/);
                                 latestSong = valMatch ? valMatch[1] : text;
                             }
-                        } else if (text.includes('Calificación Obra') || text.includes('Obra:')) {
+                        } else if (text.includes('Calificación Obra')) {
                             if (!latestArt) {
                                 const valMatch = text.match(/(\d+\/5)/);
                                 latestArt = valMatch ? valMatch[1] : text;
@@ -1719,7 +1719,7 @@ function abrirPanelControlCMS() {
                 if (latestPaint) {
                     html += `
                         <div style="margin-top: 5px; display: flex; align-items: center; gap: 8px;">
-                            <div style="flex: 1;">🧠 <strong>Pintura de Emoción:</strong> "${latestPaint.emotion}"</div>
+                            <div style="flex: 1;">🧠 "${latestPaint.emotion}"</div>
                             ${latestPaint.url ? `
                                 <img src="${latestPaint.url}" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid var(--primary-color); border-radius: 2px; cursor: pointer;" onclick="window.open('${latestPaint.url}', '_blank')" title="Ampliar pintura">
                             ` : ''}
