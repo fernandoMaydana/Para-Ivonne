@@ -1681,17 +1681,19 @@ function abrirPanelControlCMS() {
                 list.forEach(item => {
                     const text = item.respuesta;
                     if (text && typeof text === 'string') {
-                        if (text.includes('Calificación Canción')) {
+                        const isRating = text.includes('Calificación');
+                        
+                        if (isRating && (text.includes('Canción') || text.includes('Música') || text.includes('Melodía'))) {
                             if (!latestSong) {
                                 const valMatch = text.match(/(\d+\/5)/);
                                 latestSong = valMatch ? valMatch[1] : text;
                             }
-                        } else if (text.includes('Calificación Obra')) {
+                        } else if (isRating && (text.includes('Obra') || text.includes('Cuadro') || text.includes('Pintura') || text.includes('Arte'))) {
                             if (!latestArt) {
                                 const valMatch = text.match(/(\d+\/5)/);
                                 latestArt = valMatch ? valMatch[1] : text;
                             }
-                        } else if (text.includes('Generó Obra:') || text.includes('🎨')) {
+                        } else if (text.includes('Generó Obra:') || text.includes('🎨') || text.includes('Emoción')) {
                             if (!latestPaint) {
                                 const parts = text.split(' | URL: ');
                                 const emotion = parts[0].replace('🎨 Generó Obra: ', '').replace('Generó Obra: ', '').trim();
