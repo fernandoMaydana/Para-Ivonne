@@ -45,8 +45,16 @@
                 <strong>Perfora tu boleto</strong> en el día disponible de hoy para ingresar a la exposición.
             </p>
 
-            <div class="ticket-days-grid" id="ticket-days-grid">
-                <!-- Generado dinámicamente por app.js -->
+            <div class="ticket-days-grid" id="ticket-days-grid" style="display: none;">
+                <!-- Ocultado en favor del acceso de clausura -->
+            </div>
+            
+            <div id="clausura-ticket-container" style="margin: 22px 0 15px 0;">
+                <button id="btn-go-clausura" class="btn btn-clausura-ticket" style="width: 100%; border-radius: 24px; text-transform: uppercase; font-family: var(--font-title); font-weight: 700; letter-spacing: 1.5px; padding: 18px 15px; font-size: 0.95rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+                    <span style="font-size: 1.2rem;">🎟️</span>
+                    <span>Acceder a la Clausura Especial</span>
+                    <span style="font-size: 0.65rem; opacity: 0.75; font-family: var(--font-body); font-weight: normal; text-transform: none; letter-spacing: 0.5px; margin-top: 2px;">Sala Final • Un Agradecimiento para Ivonne</span>
+                </button>
             </div>
             
             <div class="ticket-footer-note">
@@ -252,6 +260,65 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FASE 3: CLAUSURA DE LA SEMANA (CLAYMORFISMO ROSADO) ================= -->
+    <div id="step-clausura" class="step" style="width: 100%; max-width: 600px; flex-direction: column; align-items: center; display: none;">
+        <div class="clay-header" style="text-align: center; margin-bottom: 25px;">
+            <h1 style="font-family: var(--font-title); font-size: 1.8rem; color: #ff69b4; text-shadow: 0 0 10px rgba(255, 105, 180, 0.4); margin-bottom: 5px;">Exposición Especial</h1>
+            <p style="font-family: var(--font-body); font-size: 0.82rem; color: var(--primary-color); opacity: 0.8; font-style: italic;">Clausura de la Temporada</p>
+        </div>
+
+        <div class="clausura-cards-container" style="width: 100%;">
+            <!-- Tarjeta 1: Agradecimiento -->
+            <div class="clay-card">
+                <span class="clay-emoji">💖</span>
+                <h3 class="clay-card-title">Gracias por Acompañarme</h3>
+                <p class="clay-card-text">
+                    Ivonne, quiero agradecerte con todo mi corazón por recorrer cada sala de este museo virtual. 
+                    Tu presencia y tu sensibilidad al interactuar con cada melodía, pintura y poema han sido el 
+                    verdadero sentido de esta creación. Gracias por tu tiempo, tu complicidad y por compartir 
+                    estas semanas de arte y emociones a mi lado.
+                </p>
+            </div>
+
+            <!-- Tarjeta 2: Canción de Clausura -->
+            <div class="clay-card">
+                <span class="clay-emoji">🎵</span>
+                <h3 class="clay-card-title">Nuestra Melodía</h3>
+                
+                <div class="museum-frame-container" style="margin-top: 15px; margin-bottom: 15px; max-width: 200px; aspect-ratio: 1/1; margin-left: auto; margin-right: auto;">
+                    <div id="clausura-music-frame" class="museum-frame" style="width: 100%; height: 100%;">
+                        <img id="clausura-music-cover-img" src="" alt="Carátula de Clausura" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="frame-label" id="clausura-music-label-plate">
+                            <span id="clausura-music-title">Melodía Especial</span>
+                            <small id="clausura-music-author">Ivonne</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="clausura-music-player-container" style="width: 100%;">
+                    <!-- Se inyecta dinámicamente el reproductor (MP3, Spotify o YouTube) -->
+                </div>
+
+                <div class="music-description-box" style="text-align: left; border-left: 2px solid #ff69b4; padding: 10px; margin-top: 15px; border-radius: 0 4px 4px 0; background: rgba(255, 105, 180, 0.03);">
+                    <p style="font-size: 0.72rem; font-weight: 700; color: #ff69b4; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sobre esta canción:</p>
+                    <p id="clausura-music-desc" style="font-size: 0.8rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;"></p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Despedida -->
+            <div class="clay-card">
+                <span class="clay-emoji">⏳</span>
+                <h3 class="clay-card-title">Momento de un Descanso</h3>
+                <p class="clay-card-text">
+                    Este museo y sus salas fueron una hermosa aventura diaria que realizamos a lo largo de dos semanas llenas de magia. 
+                    Hoy el curador apaga temporalmente las luces de las salas principales para tomar un merecido descanso. 
+                    Ha sido un viaje increíble, y aunque las exposiciones diarias cierren sus puertas por ahora, esta colección de momentos, 
+                    calificaciones y emociones quedará guardada para siempre en la memoria del curador. ¡Hasta pronto, Ivonne!
+                </p>
             </div>
         </div>
     </div>

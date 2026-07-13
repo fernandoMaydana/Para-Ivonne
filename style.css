@@ -1769,3 +1769,77 @@ select.input-premium option {
     box-shadow: 0 4px 20px rgba(0,0,0,0.6);
     transition: opacity 0.3s ease;
 }
+
+/* ================= SECCIÓN DE CLAUSURA: CLAYMORFISMO ROSADO ================= */
+.clay-card {
+    background: #201318; /* Tono vino/fucsia oscuro de arcilla */
+    border-radius: 32px;
+    padding: 35px 25px;
+    margin-bottom: 25px;
+    border: 2px solid rgba(255, 105, 180, 0.35);
+    /* Claymorphism shadow setup with soft pink light source and dark recess */
+    box-shadow: 
+        10px 10px 25px rgba(0, 0, 0, 0.7),
+        -5px -5px 15px rgba(255, 105, 180, 0.04),
+        inset 5px 5px 12px rgba(255, 255, 255, 0.08), 
+        inset -8px -8px 16px rgba(255, 20, 147, 0.22);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.clay-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        12px 12px 30px rgba(0, 0, 0, 0.8),
+        -5px -5px 15px rgba(255, 105, 180, 0.06),
+        inset 5px 5px 12px rgba(255, 255, 255, 0.12), 
+        inset -8px -8px 16px rgba(255, 20, 147, 0.3);
+}
+.clay-emoji {
+    font-size: 2.8rem;
+    display: inline-block;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.4));
+    animation: bounceEmoji 3s ease-in-out infinite alternate;
+}
+.clay-card-title {
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+    color: #ff69b4;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.3);
+}
+.clay-card-text {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #ede8dc;
+    opacity: 0.95;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+/* Botón de acceso en el boleto de entrada */
+.btn-clausura-ticket {
+    background: #381e28;
+    color: #ff69b4;
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    box-shadow: 
+        6px 6px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.05),
+        inset -4px -4px 8px rgba(255, 20, 147, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-clausura-ticket:hover {
+    background: #4a2835;
+    transform: scale(1.02);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.6),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.08),
+        inset -4px -4px 8px rgba(255, 20, 147, 0.25);
+    border-color: rgba(255, 105, 180, 0.6);
+}
+
+@keyframes bounceEmoji {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-6px); }
+}

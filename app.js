@@ -146,6 +146,29 @@ const FALLBACK_CONTENT = {
         tecnica_pintura: 'Impresionismo tardío con pinceladas sueltas cargadas de luz.',
         pregunta_trivia: '¿Cómo te sientes el día de hoy?',
         prompt_base_ia: 'an abstract oil painting on canvas representing: [EMOTION], museum masterpiece'
+    },
+    7: {
+        nombre_sala: 'Clausura de la Semana',
+        exposicion: 'Agradecimiento Especial',
+        curador: 'Curador',
+        horario: 'Permanente',
+        ficha_corta: 'Clausura de las exhibiciones del museo.',
+        reglas_humor: '',
+        cancion_url: '',
+        cancion_titulo: 'Nuestra Melodía Especial',
+        cancion_autor: 'Colección Ivonne',
+        cancion_desc: 'Una pieza musical seleccionada especialmente para cerrar este ciclo de momentos y emociones compartidas.',
+        cancion_caratula: '',
+        titulo_cuadro: '',
+        artista_cuadro: '',
+        cuadro_desc: '',
+        prompt_ia: '',
+        curiosidad_cuadro: '',
+        poema: '',
+        autor_poema: '',
+        tecnica_pintura: '',
+        pregunta_trivia: '',
+        prompt_base_ia: ''
     }
 };
 
@@ -1403,10 +1426,22 @@ function configurarEventos() {
     const btnReception = document.getElementById('reception-btn');
     if (btnReception) {
         btnReception.addEventListener('click', () => {
-            cambiarPaso('step-story', 'step-ticket', () => {
-                btnReception.style.display = 'none';
-                renderizarBoleto();
-            });
+            const activeStep = document.querySelector('.step.active');
+            if (activeStep) {
+                detenerAudioClausura();
+                cambiarPaso(activeStep.id, 'step-ticket', () => {
+                    btnReception.style.display = 'none';
+                    renderizarBoleto();
+                });
+            }
+        });
+    }
+
+    // Botón para entrar a la Clausura Especial
+    const btnGoClausura = document.getElementById('btn-go-clausura');
+    if (btnGoClausura) {
+        btnGoClausura.addEventListener('click', () => {
+            cargarContenidoClausura();
         });
     }
 
@@ -1538,7 +1573,8 @@ function abrirPanelControlCMS() {
         { val: 3, text: "Jueves (Salón del Cacao)" },
         { val: 4, text: "Viernes (Sala de la Inocencia)" },
         { val: 5, text: "Sábado (Patio de Arte Pop)" },
-        { val: 6, text: "Domingo (Sala de Descanso Extendido)" }
+        { val: 6, text: "Domingo (Sala de Descanso Extendido)" },
+        { val: 7, text: "✨ Clausura de la Semana (Especial)" }
     ];
     
     const optionsHtml = dayOptions.map(opt => 
@@ -1899,10 +1935,17 @@ function abrirPanelControlCMS() {
         const triviaQuestion = document.getElementById('cms-trivia-question').value.trim();
         const promptBaseIa = document.getElementById('cms-prompt-base-ia').value.trim();
 
-        if (!roomName || !exhibitionTitle || !artTitle || !artPrompt || !fichaCorta) {
+        const isClausura = (diaId === 7);
+        if (!isClausura && (!roomName || !exhibitionTitle || !artTitle || !artPrompt || !fichaCorta)) {
             feedback.className = 'form-feedback error';
             feedback.style.display = 'block';
             feedback.textContent = '❌ Rellena los campos obligatorios (Sala, Exposición, Título de Cuadro, Prompt e Info de Taquilla).';
+            return;
+        }
+        if (isClausura && (!roomName || !exhibitionTitle)) {
+            feedback.className = 'form-feedback error';
+            feedback.style.display = 'block';
+            feedback.textContent = '❌ Rellena los campos obligatorios para la Clausura (Nombre y Título).';
             return;
         }
 
@@ -2091,5 +2134,185 @@ function cerrarModal() {
         const modalBody = document.getElementById('modal-body');
         if (modalBody) modalBody.innerHTML = '';
         overlay.removeAttribute('data-active-act');
+    }
+}
+
+// --- FUNCIONES ESPECIALES DE CLAUSURA ---
+async function cargarContenidoClausura() {
+    const btnReception = document.getElementById('reception-btn');
+    if (btnReception) btnReception.style.display = 'block';
+
+    let data = null;
+    const local = safeStorage.getItem("museum_day_7_override");
+    if (local) {
+        try { data = Object.assign({}, FALLBACK_CONTENT[7], JSON.parse(local)); } catch(e){}
+    }
+    
+    if (!data && supabaseClient) {
+        try {
+            const { data: dbData, error } = await supabaseClient
+                .from('semana_museo_v2')
+                .select('*')
+                .eq('id', 7)
+                .single();
+            if (!error && dbData) {
+                data = deserializarDatosDia(dbData, 7);
+            }
+        } catch (e) {
+            console.error("Error al cargar clausura de Supabase:", e);
+        }
+    }
+    
+    if (!data) {
+        data = FALLBACK_CONTENT[7];
+    }
+
+    const coverEl = document.getElementById('clausura-music-cover-img');
+    const titleEl = document.getElementById('clausura-music-title');
+    const authorEl = document.getElementById('clausura-music-author');
+    const descEl = document.getElementById('clausura-music-desc');
+
+    if (coverEl) coverEl.src = data.cancion_caratula || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&q=80';
+    if (titleEl) titleEl.textContent = data.cancion_titulo || 'Melodía Especial';
+    if (authorEl) authorEl.textContent = data.cancion_autor || 'Colección Ivonne';
+    if (descEl) descEl.textContent = data.cancion_desc || 'Una pieza musical para cerrar este ciclo.';
+
+    renderizarReproductorMusicaClausura(data.cancion_url);
+    cambiarPaso('step-ticket', 'step-clausura');
+}
+
+function renderizarReproductorMusicaClausura(url) {
+    const container = document.getElementById('clausura-music-player-container');
+    if (!container) return;
+
+    if (!url || typeof url !== 'string') {
+        container.innerHTML = `
+            <div style="font-size:0.8rem; opacity:0.6; text-align:center; padding:12px; border:1px dashed rgba(255,105,180,0.2); border-radius:12px; color: #ff69b4; margin: 12px 0;">
+                🎵 Sin melodía cargada para hoy.
+            </div>
+        `;
+        return;
+    }
+
+    let embedUrl = "";
+    let isYoutube = false;
+    let isDirectAudio = false;
+
+    if (url.toLowerCase().endsWith('.mp3') || url.toLowerCase().includes('.mp3?') ||
+        url.toLowerCase().endsWith('.wav') || url.toLowerCase().includes('.wav?')) {
+        isDirectAudio = true;
+    }
+    else if (url.includes('spotify.com')) {
+        const trackMatch = url.match(/spotify\.com\/track\/([a-zA-Z0-9]+)/);
+        const playlistMatch = url.match(/spotify\.com\/playlist\/([a-zA-Z0-9]+)/);
+        if (trackMatch) {
+            embedUrl = `https://open.spotify.com/embed/track/${trackMatch[1]}?utm_source=generator`;
+        } else if (playlistMatch) {
+            embedUrl = `https://open.spotify.com/embed/playlist/${playlistMatch[1]}?utm_source=generator`;
+        }
+    }
+    else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
+        if (ytMatch) {
+            embedUrl = `https://www.youtube.com/embed/${ytMatch[1]}`;
+            isYoutube = true;
+        }
+    }
+
+    if (isDirectAudio) {
+        container.innerHTML = `
+            <div class="vintage-player" id="clausura-music-player" style="margin: 15px auto; max-width: 280px; padding: 10px 14px;">
+                <audio id="clausura-native-audio" src="${url}" preload="metadata" style="display: none;"></audio>
+                <div class="player-controls" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                    <button class="player-btn" id="clausura-play-btn" style="cursor: pointer;" title="Reproducir">▶</button>
+                    <div class="player-timeline-wrapper" style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                        <div class="player-timeline" id="clausura-timeline" style="height: 4px; background: rgba(255, 105, 180, 0.2); border-radius: 2px; position: relative; cursor: pointer;">
+                            <div class="timeline-progress" id="clausura-progress" style="width: 0%; height: 100%; background: #ff69b4; border-radius: 2px; position: absolute; left: 0; top: 0;"></div>
+                        </div>
+                        <div class="player-time-labels" style="display: flex; justify-content: space-between; font-size: 0.62rem; opacity: 0.7;">
+                            <span id="clausura-time-current">0:00</span>
+                            <span id="clausura-time-total">0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        setTimeout(() => {
+            const audio = document.getElementById('clausura-native-audio');
+            const playBtn = document.getElementById('clausura-play-btn');
+            const timeline = document.getElementById('clausura-timeline');
+            const progress = document.getElementById('clausura-progress');
+            const currentTimeLabel = document.getElementById('clausura-time-current');
+            const totalTimeLabel = document.getElementById('clausura-time-total');
+
+            if (!audio || !playBtn || !timeline || !progress || !currentTimeLabel || !totalTimeLabel) return;
+
+            function format(secs) {
+                if (isNaN(secs) || secs === Infinity) return "0:00";
+                const m = Math.floor(secs / 60);
+                const s = Math.floor(secs % 60);
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
+            }
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.textContent = '❚❚';
+                } else {
+                    audio.pause();
+                    playBtn.textContent = '▶';
+                }
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                const pct = (audio.currentTime / (audio.duration || 1)) * 100;
+                progress.style.width = pct + '%';
+                currentTimeLabel.textContent = format(audio.currentTime);
+                if (audio.duration) {
+                    totalTimeLabel.textContent = format(audio.duration);
+                }
+            });
+
+            audio.addEventListener('loadedmetadata', () => {
+                totalTimeLabel.textContent = format(audio.duration);
+            });
+
+            timeline.addEventListener('click', (e) => {
+                const rect = timeline.getBoundingClientRect();
+                const pct = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pct * (audio.duration || 0);
+            });
+
+            audio.addEventListener('ended', () => {
+                playBtn.textContent = '▶';
+                progress.style.width = '0%';
+                currentTimeLabel.textContent = '0:00';
+            });
+        }, 100);
+    }
+    else if (embedUrl) {
+        const height = url.includes('spotify.com') ? '80' : '150';
+        container.innerHTML = `
+            <div style="margin: 15px 0;">
+                <iframe src="${embedUrl}" width="100%" height="${height}" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write; picture-in-picture" style="border-radius:12px; border: 1px solid rgba(255, 105, 180, 0.2);"></iframe>
+            </div>
+        `;
+    }
+    else {
+        container.innerHTML = `
+            <div style="font-size:0.8rem; opacity:0.8; text-align:center; padding:12px; border:1px dashed rgba(255,105,180,0.2); border-radius:12px; color: #ff69b4; margin: 12px 0;">
+                🔗 <a href="${url}" target="_blank" style="color: #ff69b4; text-decoration: underline;">Escuchar en enlace externo</a>
+            </div>
+        `;
+    }
+}
+
+function detenerAudioClausura() {
+    const audio = document.getElementById('clausura-native-audio');
+    if (audio) {
+        audio.pause();
+        const playBtn = document.getElementById('clausura-play-btn');
+        if (playBtn) playBtn.textContent = '▶';
     }
 }
