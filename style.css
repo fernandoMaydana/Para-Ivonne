@@ -829,8 +829,16 @@ select.input-premium option {
     animation: cardExit 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-#step-story.active {
+#step-story.active,
+#step-clausura.active {
     display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
 }
 
 @keyframes cardEnter {
