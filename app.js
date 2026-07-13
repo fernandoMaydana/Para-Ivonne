@@ -1429,6 +1429,7 @@ function configurarEventos() {
             const activeStep = document.querySelector('.step.active');
             if (activeStep) {
                 detenerAudioClausura();
+                document.body.classList.remove('daytime-theme');
                 cambiarPaso(activeStep.id, 'step-ticket', () => {
                     btnReception.style.display = 'none';
                     renderizarBoleto();
@@ -1442,6 +1443,21 @@ function configurarEventos() {
     if (btnGoClausura) {
         btnGoClausura.addEventListener('click', () => {
             cargarContenidoClausura();
+        });
+    }
+
+    // Botones secuenciales de Clausura
+    const btnCloseThanks = document.getElementById('btn-close-thanks');
+    if (btnCloseThanks) {
+        btnCloseThanks.addEventListener('click', () => {
+            transicionarTarjetaClausura('clay-card-thanks', 'clay-card-rest');
+        });
+    }
+
+    const btnCloseRest = document.getElementById('btn-close-rest');
+    if (btnCloseRest) {
+        btnCloseRest.addEventListener('click', () => {
+            transicionarTarjetaClausura('clay-card-rest', 'clay-card-music');
         });
     }
 
@@ -2142,6 +2158,30 @@ async function cargarContenidoClausura() {
     const btnReception = document.getElementById('reception-btn');
     if (btnReception) btnReception.style.display = 'block';
 
+    // Activar tema claro de día
+    document.body.classList.add('daytime-theme');
+
+    // Resetear visibilidad secuencial de las tarjetas
+    const cardThanks = document.getElementById('clay-card-thanks');
+    const cardRest = document.getElementById('clay-card-rest');
+    const cardMusic = document.getElementById('clay-card-music');
+
+    if (cardThanks) {
+        cardThanks.style.display = 'block';
+        cardThanks.style.opacity = '1';
+        cardThanks.style.transform = 'scale(1)';
+    }
+    if (cardRest) {
+        cardRest.style.display = 'none';
+        cardRest.style.opacity = '0';
+        cardRest.style.transform = 'scale(0.95)';
+    }
+    if (cardMusic) {
+        cardMusic.style.display = 'none';
+        cardMusic.style.opacity = '0';
+        cardMusic.style.transform = 'scale(0.95)';
+    }
+
     let data = null;
     const local = safeStorage.getItem("museum_day_7_override");
     if (local) {
@@ -2314,4 +2354,26 @@ function detenerAudioClausura() {
         const playBtn = document.getElementById('clausura-play-btn');
         if (playBtn) playBtn.textContent = '▶';
     }
+}
+
+function transicionarTarjetaClausura(idOcultar, idMostrar) {
+    const ocultar = document.getElementById(idOcultar);
+    const mostrar = document.getElementById(idMostrar);
+    if (!ocultar || !mostrar) return;
+
+    // Desvanecer tarjeta actual
+    ocultar.style.opacity = '0';
+    ocultar.style.transform = 'scale(0.92)';
+    
+    setTimeout(() => {
+        ocultar.style.display = 'none';
+        
+        // Preparar y mostrar nueva tarjeta
+        mostrar.style.display = 'block';
+        // Forzar reflow
+        mostrar.offsetHeight;
+        
+        mostrar.style.opacity = '1';
+        mostrar.style.transform = 'scale(1)';
+    }, 400);
 }

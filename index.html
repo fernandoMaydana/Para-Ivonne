@@ -271,9 +271,9 @@
             <p style="font-family: var(--font-body); font-size: 0.82rem; color: var(--primary-color); opacity: 0.8; font-style: italic;">Clausura de la Temporada</p>
         </div>
 
-        <div class="clausura-cards-container" style="width: 100%;">
+        <div class="clausura-cards-container" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
             <!-- Tarjeta 1: Agradecimiento -->
-            <div class="clay-card">
+            <div class="clay-card" id="clay-card-thanks" style="width: 100%; transition: opacity 0.4s ease, transform 0.4s ease;">
                 <span class="clay-emoji">💖</span>
                 <h3 class="clay-card-title">Gracias por Acompañarme</h3>
                 <p class="clay-card-text">
@@ -282,10 +282,24 @@
                     verdadero sentido de esta creación. Gracias por tu tiempo, tu complicidad y por compartir 
                     estas semanas de arte y emociones a mi lado.
                 </p>
+                <button class="btn-clay-close" id="btn-close-thanks" style="margin-top: 20px;">Gracias a ti 💖</button>
             </div>
 
-            <!-- Tarjeta 2: Canción de Clausura -->
-            <div class="clay-card">
+            <!-- Tarjeta 2: Momento de un Descanso -->
+            <div class="clay-card" id="clay-card-rest" style="width: 100%; display: none; opacity: 0; transform: scale(0.95); transition: opacity 0.4s ease, transform 0.4s ease;">
+                <span class="clay-emoji">⏳</span>
+                <h3 class="clay-card-title">Momento de un Descanso</h3>
+                <p class="clay-card-text">
+                    Este museo y sus salas fueron una hermosa aventura diaria que realizamos a lo largo de dos semanas llenas de magia. 
+                    Hoy el curador apaga temporalmente las luces de las salas principales para tomar un merecido descanso. 
+                    Ha sido un viaje increíble, y aunque las exposiciones diarias cierren sus puertas por ahora, esta colección de momentos, 
+                    calificaciones y emociones quedará guardada para siempre en la memoria del curador. ¡Hasta pronto, Ivonne!
+                </p>
+                <button class="btn-clay-close" id="btn-close-rest" style="margin-top: 20px;">Entendido ⏳</button>
+            </div>
+
+            <!-- Tarjeta 3: Canción de Clausura -->
+            <div class="clay-card" id="clay-card-music" style="width: 100%; display: none; opacity: 0; transform: scale(0.95); transition: opacity 0.4s ease, transform 0.4s ease;">
                 <span class="clay-emoji">🎵</span>
                 <h3 class="clay-card-title">Nuestra Melodía</h3>
                 
@@ -307,18 +321,6 @@
                     <p style="font-size: 0.72rem; font-weight: 700; color: #ff69b4; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Sobre esta canción:</p>
                     <p id="clausura-music-desc" style="font-size: 0.8rem; line-height: 1.45; opacity: 0.85; font-style: italic; margin-bottom: 0;"></p>
                 </div>
-            </div>
-
-            <!-- Tarjeta 3: Despedida -->
-            <div class="clay-card">
-                <span class="clay-emoji">⏳</span>
-                <h3 class="clay-card-title">Momento de un Descanso</h3>
-                <p class="clay-card-text">
-                    Este museo y sus salas fueron una hermosa aventura diaria que realizamos a lo largo de dos semanas llenas de magia. 
-                    Hoy el curador apaga temporalmente las luces de las salas principales para tomar un merecido descanso. 
-                    Ha sido un viaje increíble, y aunque las exposiciones diarias cierren sus puertas por ahora, esta colección de momentos, 
-                    calificaciones y emociones quedará guardada para siempre en la memoria del curador. ¡Hasta pronto, Ivonne!
-                </p>
             </div>
         </div>
     </div>
