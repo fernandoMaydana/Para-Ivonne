@@ -2150,13 +2150,12 @@ async function cargarContenidoClausura() {
     
     if (!data && supabaseClient) {
         try {
-            const { data: dbData, error } = await supabaseClient
+            const { data: dbRows, error } = await supabaseClient
                 .from('semana_museo_v2')
                 .select('*')
-                .eq('id', 7)
-                .single();
-            if (!error && dbData) {
-                data = deserializarDatosDia(dbData, 7);
+                .eq('id', 7);
+            if (!error && dbRows && dbRows.length > 0) {
+                data = deserializarDatosDia(dbRows[0], 7);
             }
         } catch (e) {
             console.error("Error al cargar clausura de Supabase:", e);
